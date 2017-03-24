@@ -1,5 +1,8 @@
 # The Game
 
+The Game, by les Poussins
+-------------------------
+
 Bienvenue sur le Projet de Génie Logiciel L2S4 du CERI (2017).
 
 Les participants à ce projet sont :
