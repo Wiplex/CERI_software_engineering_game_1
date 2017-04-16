@@ -3,6 +3,13 @@
 namespace io {
 	char de()
 	{
+		char a;
+		__asm__ __volatile__(
+			"INT 0x21;"
+			"MOVQ %%rcx, %1;"
+			: "=r" (a)
+			: "" ()
+		);
 		char c[1];
 		std::fgets(c, 2, stdin);
 		return c[0];
