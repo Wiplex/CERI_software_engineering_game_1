@@ -7,4 +7,5 @@ namespace io
 {
 	std::istream io_input();
 	extern char de();			// Demande l'entrée utilisateur
+	void Bienvenue();
 }
