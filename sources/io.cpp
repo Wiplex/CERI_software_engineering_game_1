@@ -4,7 +4,7 @@ namespace io {
 	char de()
 	{
 		char c[1];
-		std::gets(c);
+		std::fgets(c, 2, stdin);
 		return c[0];
 	}
 }
