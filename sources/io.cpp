@@ -1,6 +1,10 @@
 #include "../headers/io.h"
 
-using namespace std;
-
-io::io()
-{}
+namespace io {
+	char de()
+	{
+		char c[1];
+		std::gets(c);
+		return c[0];
+	}
+}
