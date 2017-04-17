@@ -1,18 +1,35 @@
 #include "../headers/io.h"
+#include <termios.h>	// Needed for terminal input manipulation
+#include <stdio.h>	// Needed for terminal input manipulation
 
 namespace io {
 	char de()
 	{
-		char a;
-		__asm__ __volatile__(
-			"INT 0x21;"
-			"MOVQ %%rcx, %1;"
-			: "=r" (a)
-			: "" ()
-		);
-		char c[1];
-		std::fgets(c, 2, stdin);
-		return c[0];
+		// Create new structures for
+		// storing new and old configs
+		// of the current terminal.
+		static struct termios old;
+		static struct termios mew;
+		// Return character
+		char ch;
+
+		/* Initialize new terminal i/o settings */
+		// initTermios(int echo)
+		tcgetattr(0, &old);			/* grab old terminal i/o settings */
+		mew = old;				/* make new settings same as old settings */
+		mew.c_lflag &= ~ICANON;			/* disable buffered i/o */
+		mew.c_lflag &= ~ECHO;			/* set echo mode */
+		tcsetattr(0, TCSANOW, &mew);		/* use these new terminal i/o settings now */
+		// ~initTermios(int echo)
+
+		ch = getchar();
+
+		/* Restore old terminal i/o settings */
+		// resetTermios()
+		tcsetattr(0, TCSANOW, &old);
+		// ~resetTermios()
+
+		return ch;
 	}
 	void Bienvenue()
 	{
