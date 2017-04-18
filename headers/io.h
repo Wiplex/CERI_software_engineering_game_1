@@ -1,10 +1,11 @@
-//! cette classe sera une classe permettant de définir un buffer custom pour les input, ainsi que de pouvoir afficher tout ce que l'on souhaite.
+#include <iostream>
 using namespace std;
 
-class io : public streambuf
+//! Cet espace sera un espace permettant de définir un buffer custom pour les input, ainsi que de pouvoir afficher tout ce que l'on souhaite.
+
+namespace io
 {
-	std::streambuf* buf_;
-	char* input_;
-	public:
-		io();
+	std::istream io_input();
+	extern char de();			// Demande l'entrée utilisateur
+	void Bienvenue();
 }
