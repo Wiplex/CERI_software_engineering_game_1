@@ -1,5 +1,4 @@
 #include <vector>
-#include "../headers/Personnage.h"
 #include "../headers/io.h"
 
 namespace io

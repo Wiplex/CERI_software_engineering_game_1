@@ -1,5 +1,4 @@
 #include <iostream>
-#include "../headers/Personnage.h"
 #include "../headers/io.h"
 
 using namespace std;
