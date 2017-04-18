@@ -9,8 +9,9 @@ class jeu
 	// perso jeu_perso;
 	int jeu_nombre_monstre;
 
-public:
-	jeu();
-	~jeu();
-	void demarrer_jeu();
-}
+	public:
+		jeu();
+		~jeu();
+		void demarrer_jeu();
+	//	void combat(perso &p, monstre &m);
+};

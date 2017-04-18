@@ -1,6 +1,6 @@
 #include "../headers/fonctionsjeu.h"
+#include "../headers/io.h"
 #include <iostream>	// à remplacer avec notre librairie I/O plus tard
-#include "./io.h"
 
 using namespace io;
 using namespace std;
@@ -20,4 +20,16 @@ void jeu::demarrer_jeu()
 	Bienvenue();
 	cout << "Bienvenue dans le jeu" << endl;
 	// custom_buffer.affichercarte(jeu_carte);
+}
+
+void jeu::combat(perso &p, monstre &m)
+{
+	while (monstre_mort == 0)
+	{
+		v_retour a = choisir_coup(player);
+		v_retour b = choisir_coup(monster);
+		application_coup(p,a,m,b);
+		if (joueur_mort == 1)
+			fin_de_partie();
+	}
 }
