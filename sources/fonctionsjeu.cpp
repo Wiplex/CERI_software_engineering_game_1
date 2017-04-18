@@ -1,6 +1,8 @@
 #include "../headers/fonctionsjeu.h"
 #include <iostream>	// à remplacer avec notre librairie I/O plus tard
+#include "./io.h"
 
+using namespace io;
 using namespace std;
 
 jeu::jeu()
@@ -15,6 +17,7 @@ jeu::~jeu()
 
 void jeu::demarrer_jeu()
 {
+	Bienvenue();
 	cout << "Bienvenue dans le jeu" << endl;
 	// custom_buffer.affichercarte(jeu_carte);
 }

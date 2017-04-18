@@ -5,8 +5,10 @@
 // Notes :
 // Get the terminal column number :
 // 	> stty -a | grep "col" | tail -c 22 | tail -c 13 | head -c 3
+// 	> stty -a | grep "col" | cut --delimiter=" " -f 7
 // Get the terminal rows number :
 // 	> stty -a | grep "col" | tail -c 22 | head -c 2
+// 	> stty -a | grep "col" | cut --delimiter=" " -f 5
 
 namespace io {
 	char de()
