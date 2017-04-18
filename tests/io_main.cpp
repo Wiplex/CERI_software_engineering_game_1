@@ -14,11 +14,6 @@ int main()
 
 	Bienvenue();
 
-    cout << "Input de: ";
-	char r = de();  //fait des core dump assez moches avec les autres éléments rajoutés
-	cout << "Result de : " << r << endl;
-
-
 	test test1("Bob", "un mec random");
 	test test2("Roger", "un autre mec random");
 

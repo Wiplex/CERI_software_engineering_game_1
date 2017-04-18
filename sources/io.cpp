@@ -41,6 +41,7 @@ namespace io {
         std::puts("Dans The Game, vous devez débusquer et tuer tous les monstres présents sur la carte. Bonne chance!");
         std::puts("\n");
 	}
+}
 
 //! Implémentation classe test
 test::test(string nom, string desc)
