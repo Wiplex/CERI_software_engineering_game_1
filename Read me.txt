@@ -1,0 +1,9 @@
+
+Oui je sais c'est pas bien rangé.
+
+Les classes monstre et interface sont bien avancées.
+
+Le truc le plus pressant à faire actuellement serait la sauvegarde dans le fichier texte,
+j'ai commencé à regarder et réfléchier comment faire mais pas commencé à le coder.
+
+Si vous voyez des bugs, n'hésitez pas à venir me taper. Voilà
