@@ -1,0 +1,79 @@
+\hypertarget{classjeu}{}\section{jeu Class Reference}
+\label{classjeu}\index{jeu@{jeu}}
+
+
+Ceci sera la classe du jeu. Elle contient toutes les entités, la carte, ainsi que les fonctions nécessaires à la partie.  
+
+
+
+
+{\ttfamily \#include $<$fonctionsjeu.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classjeu_a38513a7bfd0a7ea4e3a5612da2856016}{jeu} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut sans argument. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classjeu_a55385a33ef40e0579eb3a3634566c4a8}\label{classjeu_a55385a33ef40e0579eb3a3634566c4a8}} 
+\hyperlink{classjeu_a55385a33ef40e0579eb3a3634566c4a8}{$\sim$jeu} ()
+\begin{DoxyCompactList}\small\item\em Destructeur par défaut. \end{DoxyCompactList}\item 
+void \hyperlink{classjeu_aabf11934ce63bc5d71bbd27e1523fc45}{demarrer\+\_\+jeu} ()
+\begin{DoxyCompactList}\small\item\em Fonction permettant de déterminer comment va démarrer la partie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Ceci sera la classe du jeu. Elle contient toutes les entités, la carte, ainsi que les fonctions nécessaires à la partie. 
+
+Cette classe contient les fonctions nécessaires au démarrage de la partie, au combat, ainsi que toutes les fonctions intermédiaires nécessaires au bon fonctionnement de celles-\/ci.
+
+Librairies incluses \+:
+\begin{DoxyItemize}
+\item std\+::stack ,
+\item io ( depuis io.\+h ) 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classjeu_a38513a7bfd0a7ea4e3a5612da2856016}\label{classjeu_a38513a7bfd0a7ea4e3a5612da2856016}} 
+\index{jeu@{jeu}!jeu@{jeu}}
+\index{jeu@{jeu}!jeu@{jeu}}
+\subsubsection{\texorpdfstring{jeu()}{jeu()}}
+{\footnotesize\ttfamily jeu\+::jeu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructeur par défaut sans argument. 
+
+Avec ce constructeur, on peut créer toutes les entités du jeu.
+
+
+\begin{DoxyItemize}
+\item Chargement de la carte,
+\item Création d\textquotesingle{}un personnage,
+\item Création de tous les monstres.
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+perso(), carte(), monstre() 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classjeu_aabf11934ce63bc5d71bbd27e1523fc45}\label{classjeu_aabf11934ce63bc5d71bbd27e1523fc45}} 
+\index{jeu@{jeu}!demarrer\+\_\+jeu@{demarrer\+\_\+jeu}}
+\index{demarrer\+\_\+jeu@{demarrer\+\_\+jeu}!jeu@{jeu}}
+\subsubsection{\texorpdfstring{demarrer\+\_\+jeu()}{demarrer\_jeu()}}
+{\footnotesize\ttfamily void jeu\+::demarrer\+\_\+jeu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de déterminer comment va démarrer la partie. 
+
+Etant donné que cette fonction utilise des entités externes, il faut que tout le monde aie fini lesdites entités pour que la fonction compile.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]demander à Loic et Ludivine de finir les entités (ou au moins nous dire la syntaxe demandée) \end{DoxyRefDesc}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/thibault/\+Git\+Hub/\+C\+E\+R\+I\+\_\+software\+\_\+engineering\+\_\+game\+\_\+1/headers/fonctionsjeu.\+h\end{DoxyCompactItemize}
