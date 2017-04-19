@@ -40,6 +40,11 @@ class jeu
 		//! Destructeur par défaut.
 		~jeu();
 		//! Fonction permettant de déterminer comment va démarrer la partie.
+		/*!
+			Etant donné que cette fonction utilise des entités externes, il faut que tout le monde aie fini lesdites entités pour que la fonction compile.
+
+			\todo demander à Loic et Ludivine de finir les entités (ou au moins nous dire la syntaxe demandée)
+		*/
 		void demarrer_jeu();
 	//	void combat(perso &p, monstre &m);
 	//	void application_coup(perso &p, compet &a, monstre &m, compet &b);
