@@ -1,4 +1,5 @@
 #include "../headers/io.h"
+#include <vector>
 #include <termios.h>	// Needed for terminal input manipulation
 #include <stdio.h>	// Needed for terminal input manipulation
 
@@ -38,5 +39,25 @@ namespace io {
         std::puts(" /  /     /  /   /  /  /  /______     /  /___/  /  /  /   /  /  /  /   /  /  /  /______");
         std::puts("/_ /     /_ /   /_ /  /_________/    /_________/  /_ /   /_ /  /_ /   /_ /  /_________/");
         std::puts("\n");
+
+        std::puts("Dans The Game, vous devez débusquer et tuer tous les monstres présents sur la carte. Bonne chance!");
+        std::puts("\n");
 	}
+}
+
+//! Implémentation classe test
+test::test(string nom, string desc)
+{
+    name = nom;
+    description = desc;
+}
+
+string test::get_name()
+{
+    return name;
+}
+
+string test::get_desc()
+{
+    return description;
 }
