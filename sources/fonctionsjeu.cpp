@@ -22,14 +22,25 @@ void jeu::demarrer_jeu()
 	// custom_buffer.affichercarte(jeu_carte);
 }
 
+/*
 void jeu::combat(perso &p, monstre &m)
 {
 	while (monstre_mort == 0)
 	{
-		v_retour a = choisir_coup(player);
-		v_retour b = choisir_coup(monster);
+		v_retour a = choisir_coup(player);			// CLASSE COMPETENCE EN RETOUR
+		v_retour b = choisir_coup(monster);			// CLASSE COMPETENCE EN RETOUR
 		application_coup(p,a,m,b);
 		if (joueur_mort == 1)
 			fin_de_partie();
 	}
 }
+
+void jeu::application_coup(perso &p, compet &a, monstre &m, compet &b)
+{
+	int jeu_degats_joueur = a.getDegats();
+	int jeu_degats_monstre = b.getDegats();
+	if ( p.enleverVie(a) )						// LA FONCTION enleverVie() REVOIE VRAI SI LE JOUEUR N'EST PAS MORT, FAX SINON
+		finishGame(0);
+	else
+}
+*/

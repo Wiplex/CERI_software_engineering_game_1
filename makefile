@@ -27,5 +27,4 @@ objects/fonctionsjeu.o:	sources/fonctionsjeu.cpp headers/fonctionsjeu.h
 objects/fonctionsjeu_main.o:	tests/fonctionsjeu_main.cpp headers/fonctionsjeu.h
 	@g++ -c $< -o $@ -std=c++11
 fonctionsjeu.exe: objects/fonctionsjeu.o objects/fonctionsjeu_main.o
-	@echo $I
 	@g++ $^ $I -o $@ -std=c++11
