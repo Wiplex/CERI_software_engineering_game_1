@@ -1,0 +1,106 @@
+.TH "io" 3 "Thu Apr 20 2017" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+io \- Cet espace sera un espace permettant de définir un buffer custom pour les input, ainsi que de pouvoir afficher tout ce que l'on souhaite\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "std::istream \fBio_input\fP ()"
+.br
+.ti -1c
+.RI "char \fBde\fP ()"
+.br
+.RI "Input\&. "
+.ti -1c
+.RI "void \fBbienvenue\fP ()"
+.br
+.RI "Message d'accueil\&. "
+.ti -1c
+.RI "template<typename T > void \fBafficher\fP (T object, bool need_desc)"
+.br
+.RI "Affichage d'objet\&. "
+.ti -1c
+.RI "template<typename T > void \fBliste_elements\fP (vector< T > vect_element, bool need_desc)"
+.br
+.RI "Affichage d'un ensemble d'objets\&. "
+.ti -1c
+.RI "template<typename T > T \fBchoix_unique_element\fP (vector< T > vect_element, bool need_desc)"
+.br
+.RI "Choix d'un élément unique\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Cet espace sera un espace permettant de définir un buffer custom pour les input, ainsi que de pouvoir afficher tout ce que l'on souhaite\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T > void io::afficher (T object, bool need_desc)"
+
+.PP
+Affichage d'objet\&. Affiche le nom (et éventuellement la description) d'un objet\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobject\fP Objet à afficher\&. 
+.br
+\fIneed_desc\fP Description ou non\&. 
+.RE
+.PP
+
+.SS "void io::bienvenue ()"
+
+.PP
+Message d'accueil\&. Affiche un message de bienvenue\&. 
+.SS "template<typename T > T io::choix_unique_element (vector< T > vect_element, bool need_desc)"
+
+.PP
+Choix d'un élément unique\&. Fonction qui prend un vecteur d'éléments en entrée ainsi qu'un booléen (affichage ou non de la description), et affiche puis renvoie l'élément choisi\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvect_element\fP Vecteur de l'élément à choisir\&. 
+.br
+\fIneed_desc\fP Nécessité de description ou non\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+L'élement choisi\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBliste_elements()\fP, \fBafficher()\fP 
+.RE
+.PP
+
+.SS "char io::de ()"
+
+.PP
+Input\&. Gestion des entrées utilisateur\&. 
+.SS "template<typename T > void io::liste_elements (vector< T > vect_element, bool need_desc)"
+
+.PP
+Affichage d'un ensemble d'objets\&. Parcourt le vecteur de stockage des objets chargés, et les affiche\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvect_element\fP Vecteur d'éléments\&. 
+.br
+\fIneed_desc\fP Description ou non\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBafficher()\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.
