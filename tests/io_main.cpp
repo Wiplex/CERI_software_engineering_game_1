@@ -6,26 +6,22 @@ using namespace io;
 
 int main()
 {
-    Bienvenue();
-
     cout << "Input de: ";
 	char r = de();
 	cout << "Result de : " << r << endl;
 
-	Bienvenue();
+	personnage test1("Bob", "un mec random");
+	personnage test2("Roger", "un autre mec random");
 
-	test test1("Bob", "un mec random");
-	test test2("Roger", "un autre mec random");
-
-    vector<test> vect_test;
+    vector<personnage> vect_test;
     vect_test.push_back(test1);
     vect_test.push_back(test2);
 
-    afficher(test1, 1);
+    bienvenue();
 
-    cout << endl;
+    personnage choisi = personnage();
 
-    choix_element(vect_test, 1);
+    choisi = choix_unique_element(vect_test, true);
 
 	return 0;
 }
