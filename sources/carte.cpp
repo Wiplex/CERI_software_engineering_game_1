@@ -15,7 +15,7 @@ Carte :: Carte (int size)
 		plateau[i] = new char [taille];
 		for (int j = 0 ; j< taille ; j++)
 		{
-			plateau[i][j] = '?' ; /*remplir client*/
+			plateau[i][j] = /*remplir client*/'?' ;
 		}
 	}
 }
@@ -74,7 +74,7 @@ void Carte :: sauvegarde()
 			fichier.close() ;
 			cout << "Carte sauvegardée" << endl ;
 		}
-		else cerr << "échec de la sauvegarde" << endl ;
+		else cerr << "Echec de la sauvegarde" << endl ;
 		return ;
 	}
 	else
@@ -139,6 +139,18 @@ void Carte :: suppression(string nom)
 {
 	string nom_carte = "map/"+nom+".txt" ;
 	//delete nom_carte ;
-	if( carte_existe(nom_carte)) cout << "échec de la suppression" << endl ;
-	else cout << "carte supprimée" << endl ;
+	if( carte_existe(nom_carte)) cout << "Echec de la suppression" << endl ;
+	else cout << "Carte supprimée" << endl ;
 }
+
+
+
+
+
+
+
+
+
+
+
+

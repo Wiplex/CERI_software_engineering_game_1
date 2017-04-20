@@ -1,5 +1,7 @@
-#include "personnage.h"
+#include "../headers/personnage.h"
 #include <fstream>
+
+using namespace std;
 
 //FONCTIONS GET ATTRIBUTS PERSONNAGE
 

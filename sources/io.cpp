@@ -45,25 +45,25 @@ namespace io
 	}
 }
 
-// //! Implémentation classe test
-// personnage::personnage()
-// {
-//     name = "";
-//     description = "";
-// }
+////! Implémentation classe test
+//personnage::personnage()
+//{
+//    name = "";
+//    description = "";
+//}
 //
-// personnage::personnage(string nom, string desc)
-// {
-//     name = nom;
-//     description = desc;
-// }
+//personnage::personnage(string nom, string desc)
+//{
+//    name = nom;
+//    description = desc;
+//}
 //
-// string personnage::get_name()
-// {
-//     return name;
-// }
+//string personnage::get_name()
+//{
+//    return name;
+//}
 //
-// string personnage::get_desc()
-// {
-//     return description;
-// }
+//string personnage::get_desc()
+//{
+//    return description;
+//}
