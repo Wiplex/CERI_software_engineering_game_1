@@ -6,14 +6,14 @@ all:
 	@make fj
 	@make io
 fj:
-	@make -B objects/fonctionsjeu.o
-	@make -B objects/fonctionsjeu_main.o
-	@make -B fonctionsjeu.exe
+	@make objects/fonctionsjeu.o
+	@make objects/fonctionsjeu_main.o
+	@make fonctionsjeu.exe
 io:
-	@make -B objects/io.o
-	@make -B objects/io_main.o
+	@make objects/io.o
+	@make objects/io_main.o
 	@make io.a
-	@make -B io_main.exe
+	@make io_main.exe
 objects/io.o: sources/io.cpp
 	@g++ -c $< -o $@ -std=c++11
 archives/io.a: objects/io.o

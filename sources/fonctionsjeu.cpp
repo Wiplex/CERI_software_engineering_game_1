@@ -1,5 +1,4 @@
 #include "../headers/fonctionsjeu.h"
-#include "../headers/io.h"
 #include <iostream>	// à remplacer avec notre librairie I/O plus tard
 
 using namespace io;
@@ -23,7 +22,7 @@ void jeu::demarrer_jeu()
 }
 
 /*
-void jeu::combat(perso &p, monstre &m)
+void jeu::combat(personnage &p, monstre &m)
 {
 	while (monstre_mort == 0)
 	{
@@ -35,7 +34,7 @@ void jeu::combat(perso &p, monstre &m)
 	}
 }
 
-void jeu::application_coup(perso &p, compet &a, monstre &m, compet &b)
+void jeu::application_coup(personnage &p, competence &a, monstre &m, competence &b)
 {
 	int jeu_degats_joueur = a.getDegats();
 	int jeu_degats_monstre = b.getDegats();

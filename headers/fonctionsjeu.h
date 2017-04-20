@@ -1,8 +1,8 @@
-// #include "./carte.h"
-// #include "./perso.h"
-// #include "./compet.h"
-// #include "./monstre.h"
-// #include "./io.h"
+#include "./carte.h"
+#include "./personnage.h"
+#include "./competence.h"
+#include "./monstre.h"
+#include "./io.h"
 
 //! Normalement, à ca point là, la carte doit être chargée, le personnage est choisi et chargé, les monstres sont chargés et il ne reste qu'à lancer le jeu.
 
@@ -19,8 +19,8 @@ using namespace io;
 */
 class jeu
 {
-	// carte jeu_carte;
-	// perso jeu_perso;
+	carte jeu_carte;
+	personnage jeu_perso;
 	// std::stack<> jeu_coups;
 	//! Compte le nombre de monstres restant sur la carte.
 	int jeu_nombre_monstre;
@@ -46,6 +46,6 @@ class jeu
 			\todo demander à Loic et Ludivine de finir les entités (ou au moins nous dire la syntaxe demandée)
 		*/
 		void demarrer_jeu();
-	//	void combat(perso &p, monstre &m);
-	//	void application_coup(perso &p, compet &a, monstre &m, compet &b);
+	//	void combat(personnage &p, monstre &m);
+	//	void application_coup(personnage &p, competence &a, monstre &m, competence &b);
 };
