@@ -1,7 +1,6 @@
 #include "../headers/io.h"
 #include <vector>
-#include <termios.h>	// Needed for terminal input manipulation
-#include <stdio.h>	// Needed for terminal input manipulation
+#include <sstream>
 
 // Notes :
 // Get the terminal column number :
@@ -11,33 +10,52 @@
 
 namespace io
 {
+	void ChangeTerminal(bool Ech)
+	{
+		tcgetattr(0, &before);			/* Grab old terminal i/o settings */
+		after = before;				/* Make new settings same as old settings */
+		after.c_lflag &= ~ICANON;		/* Disable buffered i/o */
+		after.c_lflag &= Ech==1 ? ECHO:~ECHO;	/* Set echo mode */
+		tcsetattr(0, TCSANOW, &after);		/* Use these new terminal i/o settings now */
+	}
+
+	void ResetTerminal()
+	{
+		tcsetattr(0, TCSANOW, &before);		// Restore old terminal I/O settings
+	}
+
 	char de()
 	{
-		// Create new structures for storing new and old configs of the current terminal.
-		static struct termios old, mew;
 		char ch;				// Return character
-		// Initialize new terminal I/O settings
-		tcgetattr(0, &old);			/* Grab old terminal i/o settings */
-		mew = old;				/* Make new settings same as old settings */
-		mew.c_lflag &= ~ICANON;			/* Disable buffered i/o */
-		mew.c_lflag &= ~ECHO;			/* Set echo mode */
-		tcsetattr(0, TCSANOW, &mew);		/* Use these new terminal i/o settings now */
+		ChangeTerminal();
 		ch = getchar();				// getchar() now takes only one char
-		// Restore old terminal I/O settings
-		tcsetattr(0, TCSANOW, &old);
+		ResetTerminal();
 		return ch;
+	}
+
+	std::string long_input()
+	{
+		std::stringstream input;
+		char charInput;
+		ChangeTerminal();
+		do {
+			charInput = getchar();
+			input << charInput;
+		} while(charInput != 10);
+		ResetTerminal();
+		return input.str().length() == 1 ? long_input() : input.str();
 	}
 
 	void bienvenue()
 	{
 		std::puts("\n");
-		std::puts("										 Welcome to");
-		std::puts(" __________   ___	___   __________     __________   __________   ___    ___   __________");
-		std::puts("/___   ___/  /  /   /  /  /  _______/    /  _______/  /  ____   /  /  /__ /  /  /  _______/");
-		std::puts("   /  /     /  /__ /  /  /  /__         /  /   __    /  /___/  /  /         /  /  /__");
-		std::puts("  /  /     /   __	/  /   __/        /  /   /  \\  /  ____   /  /  / - /  /  /   __/");
-		std::puts(" /  /     /  /   /  /  /  /______	 /  /___/  /  /  /   /  /  /  /   /  /  /  /______");
-		std::puts("/_ /	    /_ /   /_ /  /_________/	/_________/  /_ /   /_ /  /_ /   /_ /  /_________/");
+		std::puts("					    Welcome to");
+		std::puts(" __________   ___   ___   __________     __________   __________   ___    ___   __________");
+		std::puts("/___   ___/  /  /  /  /  /  _______/    /  _______/  /  ____   /  /   \\_/   /  /  _______/");
+		std::puts("   /  /     /  /__/  /  /  /__         /  /   __    /  /___/  /  /         /  /  /__");
+		std::puts("  /  /     /   __   /  /   __/        /  /   /  \\  /  ____   /  /  / - /  /  /   __/");
+		std::puts(" /  /     /  /  /  /  /  /______     /  /___/  /  /  /   /  /  /  /   /  /  /  /______");
+		std::puts("/_ /     /_ /  /_ /  /_________/    /_________/  /_ /   /_ /  /_ /   /_ /  /_________/");
 		std::puts("\n");
 
 		std::puts("Dans The Game, vous devez débusquer et tuer tous les monstres présents sur la carte. Bonne chance!");

@@ -8,7 +8,8 @@ int main()
 {
 	cout << "Input de: ";
 	char r = de();
-	cout << "Result de : " << r << endl;
+	cout << endl << "Result de : " << r << endl;
+	cout << "Result de : " << int(r) << endl;
 
 	// personnage test1("Bob", "un mec random");
 	// personnage test2("Roger", "un autre mec random");

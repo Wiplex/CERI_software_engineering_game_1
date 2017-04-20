@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <typeinfo>
+#include <termios.h>	// Needed for terminal input manipulation
+#include <stdio.h>	// Needed for terminal input manipulation
 
 #ifndef IO_H
 #define IO_H
@@ -9,14 +11,29 @@
 //! Cet espace sera un espace permettant de définir un buffer custom pour les input, ainsi que de pouvoir afficher tout ce que l'on souhaite.
 namespace io
 {
-	std::istream io_input();
+	//! Structures qui gardent les paramètres du terminal.
+	static struct termios before, after;
 
+	//! Changement des paramètres du terminal
+	/*!
+		Basically magic.
+		\param Ech Détermine si on veut que l'entrée utilisateur soit affichée ou pas.
+		\sa de(), long_input()
+	*/
+	extern void ChangeTerminal(bool Ech = 0);
+
+	//! Remise à zéro des paramètres terminal
 	//! Input
 	/*!
-		Gestion des entrées utilisateur.
+		Gestion des entrées utilisateur, ne prends qu'un seul caractère à la fois.
 	*/
 	extern char de();
 
+	//! Long input
+	/*!
+
+	*/
+	extern std::string long_input();
 
 	//! Message d'accueil
 	/*!
