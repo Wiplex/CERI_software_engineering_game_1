@@ -1,8 +1,13 @@
 #include "../headers/io.h"
+#include "../headers/carte.h"
+#include "../headers/monstre.h"
+#include "../headers/competence.h"
+#include "../headers/personnage.h"
 #include <stack>
 
 #ifndef FONCTIONSJEU_H
 #define FONCTIONSJEU_H
+#pragma once
 
 using namespace io;
 
@@ -20,8 +25,8 @@ using namespace io;
 */
 class jeu
 {
-	// carte jeu_carte;
-	// perso jeu_perso;
+	Carte * jeu_carte;
+	personnage * jeu_perso;
 	// std::stack<> jeu_coups;
 	//! Compte le nombre de monstres restant sur la carte.
 	int jeu_nombre_monstre;

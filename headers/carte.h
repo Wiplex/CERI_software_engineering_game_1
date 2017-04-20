@@ -3,6 +3,7 @@
 
 #ifndef CARTE_H
 #define CARTE_H
+#pragma once
 
 class Carte
 {

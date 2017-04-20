@@ -40,7 +40,7 @@ void Carte :: affichage()
 			else if (plateau[i][j] == 'j') cout << "¤";
 			else cout << plateau[i][j] ;
 		}
-			cout << endl ;
+		cout << endl ;
 	}
 }
 
@@ -139,7 +139,7 @@ void Carte :: suppression(string nom)
 {
 	string nom_carte = "map/"+nom+".txt" ;
 	//delete nom_carte ;
-	if( carte_existe(nom_carte)) cout << "Echec de la suppression" << endl ;
+	if(carte_existe(nom_carte)) cout << "Echec de la suppression" << endl ;
 	else cout << "Carte supprimée" << endl ;
 }
 
