@@ -1,0 +1,112 @@
+\hypertarget{namespaceio}{}\section{io Namespace Reference}
+\label{namespaceio}\index{io@{io}}
+
+
+Cet espace sera un espace permettant de définir un buffer custom pour les input, ainsi que de pouvoir afficher tout ce que l\textquotesingle{}on souhaite.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceio_aa3dbf94851f627ae6201efa77e77198c}\label{namespaceio_aa3dbf94851f627ae6201efa77e77198c}} 
+std\+::istream {\bfseries io\+\_\+input} ()
+\item 
+char \hyperlink{namespaceio_ae9908b55f26f07e78043d7cfad003d22}{de} ()
+\begin{DoxyCompactList}\small\item\em Input. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceio_a7fdf85a0d766d2dcdb9870ae0458826a}{bienvenue} ()
+\begin{DoxyCompactList}\small\item\em Message d\textquotesingle{}accueil. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespaceio_a0e3593d732c42572e8b3cb09ad21c4c9}{afficher} (T object, bool need\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Affichage d\textquotesingle{}objet. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespaceio_a22b137cb32b93d8cfa7cceddf7a7e118}{liste\+\_\+elements} (vector$<$ T $>$ vect\+\_\+element, bool need\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Affichage d\textquotesingle{}un ensemble d\textquotesingle{}objets. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceio_ad0d98891e6dc1050ef87a4a573ba13b0}{choix\+\_\+unique\+\_\+element} (vector$<$ T $>$ vect\+\_\+element, bool need\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Choix d\textquotesingle{}un élément unique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Cet espace sera un espace permettant de définir un buffer custom pour les input, ainsi que de pouvoir afficher tout ce que l\textquotesingle{}on souhaite. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespaceio_a0e3593d732c42572e8b3cb09ad21c4c9}\label{namespaceio_a0e3593d732c42572e8b3cb09ad21c4c9}} 
+\index{io@{io}!afficher@{afficher}}
+\index{afficher@{afficher}!io@{io}}
+\subsubsection{\texorpdfstring{afficher()}{afficher()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void io\+::afficher (\begin{DoxyParamCaption}\item[{T}]{object,  }\item[{bool}]{need\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Affichage d\textquotesingle{}objet. 
+
+Affiche le nom (et éventuellement la description) d\textquotesingle{}un objet. 
+\begin{DoxyParams}{Parameters}
+{\em object} & Objet à afficher. \\
+\hline
+{\em need\+\_\+desc} & Description ou non. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceio_a7fdf85a0d766d2dcdb9870ae0458826a}\label{namespaceio_a7fdf85a0d766d2dcdb9870ae0458826a}} 
+\index{io@{io}!bienvenue@{bienvenue}}
+\index{bienvenue@{bienvenue}!io@{io}}
+\subsubsection{\texorpdfstring{bienvenue()}{bienvenue()}}
+{\footnotesize\ttfamily void io\+::bienvenue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Message d\textquotesingle{}accueil. 
+
+Affiche un message de bienvenue. \mbox{\Hypertarget{namespaceio_ad0d98891e6dc1050ef87a4a573ba13b0}\label{namespaceio_ad0d98891e6dc1050ef87a4a573ba13b0}} 
+\index{io@{io}!choix\+\_\+unique\+\_\+element@{choix\+\_\+unique\+\_\+element}}
+\index{choix\+\_\+unique\+\_\+element@{choix\+\_\+unique\+\_\+element}!io@{io}}
+\subsubsection{\texorpdfstring{choix\+\_\+unique\+\_\+element()}{choix\_unique\_element()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T io\+::choix\+\_\+unique\+\_\+element (\begin{DoxyParamCaption}\item[{vector$<$ T $>$}]{vect\+\_\+element,  }\item[{bool}]{need\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Choix d\textquotesingle{}un élément unique. 
+
+Fonction qui prend un vecteur d\textquotesingle{}éléments en entrée ainsi qu\textquotesingle{}un booléen (affichage ou non de la description), et affiche puis renvoie l\textquotesingle{}élément choisi. 
+\begin{DoxyParams}{Parameters}
+{\em vect\+\_\+element} & Vecteur de l\textquotesingle{}élément à choisir. \\
+\hline
+{\em need\+\_\+desc} & Nécessité de description ou non. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}élement choisi. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespaceio_a22b137cb32b93d8cfa7cceddf7a7e118}{liste\+\_\+elements()}, \hyperlink{namespaceio_a0e3593d732c42572e8b3cb09ad21c4c9}{afficher()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespaceio_ae9908b55f26f07e78043d7cfad003d22}\label{namespaceio_ae9908b55f26f07e78043d7cfad003d22}} 
+\index{io@{io}!de@{de}}
+\index{de@{de}!io@{io}}
+\subsubsection{\texorpdfstring{de()}{de()}}
+{\footnotesize\ttfamily char io\+::de (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Input. 
+
+Gestion des entrées utilisateur. \mbox{\Hypertarget{namespaceio_a22b137cb32b93d8cfa7cceddf7a7e118}\label{namespaceio_a22b137cb32b93d8cfa7cceddf7a7e118}} 
+\index{io@{io}!liste\+\_\+elements@{liste\+\_\+elements}}
+\index{liste\+\_\+elements@{liste\+\_\+elements}!io@{io}}
+\subsubsection{\texorpdfstring{liste\+\_\+elements()}{liste\_elements()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void io\+::liste\+\_\+elements (\begin{DoxyParamCaption}\item[{vector$<$ T $>$}]{vect\+\_\+element,  }\item[{bool}]{need\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Affichage d\textquotesingle{}un ensemble d\textquotesingle{}objets. 
+
+Parcourt le vecteur de stockage des objets chargés, et les affiche. 
+\begin{DoxyParams}{Parameters}
+{\em vect\+\_\+element} & Vecteur d\textquotesingle{}éléments. \\
+\hline
+{\em need\+\_\+desc} & Description ou non. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespaceio_a0e3593d732c42572e8b3cb09ad21c4c9}{afficher()} 
+\end{DoxySeeAlso}

@@ -1,0 +1,82 @@
+.TH "monstre" 3 "Thu Apr 20 2017" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+monstre
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBpersonnage\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmonstre\fP (string name, int hpMax, int speed)"
+.br
+.ti -1c
+.RI "\fBmonstre\fP (string name, int hpMax, int speed, vector< \fBcompetence\fP > allSkills)"
+.br
+.ti -1c
+.RI "template<typename T > string \fBtoString\fP (const T &valeur)"
+.br
+.ti -1c
+.RI "string \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetHpMax\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetHpCurrent\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetSpeed\fP ()"
+.br
+.ti -1c
+.RI "bool \fBgetAlive\fP ()"
+.br
+.ti -1c
+.RI "vector< \fBcompetence\fP > \fBgetSkillVect\fP ()"
+.br
+.ti -1c
+.RI "string \fBmonstreString\fP ()"
+.br
+.ti -1c
+.RI "int \fBnbLigneFichier\fP (string nomFichier)"
+.br
+.ti -1c
+.RI "void \fBsaveInFile\fP ()"
+.br
+.ti -1c
+.RI "void \fBprintMonstre\fP ()"
+.br
+.ti -1c
+.RI "bool \fBenleverVie\fP (int degats)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "string \fBname\fP"
+.br
+.ti -1c
+.RI "int \fBhpMax\fP"
+.br
+.ti -1c
+.RI "int \fBhpCurrent\fP"
+.br
+.ti -1c
+.RI "int \fBspeed\fP"
+.br
+.ti -1c
+.RI "bool \fBalive\fP"
+.br
+.ti -1c
+.RI "vector< \fBcompetence\fP > \fBskillVect\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.
