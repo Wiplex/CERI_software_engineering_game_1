@@ -1,4 +1,4 @@
-#include "competence.h"
+#include "../headers/competence.h"
 
 // --------------------CONSTRUCTEURS
 
@@ -84,4 +84,3 @@ void competence::printCompetence() //Affichage pour test
         cout << "skill damage : " << this->damage<< endl;
         cout << "skill manacost : " << this->manaCost<< endl;
 }
-

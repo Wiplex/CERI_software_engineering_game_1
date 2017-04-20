@@ -6,9 +6,9 @@ using namespace std;
 
 jeu::jeu()
 {
-	// jeu_perso = new perso();			// À COMPLÉTER UNE FOIS QUE CLASSE PERSO FINIE
-	// jeu_carte = new carte();			// À COMPLÉTER UNE FOIS QUE CLASSE CARTE FINIE
-	// jeu_nombre_monstre = carte.getMonsters();	// À COMPLÉTER UNE FOIS QUE CLASSE CARTE FINIE
+	jeu_perso = new personnage();			// À COMPLÉTER UNE FOIS QUE CLASSE PERSO FINIE
+	jeu_carte = new Carte(6);			// À COMPLÉTER UNE FOIS QUE CLASSE CARTE FINIE
+	jeu_nombre_monstre = 8;				// À COMPLÉTER UNE FOIS QUE CLASSE CARTE FINIE
 }
 
 jeu::~jeu()
@@ -16,7 +16,7 @@ jeu::~jeu()
 
 void jeu::demarrer_jeu()
 {
-	Bienvenue();
+	bienvenue();
 	cout << "Bienvenue dans le jeu" << endl;
 	// custom_buffer.affichercarte(jeu_carte);
 }

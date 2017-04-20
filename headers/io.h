@@ -2,21 +2,25 @@
 #include <vector>
 #include <typeinfo>
 
+#ifndef IO_H
+#define IO_H
+#pragma once
+
 using namespace std;
 
 
-//! Classe test interactions affichage
-class personnage
-{
-	string name;
-	string description;
-
-public:
-	personnage();
-	personnage(string nom, string desc);
-	string get_name();
-	string get_desc();
-};
+// //! Classe test interactions affichage
+// class personnage
+// {
+// 	string name;
+// 	string description;
+//
+// public:
+// 	personnage();
+// 	personnage(string nom, string desc);
+// 	string get_name();
+// 	string get_desc();
+// };
 
 
 //! Cet espace sera un espace permettant de définir un buffer custom pour les input, ainsi que de pouvoir afficher tout ce que l'on souhaite.
@@ -114,3 +118,5 @@ namespace io
 		return choix;                                                   //Renvoi de l'objet choisi
 	}
 }
+
+#endif // IO_H

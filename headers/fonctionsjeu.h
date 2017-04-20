@@ -6,7 +6,7 @@
 
 //! Normalement, à ca point là, la carte doit être chargée, le personnage est choisi et chargé, les monstres sont chargés et il ne reste qu'à lancer le jeu.
 
-using std::stack;
+// using std::stack;
 using namespace io;
 
 //! Ceci sera la classe du jeu. Elle contient toutes les entités, la carte, ainsi que les fonctions nécessaires à la partie.
@@ -19,8 +19,8 @@ using namespace io;
 */
 class jeu
 {
-	carte jeu_carte;
-	personnage jeu_perso;
+	Carte * jeu_carte;
+	personnage * jeu_perso;
 	// std::stack<> jeu_coups;
 	//! Compte le nombre de monstres restant sur la carte.
 	int jeu_nombre_monstre;
