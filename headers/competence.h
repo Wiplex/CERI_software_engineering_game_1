@@ -6,28 +6,26 @@
 #ifndef COMPETENCE_H
 #define COMPETENCE_H
 
-using namespace std;
-
 class competence
 {
-    string skillName;
+    std::string skillName;
     int damage;
     int manaCost;
 public:
     competence();
-    competence(string skillName, int damage, int manaCost);
-    competence(string skillName, int damage);
+    competence(std::string skillName, int damage, int manaCost);
+    competence(std::string skillName, int damage);
     ~competence();
 
-    string getSkillName();
+    std::string getSkillName();
     int getDamage();
     int getManaCost();
 
-    template<typename T>string toString(const T & valeur);
+    template<typename T> std::string toString(const T & valeur);
 
     void printCompetence(); //Test
 
-    string competenceString(); //Convertit les carac. d'une compétence en une string formatée
+    std::string competenceString(); //Convertit les carac. d'une compétence en une string formatée
 
 };
 

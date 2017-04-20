@@ -8,30 +8,30 @@
 class monstre
 {
 protected:
-    string name;
+    std::string name;
     int hpMax;
     int hpCurrent;
     int speed;
     bool alive;
-    vector<competence> skillVect;
+    std::vector<competence> skillVect;
 
 public:
 
     monstre(); //Constructeut vide
-    monstre(string name, int hpMax, int speed); //Constructeur avec carac d'un monstre
-    monstre (string name, int hpMax, int speed, vector<competence> allSkills); //Constructeur avec les compétences
+    monstre(std::string name, int hpMax, int speed); //Constructeur avec carac d'un monstre
+    monstre (std::string name, int hpMax, int speed, std::vector<competence> allSkills); //Constructeur avec les compétences
 
-    template<typename T>string toString(const T & valeur); // Conversion de n'importe quoi en string
+    template<typename T> std::string toString(const T & valeur); // Conversion de n'importe quoi en string
 
-    string getName();
+    std::string getName();
     int getHpMax();
     int getHpCurrent();
     int getSpeed();
     bool getAlive();
-    vector<competence> getSkillVect();
+    std::vector<competence> getSkillVect();
 
-    string monstreString(); //Convertit un objet monstre en une ligne de string
-    int nbLigneFichier(string nomFichier); //Compte le nb de ligne du fichier pour créer l'identifiant unique d'un monstre
+    std::string monstreString(); //Convertit un objet monstre en une ligne de string
+    int nbLigneFichier(std::string nomFichier); //Compte le nb de ligne du fichier pour créer l'identifiant unique d'un monstre
     void saveInFile(); //Permet d'écrire le monstre dans un fichier de sauvegarde
     void printMonstre(); // Pour tester
 

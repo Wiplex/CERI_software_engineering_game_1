@@ -1,5 +1,7 @@
 #include "../headers/competence.h"
 
+using namespace std;
+
 // --------------------CONSTRUCTEURS
 
 competence::competence()       //Constructeur de compétence vide
@@ -84,3 +86,4 @@ void competence::printCompetence() //Affichage pour test
         cout << "skill damage : " << this->damage<< endl;
         cout << "skill manacost : " << this->manaCost<< endl;
 }
+

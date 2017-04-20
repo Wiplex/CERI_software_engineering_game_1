@@ -1,5 +1,4 @@
-#include "interface.h"
-#include "personnage.h"
+#include "../headers/interface.h"
 #include <fstream>
 #include <iostream>
 #include <vector>
