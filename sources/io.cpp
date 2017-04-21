@@ -83,9 +83,9 @@ namespace io
 		std::string w1 = system("stty -a | grep row | cut --delimiter=\" \" -f 7");
 		std::string w2 = system("stty -a | grep row | cut --delimiter=\" \" -f 6");
 		if (w1[0] == 'c')
-			return w2;
+			return std::stoi(w2);
 		else
-			return w1.substr(w1.size()-1);
+			return std::stoi(w1.substr(w1.size()-1));
 	}
 
 	int getTerminalHeight()
@@ -93,9 +93,9 @@ namespace io
 		std::string h1 = system("stty -a | grep row | cut -d\'\' -f 5");
 		std::string h2 = system("stty -a | grep row | cut -d\'\' -f 4");
 		if (h1[0] == 'r')
-			return h2;
+			return std::stoi(h2);
 		else
-			return h1.substr(h1.size()-1);
+			return std::stoi(h1.substr(h1.size()-1));
 	}
 }
 
