@@ -63,7 +63,7 @@ namespace io
 	template<typename T> void afficher(T object, bool need_desc)
 	{
 		std::cout << (object).getName();                            //Affiche le nom
-		std::cout << ", \"" << (object).getDescription() << "\"";  //Affiche la description
+		//std::cout << ", \"" << (object).getDescription() << "\"";  //Affiche la description
 	}
 
 
