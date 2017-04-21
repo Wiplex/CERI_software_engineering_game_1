@@ -1,0 +1,1 @@
+c0|bzbz|petite|6|(0,0,joueur)(0,1,maison)(0,2,pierre)
