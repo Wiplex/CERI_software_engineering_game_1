@@ -26,7 +26,7 @@ struct interface
 
 		Mode opératoire :
 		- On crée les variables qui vont tenir les infos rentrées (skillName, damage, manaCost)
-		- On rentre 
+		- On rentre
 	*/
 	competence createCompetence();
 	//! Créer une compétence pour monstre (sans mana)
@@ -40,6 +40,9 @@ struct interface
 	std::vector<monstre> loadAllMonstreFromFile();
 	//! Retourne un vecteur contenant tous les personnages du fichier .txt
 	std::vector<personnage> loadAllPersonnageFromFile();
+
+	//! Retourne un monstre aléatoire parmi un vecteur de monstre
+    monstre randomMonstre(vector<monstre> allMonstre);
 };
 
 #endif

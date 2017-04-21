@@ -52,7 +52,7 @@ string personnage::personnageString() //Convertit toutes les caracs. d'un person
 		allSkill += skillVect[i].competenceString() + ":";
 	}
 
-	ligneFichier = ID + "/" + this->name + "/" + sHpMax + "/" + sSpeed + "/" + allSkill + "|" + sManaMax + "|" + this->description + '\n'; //Création de la ligne compléte
+	ligneFichier = ID + "/" + this->name + "/" + sHpMax + "/" + sSpeed + "/" + allSkill + "|" + sManaMax + "|" + this->description + "|" + '\n'; //Création de la ligne compléte
 
 	return ligneFichier;
 }
@@ -93,7 +93,6 @@ bool personnage::enleverMana(int manaCost)
 
 
 //FONCTIONS DE TEST
-
 
 
 void personnage::printPersonnage()
