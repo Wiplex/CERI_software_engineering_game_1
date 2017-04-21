@@ -80,22 +80,46 @@ namespace io
 
 	int getTerminalWidth()
 	{
-		std::string w1 = system("stty -a | grep row | cut --delimiter=\" \" -f 7");
-		std::string w2 = system("stty -a | grep row | cut --delimiter=\" \" -f 6");
+		FILE * r;
+		std::string w1,w2;
+		char * ww1 = new char[6];
+		char * ww2 = new char[6];
+		system("stty -a | grep row | cut -d\' \' -f 7 >> dump.txt");
+		r = fopen("dump.txt", "r");
+		w1 = fgets(ww1,5,r);
+		fclose(r);
+		system("rm dump.txt");
+		system("stty -a | grep row | cut -d\' \' -f 6 >> dump.txt");
+		r = fopen("dump.txt", "r");
+		w2 = fgets(ww2,5,r);
+		fclose(r);
+		system("rm dump.txt");
 		if (w1[0] == 'c')
-			return std::stoi(w2);
+			return std::stoi(w2.substr(0,w2.size()-1));
 		else
-			return std::stoi(w1.substr(w1.size()-1));
+			return std::stoi(w1.substr(0,w1.size()-1));
 	}
 
 	int getTerminalHeight()
 	{
-		std::string h1 = system("stty -a | grep row | cut -d\'\' -f 5");
-		std::string h2 = system("stty -a | grep row | cut -d\'\' -f 4");
+		FILE * r;
+		std::string h1,h2;
+		char * hh1 = new char[6];
+		char * hh2 = new char[6];
+		system("stty -a | grep row | cut -d\' \' -f 5 >> dump.txt");
+		r = fopen("dump.txt", "r");
+		h1 = fgets(hh1,5,r);
+		fclose(r);
+		system("rm dump.txt");
+		system("stty -a | grep row | cut -d\' \' -f 4 >> dump.txt");
+		r = fopen("dump.txt", "r");
+		h2 = fgets(hh2,5,r);
+		fclose(r);
+		system("rm dump.txt");
 		if (h1[0] == 'r')
-			return std::stoi(h2);
+			return std::stoi(h2.substr(0,h2.size()-1));
 		else
-			return std::stoi(h1.substr(h1.size()-1));
+			return std::stoi(h1.substr(0,h1.size()-1));
 	}
 }
 

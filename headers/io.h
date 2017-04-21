@@ -23,6 +23,9 @@ namespace io
 	*/
 	extern void ChangeTerminal(bool Ech = 0);
 
+	//! Remet le terminal à zero
+	extern void ResetTerminal();
+
 	//! Remise à zéro des paramètres terminal
 	//! Input
 	/*!
@@ -50,7 +53,6 @@ namespace io
 
 	//! Retourne la hauteur du terminal
 	int getTerminalHeight();
-
 
 	//! Affichage d'objet.
 	/*!
