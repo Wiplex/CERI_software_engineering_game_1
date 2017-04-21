@@ -8,11 +8,18 @@ Cet espace sera un espace permettant de définir un buffer custom pour les input
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{namespaceio_aa3dbf94851f627ae6201efa77e77198c}\label{namespaceio_aa3dbf94851f627ae6201efa77e77198c}} 
-std\+::istream {\bfseries io\+\_\+input} ()
-\item 
+void \hyperlink{namespaceio_ac0223d0ecfee82d8cc86543604173b73}{Change\+Terminal} (bool Ech=0)
+\begin{DoxyCompactList}\small\item\em Changement des paramètres du terminal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceio_a44a79937063c75bdcd8f042d5f55d501}\label{namespaceio_a44a79937063c75bdcd8f042d5f55d501}} 
+void \hyperlink{namespaceio_a44a79937063c75bdcd8f042d5f55d501}{Reset\+Terminal} ()
+\begin{DoxyCompactList}\small\item\em Remet le terminal à zero. \end{DoxyCompactList}\item 
 char \hyperlink{namespaceio_ae9908b55f26f07e78043d7cfad003d22}{de} ()
 \begin{DoxyCompactList}\small\item\em Input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceio_a0ed486192687092d372440a79c3a65a3}\label{namespaceio_a0ed486192687092d372440a79c3a65a3}} 
+void \hyperlink{namespaceio_a0ed486192687092d372440a79c3a65a3}{remove\+Last\+Char} (std\+::stringstream \&i)
+\begin{DoxyCompactList}\small\item\em Enlève le dernier caractère d\textquotesingle{}un stringstream. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{namespaceio_ab044be3afd7ac04eeb1a496af0f1d5c6}{long\+\_\+input} ()
+\begin{DoxyCompactList}\small\item\em Long input. \end{DoxyCompactList}\item 
 void \hyperlink{namespaceio_a7fdf85a0d766d2dcdb9870ae0458826a}{bienvenue} ()
 \begin{DoxyCompactList}\small\item\em Message d\textquotesingle{}accueil. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespaceio_a71636a15a219ee1dcc177e9749cf20bc}\label{namespaceio_a71636a15a219ee1dcc177e9749cf20bc}} 
@@ -21,6 +28,25 @@ int \hyperlink{namespaceio_a71636a15a219ee1dcc177e9749cf20bc}{get\+Terminal\+Wid
 \mbox{\Hypertarget{namespaceio_ab7da8a98a7b636d1d5f0f6eb820f1f81}\label{namespaceio_ab7da8a98a7b636d1d5f0f6eb820f1f81}} 
 int \hyperlink{namespaceio_ab7da8a98a7b636d1d5f0f6eb820f1f81}{get\+Terminal\+Height} ()
 \begin{DoxyCompactList}\small\item\em Retourne la hauteur du terminal. \end{DoxyCompactList}\item 
+bool \hyperlink{namespaceio_ac79ddb3191a9d00d007eb48deb315942}{check\+Input} (int x)
+\begin{DoxyCompactList}\small\item\em Vérifie que l\textquotesingle{}user entre des entier. \end{DoxyCompactList}\item 
+\hyperlink{classcompetence}{competence} \hyperlink{namespaceio_a474f817675f4aa2e28f1dac572046eb5}{create\+Competence} ()
+\begin{DoxyCompactList}\small\item\em Creer une competence. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceio_a15bb99405bc68580d0d386d639a3a23c}\label{namespaceio_a15bb99405bc68580d0d386d639a3a23c}} 
+\hyperlink{classcompetence}{competence} \hyperlink{namespaceio_a15bb99405bc68580d0d386d639a3a23c}{create\+Competence\+Monstre} ()
+\begin{DoxyCompactList}\small\item\em Créer une compétence pour monstre (sans mana) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceio_ad3711fbbc414b4d27c255ad8347d3ca2}\label{namespaceio_ad3711fbbc414b4d27c255ad8347d3ca2}} 
+\hyperlink{classmonstre}{monstre} \hyperlink{namespaceio_ad3711fbbc414b4d27c255ad8347d3ca2}{create\+Monstre} ()
+\begin{DoxyCompactList}\small\item\em Créer un monstre. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceio_a9297653474b9ce9930d6a3862401e751}\label{namespaceio_a9297653474b9ce9930d6a3862401e751}} 
+std\+::vector$<$ \hyperlink{classcompetence}{competence} $>$ \hyperlink{namespaceio_a9297653474b9ce9930d6a3862401e751}{load\+Competence\+From\+File} (std\+::string nom\+Fichier, int num\+Ligne)
+\begin{DoxyCompactList}\small\item\em Récupérer les compétences d\textquotesingle{}un monstre dans le .txt. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceio_a8c8b67b2b523523ab9a6b087fd0c8af8}\label{namespaceio_a8c8b67b2b523523ab9a6b087fd0c8af8}} 
+std\+::vector$<$ \hyperlink{classmonstre}{monstre} $>$ {\bfseries load\+All\+Monstre\+From\+File} ()
+\item 
+\mbox{\Hypertarget{namespaceio_a6150bb979919d3984ab243d61a0cc956}\label{namespaceio_a6150bb979919d3984ab243d61a0cc956}} 
+std\+::vector$<$ \hyperlink{classpersonnage}{personnage} $>$ \hyperlink{namespaceio_a6150bb979919d3984ab243d61a0cc956}{load\+All\+Personnage\+From\+File} ()
+\begin{DoxyCompactList}\small\item\em Retourne un vecteur contenant tous les personnages du fichier .txt. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespaceio_a0e3593d732c42572e8b3cb09ad21c4c9}{afficher} (T object, bool need\+\_\+desc)
 \begin{DoxyCompactList}\small\item\em Affichage d\textquotesingle{}objet. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespaceio_a0518bc32f1debefc2630431cd0c22cb0}{liste\+\_\+elements} (std\+::vector$<$ T $>$ vect\+\_\+element, bool need\+\_\+desc)
@@ -61,7 +87,55 @@ Affiche le nom (et éventuellement la description) d\textquotesingle{}un objet.
 
 Message d\textquotesingle{}accueil. 
 
-Affiche un message de bienvenue. \mbox{\Hypertarget{namespaceio_af398625b832f98bc758b9ea7665a168e}\label{namespaceio_af398625b832f98bc758b9ea7665a168e}} 
+Affiche un message de bienvenue. \mbox{\Hypertarget{namespaceio_ac0223d0ecfee82d8cc86543604173b73}\label{namespaceio_ac0223d0ecfee82d8cc86543604173b73}} 
+\index{io@{io}!Change\+Terminal@{Change\+Terminal}}
+\index{Change\+Terminal@{Change\+Terminal}!io@{io}}
+\subsubsection{\texorpdfstring{Change\+Terminal()}{ChangeTerminal()}}
+{\footnotesize\ttfamily void io\+::\+Change\+Terminal (\begin{DoxyParamCaption}\item[{bool}]{Ech = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Changement des paramètres du terminal. 
+
+Permet de changer le mode d\textquotesingle{}entrée de stdin du terminal. Les paramètres présents auparavant sont sauvegardés. 
+\begin{DoxyParams}{Parameters}
+{\em Ech} & Détermine si on veut que l\textquotesingle{}entrée utilisateur soit affichée ou pas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespaceio_ae9908b55f26f07e78043d7cfad003d22}{de()}, \hyperlink{namespaceio_ab044be3afd7ac04eeb1a496af0f1d5c6}{long\+\_\+input()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespaceio_ac79ddb3191a9d00d007eb48deb315942}\label{namespaceio_ac79ddb3191a9d00d007eb48deb315942}} 
+\index{io@{io}!check\+Input@{check\+Input}}
+\index{check\+Input@{check\+Input}!io@{io}}
+\subsubsection{\texorpdfstring{check\+Input()}{checkInput()}}
+{\footnotesize\ttfamily bool io\+::check\+Input (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+Vérifie que l\textquotesingle{}user entre des entier. 
+
+Cette fonction vérifie que l\textquotesingle{}entrée utilisateur est bien un entier.
+
+Mode opératoire \+:
+\begin{DoxyItemize}
+\item Vérification du failbit de l\textquotesingle{}entrée utilisateur (std\+::cin\+::failbit)
+\begin{DoxyEnumerate}
+\item Vidage du buffer
+\item Ignore 256 caractères ou jusqu\textquotesingle{}a 
+\begin{DoxyPre}~\newline
+\end{DoxyPre}
+
+\item Affichage d\textquotesingle{}un message d\textquotesingle{}erreur d\textquotesingle{}entrée utilisateur.
+\item Retourne faux
+\end{DoxyEnumerate}
+\item Sinon retourne vrai 
+\begin{DoxyParams}{Parameters}
+{\em x} & on sait pas ce qu\textquotesingle{}il fait la, mais il est la. \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\mbox{\Hypertarget{namespaceio_af398625b832f98bc758b9ea7665a168e}\label{namespaceio_af398625b832f98bc758b9ea7665a168e}} 
 \index{io@{io}!choix\+\_\+unique\+\_\+element@{choix\+\_\+unique\+\_\+element}}
 \index{choix\+\_\+unique\+\_\+element@{choix\+\_\+unique\+\_\+element}!io@{io}}
 \subsubsection{\texorpdfstring{choix\+\_\+unique\+\_\+element()}{choix\_unique\_element()}}
@@ -85,7 +159,23 @@ L\textquotesingle{}élement choisi.
 \begin{DoxySeeAlso}{See also}
 \hyperlink{namespaceio_a0518bc32f1debefc2630431cd0c22cb0}{liste\+\_\+elements()}, \hyperlink{namespaceio_a0e3593d732c42572e8b3cb09ad21c4c9}{afficher()} 
 \end{DoxySeeAlso}
-\mbox{\Hypertarget{namespaceio_ae9908b55f26f07e78043d7cfad003d22}\label{namespaceio_ae9908b55f26f07e78043d7cfad003d22}} 
+\mbox{\Hypertarget{namespaceio_a474f817675f4aa2e28f1dac572046eb5}\label{namespaceio_a474f817675f4aa2e28f1dac572046eb5}} 
+\index{io@{io}!create\+Competence@{create\+Competence}}
+\index{create\+Competence@{create\+Competence}!io@{io}}
+\subsubsection{\texorpdfstring{create\+Competence()}{createCompetence()}}
+{\footnotesize\ttfamily \hyperlink{classcompetence}{competence} io\+::create\+Competence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creer une competence. 
+
+Cette fonction permet de créer rapidement une compétence pour pouvoir l\textquotesingle{}utiliser facilement après.
+
+Mode opératoire \+:
+\begin{DoxyItemize}
+\item On crée les variables qui vont tenir les infos rentrées (skill\+Name, damage, mana\+Cost)
+\item On rentre 
+\end{DoxyItemize}\mbox{\Hypertarget{namespaceio_ae9908b55f26f07e78043d7cfad003d22}\label{namespaceio_ae9908b55f26f07e78043d7cfad003d22}} 
 \index{io@{io}!de@{de}}
 \index{de@{de}!io@{io}}
 \subsubsection{\texorpdfstring{de()}{de()}}
@@ -95,7 +185,7 @@ L\textquotesingle{}élement choisi.
 
 Input. 
 
-Gestion des entrées utilisateur. \mbox{\Hypertarget{namespaceio_a0518bc32f1debefc2630431cd0c22cb0}\label{namespaceio_a0518bc32f1debefc2630431cd0c22cb0}} 
+Gestion des entrées utilisateur, ne prends qu\textquotesingle{}un seul caractère à la fois. \mbox{\Hypertarget{namespaceio_a0518bc32f1debefc2630431cd0c22cb0}\label{namespaceio_a0518bc32f1debefc2630431cd0c22cb0}} 
 \index{io@{io}!liste\+\_\+elements@{liste\+\_\+elements}}
 \index{liste\+\_\+elements@{liste\+\_\+elements}!io@{io}}
 \subsubsection{\texorpdfstring{liste\+\_\+elements()}{liste\_elements()}}
@@ -116,3 +206,14 @@ Parcourt le vecteur de stockage des objets chargés, et les affiche.
 \begin{DoxySeeAlso}{See also}
 \hyperlink{namespaceio_a0e3593d732c42572e8b3cb09ad21c4c9}{afficher()} 
 \end{DoxySeeAlso}
+\mbox{\Hypertarget{namespaceio_ab044be3afd7ac04eeb1a496af0f1d5c6}\label{namespaceio_ab044be3afd7ac04eeb1a496af0f1d5c6}} 
+\index{io@{io}!long\+\_\+input@{long\+\_\+input}}
+\index{long\+\_\+input@{long\+\_\+input}!io@{io}}
+\subsubsection{\texorpdfstring{long\+\_\+input()}{long\_input()}}
+{\footnotesize\ttfamily std\+::string io\+::long\+\_\+input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Long input. 
+
+magic.\+gif 

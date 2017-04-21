@@ -18,7 +18,7 @@ monstre::monstre()      //Constructeur vide
 }
 
 
-monstre::monstre(string name, int hpMax, int speed)  //Constructeur avec arguments de caractéristiques du monstre
+monstre::monstre(string name, int hpMax, int speed)  //Constructeur avec arguments de caractÃ©ristiques du monstre
 {
 	this->name = name;
 	this->hpMax = hpMax;
@@ -29,7 +29,7 @@ monstre::monstre(string name, int hpMax, int speed)  //Constructeur avec argumen
 }
 
 
-monstre::monstre(string name, int hpMax, int speed, vector<competence> allSkills) //Constructeur avec arguments de carac. et de compétences
+monstre::monstre(string name, int hpMax, int speed, vector<competence> allSkills) //Constructeur avec arguments de carac. et de compÃ©tences
 {
 	this->name = name;
 	this->hpMax = hpMax;
@@ -77,13 +77,13 @@ int monstre::getSpeed() //Retourne la vitesse d'un monstre
 }
 
 
-bool monstre::getAlive() //Retourne l'état de vie ou de mort d'un monstre
+bool monstre::getAlive() //Retourne l'ï¿½tat de vie ou de mort d'un monstre
 {
 	return this->alive;
 }
 
 
-vector<competence> monstre::getSkillVect() //Retourne le vecteur de compétence d'un monstre
+vector<competence> monstre::getSkillVect() //Retourne le vecteur de compÃ©tence d'un monstre
 {
 	return this->skillVect;
 }
@@ -92,7 +92,7 @@ vector<competence> monstre::getSkillVect() //Retourne le vecteur de compétence d
 // POUR SAUVEGARDE DANS FICHIER
 
 
-int monstre::nbLigneFichier(string nomFichier) //Compte le nb de ligne du fichier pour créer l'identifiant unique d'un monstre
+int monstre::nbLigneFichier(string nomFichier) //Compte le nb de ligne du fichier pour crÃ©er l'identifiant unique d'un monstre
 {
 	ifstream fichier(nomFichier.c_str()); //Ouverture en mode lecture
 	int nbLigne = 0;
@@ -134,12 +134,12 @@ string monstre::monstreString() //Convertit toutes les caracs. d'un monstre en s
 	sSpeed = toString(this->speed);
 
 	string allSkill="";
-	for (int i=0 ; i< skillVect.size() ; i++) //Conversion de toutes les compétences en une ligne de string
+	for (int i=0 ; i< skillVect.size() ; i++) //Conversion de toutes les compÃ©tences en une ligne de string
 	{
 		allSkill += skillVect[i].competenceString() + ":";
 	}
 
-	ligneFichier = ID + "/" +this->name + "/" + sHpMax + "/" + sSpeed + "/" + allSkill + '\n'; //Création de la ligne compléte
+	ligneFichier = ID + "/" +this->name + "/" + sHpMax + "/" + sSpeed + "/" + allSkill + '\n'; //CrÃ©ation de la ligne complÃ¨te
 
 	return ligneFichier;
 }
@@ -147,11 +147,11 @@ string monstre::monstreString() //Convertit toutes les caracs. d'un monstre en s
 
 void monstre::saveInFile() //Ecrit les carac d'un monstre dans un fichier
 {
-	ofstream fichierMonstre("fichierMonstre.txt", ios::out | ios::app); // Ouverture du fichier en écriture, avec curseur en fin de fichier.
+	ofstream fichierMonstre("fichierMonstre.txt", ios::out | ios::app); // Ouverture du fichier en Ã©criture, avec curseur en fin de fichier.
 
 	string monstreLigne = this->monstreString();
 
-	if(fichierMonstre) //Vérification ouverture du fichier
+	if(fichierMonstre) //VÃ©rification ouverture du fichier
 	{
 		fichierMonstre << monstreLigne; //Ecriture de la ligne
 		fichierMonstre.close();

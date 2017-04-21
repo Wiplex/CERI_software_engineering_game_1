@@ -10,7 +10,6 @@ PERSONNAGE="archives/personnage.a"
 # Cibles que l'on peut compiler directement :
 all:
 	@make -s io	# IO
-	@make -s in	# Iterface loic
 	@make -s ca	# Carte
 	@make -s co	# Compétences
 	@make -s mo	# Monstre

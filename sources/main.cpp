@@ -1,5 +1,7 @@
-#include "personnage.h"
-#include "interface.h"
+#include "../headers/personnage.h"
+#include "../headers/io.h"
+
+using namespace io;
 
 int main()
 {

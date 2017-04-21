@@ -11,12 +11,25 @@ io \- Cet espace sera un espace permettant de définir un buffer custom pour les
 
 .in +1c
 .ti -1c
-.RI "std::istream \fBio_input\fP ()"
+.RI "void \fBChangeTerminal\fP (bool Ech=0)"
 .br
+.RI "Changement des paramètres du terminal\&. "
+.ti -1c
+.RI "void \fBResetTerminal\fP ()"
+.br
+.RI "Remet le terminal à zero\&. "
 .ti -1c
 .RI "char \fBde\fP ()"
 .br
 .RI "Input\&. "
+.ti -1c
+.RI "void \fBremoveLastChar\fP (std::stringstream &i)"
+.br
+.RI "Enlève le dernier caractère d'un stringstream\&. "
+.ti -1c
+.RI "std::string \fBlong_input\fP ()"
+.br
+.RI "Long input\&. "
 .ti -1c
 .RI "void \fBbienvenue\fP ()"
 .br
@@ -29,6 +42,33 @@ io \- Cet espace sera un espace permettant de définir un buffer custom pour les
 .RI "int \fBgetTerminalHeight\fP ()"
 .br
 .RI "Retourne la hauteur du terminal\&. "
+.ti -1c
+.RI "bool \fBcheckInput\fP (int x)"
+.br
+.RI "Vérifie que l'user entre des entier\&. "
+.ti -1c
+.RI "\fBcompetence\fP \fBcreateCompetence\fP ()"
+.br
+.RI "Creer une competence\&. "
+.ti -1c
+.RI "\fBcompetence\fP \fBcreateCompetenceMonstre\fP ()"
+.br
+.RI "Créer une compétence pour monstre (sans mana) "
+.ti -1c
+.RI "\fBmonstre\fP \fBcreateMonstre\fP ()"
+.br
+.RI "Créer un monstre\&. "
+.ti -1c
+.RI "std::vector< \fBcompetence\fP > \fBloadCompetenceFromFile\fP (std::string nomFichier, int numLigne)"
+.br
+.RI "Récupérer les compétences d'un monstre dans le \&.txt\&. "
+.ti -1c
+.RI "std::vector< \fBmonstre\fP > \fBloadAllMonstreFromFile\fP ()"
+.br
+.ti -1c
+.RI "std::vector< \fBpersonnage\fP > \fBloadAllPersonnageFromFile\fP ()"
+.br
+.RI "Retourne un vecteur contenant tous les personnages du fichier \&.txt\&. "
 .ti -1c
 .RI "template<typename T > void \fBafficher\fP (T object, bool need_desc)"
 .br
@@ -64,6 +104,58 @@ Affichage d'objet\&. Affiche le nom (et éventuellement la description) d'un obj
 
 .PP
 Message d'accueil\&. Affiche un message de bienvenue\&. 
+.SS "void io::ChangeTerminal (bool Ech = \fC0\fP)"
+
+.PP
+Changement des paramètres du terminal\&. Permet de changer le mode d'entrée de stdin du terminal\&. Les paramètres présents auparavant sont sauvegardés\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIEch\fP Détermine si on veut que l'entrée utilisateur soit affichée ou pas\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBde()\fP, \fBlong_input()\fP 
+.RE
+.PP
+
+.SS "bool io::checkInput (int x)"
+
+.PP
+Vérifie que l'user entre des entier\&. Cette fonction vérifie que l'entrée utilisateur est bien un entier\&.
+.PP
+Mode opératoire :
+.IP "\(bu" 2
+Vérification du failbit de l'entrée utilisateur (std::cin::failbit)
+.IP "  1." 6
+Vidage du buffer
+.IP "  2." 6
+Ignore 256 caractères ou jusqu'a 
+.PP
+.nf
+
+.br
+.fi
+.PP
+
+.IP "  3." 6
+Affichage d'un message d'erreur d'entrée utilisateur\&.
+.IP "  4." 6
+Retourne faux
+.PP
+
+.IP "\(bu" 2
+Sinon retourne vrai 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP on sait pas ce qu'il fait la, mais il est la\&. 
+.RE
+.PP
+
+.PP
+
 .SS "template<typename T > T io::choix_unique_element (std::vector< T > vect_element, bool need_desc)"
 
 .PP
@@ -87,10 +179,22 @@ L'élement choisi\&.
 .RE
 .PP
 
+.SS "\fBcompetence\fP io::createCompetence ()"
+
+.PP
+Creer une competence\&. Cette fonction permet de créer rapidement une compétence pour pouvoir l'utiliser facilement après\&.
+.PP
+Mode opératoire :
+.IP "\(bu" 2
+On crée les variables qui vont tenir les infos rentrées (skillName, damage, manaCost)
+.IP "\(bu" 2
+On rentre 
+.PP
+
 .SS "char io::de ()"
 
 .PP
-Input\&. Gestion des entrées utilisateur\&. 
+Input\&. Gestion des entrées utilisateur, ne prends qu'un seul caractère à la fois\&. 
 .SS "template<typename T > void io::liste_elements (std::vector< T > vect_element, bool need_desc)"
 
 .PP
@@ -109,6 +213,10 @@ Affichage d'un ensemble d'objets\&. Parcourt le vecteur de stockage des objets c
 .RE
 .PP
 
+.SS "std::string io::long_input ()"
+
+.PP
+Long input\&. magic\&.gif 
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for My Project from the source code\&.

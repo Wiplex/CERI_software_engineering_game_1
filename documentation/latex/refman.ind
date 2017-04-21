@@ -1,0 +1,83 @@
+\begin{theindex}
+
+  \item {afficher}
+    \subitem {io}, \hyperpage{8}
+
+  \indexspace
+
+  \item {bienvenue}
+    \subitem {io}, \hyperpage{8}
+
+  \indexspace
+
+  \item {Carte}, \hyperpage{13}
+  \item {Change\+Terminal}
+    \subitem {io}, \hyperpage{8}
+  \item {check\+Input}
+    \subitem {io}, \hyperpage{9}
+  \item {choix\+\_\+unique\+\_\+element}
+    \subitem {io}, \hyperpage{9}
+  \item {competence}, \hyperpage{13}
+  \item {create\+Competence}
+    \subitem {io}, \hyperpage{10}
+
+  \indexspace
+
+  \item {de}
+    \subitem {io}, \hyperpage{10}
+  \item {demarrer\+\_\+jeu}
+    \subitem {jeu}, \hyperpage{15}
+
+  \indexspace
+
+  \item {enlever\+Vie}
+    \subitem {monstre}, \hyperpage{17}
+  \item {ent\+\_\+combat}, \hyperpage{14}
+
+  \indexspace
+
+  \item {io}, \hyperpage{7}
+    \subitem {afficher}, \hyperpage{8}
+    \subitem {bienvenue}, \hyperpage{8}
+    \subitem {Change\+Terminal}, \hyperpage{8}
+    \subitem {check\+Input}, \hyperpage{9}
+    \subitem {choix\+\_\+unique\+\_\+element}, \hyperpage{9}
+    \subitem {create\+Competence}, \hyperpage{10}
+    \subitem {de}, \hyperpage{10}
+    \subitem {liste\+\_\+elements}, \hyperpage{10}
+    \subitem {long\+\_\+input}, \hyperpage{11}
+
+  \indexspace
+
+  \item {jeu}, \hyperpage{14}
+    \subitem {demarrer\+\_\+jeu}, \hyperpage{15}
+    \subitem {jeu}, \hyperpage{14}
+
+  \indexspace
+
+  \item {liste\+\_\+elements}
+    \subitem {io}, \hyperpage{10}
+  \item {long\+\_\+input}
+    \subitem {io}, \hyperpage{11}
+
+  \indexspace
+
+  \item {monstre}, \hyperpage{15}
+    \subitem {enlever\+Vie}, \hyperpage{17}
+    \subitem {monstre}, \hyperpage{16, 17}
+    \subitem {monstre\+String}, \hyperpage{17}
+    \subitem {nb\+Ligne\+Fichier}, \hyperpage{18}
+  \item {monstre\+String}
+    \subitem {monstre}, \hyperpage{17}
+
+  \indexspace
+
+  \item {nb\+Ligne\+Fichier}
+    \subitem {monstre}, \hyperpage{18}
+
+  \indexspace
+
+  \item {personnage}, \hyperpage{18}
+    \subitem {personnage}, \hyperpage{19}
+
+\end{theindex}

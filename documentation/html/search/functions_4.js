@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['getterminalheight',['getTerminalHeight',['../namespaceio.html#ab7da8a98a7b636d1d5f0f6eb820f1f81',1,'io']]],
-  ['getterminalwidth',['getTerminalWidth',['../namespaceio.html#a71636a15a219ee1dcc177e9749cf20bc',1,'io']]]
+  ['enlevermana',['enleverMana',['../classpersonnage.html#a0cb9b3d7d2c2decae742de8086f28766',1,'personnage']]],
+  ['enlevervie',['enleverVie',['../classmonstre.html#af5b61c4c0e2118760ce6f610bf9349e2',1,'monstre']]]
 ];

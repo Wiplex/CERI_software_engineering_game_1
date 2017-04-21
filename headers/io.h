@@ -18,7 +18,7 @@ namespace io
 
 	//! Changement des paramètres du terminal
 	/*!
-		Basically magic.
+		Permet de changer le mode d'entrée de stdin du terminal. Les paramètres présents auparavant sont sauvegardés.
 		\param Ech Détermine si on veut que l'entrée utilisateur soit affichée ou pas.
 		\sa de(), long_input()
 	*/
