@@ -45,6 +45,12 @@ namespace io
 	*/
 	void bienvenue();
 
+	//! Retourne la largeur du terminal
+	int getTerminalWidth();
+
+	//! Retourne la hauteur du terminal
+	int getTerminalHeight();
+
 
 	//! Affichage d'objet.
 	/*!
