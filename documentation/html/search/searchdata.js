@@ -1,10 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "abcdijlmpt~",
-  1: "cijmp",
+  0: "abcdegijlmp~",
+  1: "ceijmp",
   2: "i",
-  3: "abcdjlp~",
-  4: "t"
+  3: "abcdgjl~"
 };
 
 var indexSectionNames =
@@ -12,8 +11,7 @@ var indexSectionNames =
   0: "all",
   1: "classes",
   2: "namespaces",
-  3: "functions",
-  4: "pages"
+  3: "functions"
 };
 
 var indexSectionLabels =
@@ -21,7 +19,6 @@ var indexSectionLabels =
   0: "All",
   1: "Classes",
   2: "Namespaces",
-  3: "Functions",
-  4: "Pages"
+  3: "Functions"
 };
 

@@ -68,31 +68,36 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4ae030a8222727ee33ee142d53d6ec4d"><td class="memItemLeft" align="right" valign="top"><a id="a4ae030a8222727ee33ee142d53d6ec4d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Carte</b> (int taille)</td></tr>
-<tr class="separator:a4ae030a8222727ee33ee142d53d6ec4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23c6f00e5cc97f469b8f8de4e37f54a9"><td class="memItemLeft" align="right" valign="top"><a id="a23c6f00e5cc97f469b8f8de4e37f54a9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Carte</b> (int taille, std::string name, std::string description)</td></tr>
+<tr class="separator:a23c6f00e5cc97f469b8f8de4e37f54a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed4a23fad7ef43f46f80dbff08468cc9"><td class="memItemLeft" align="right" valign="top"><a id="aed4a23fad7ef43f46f80dbff08468cc9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>affichage</b> ()</td></tr>
 <tr class="separator:aed4a23fad7ef43f46f80dbff08468cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aceb1051f87ed3c407bfcf25fe4cc7778"><td class="memItemLeft" align="right" valign="top"><a id="aceb1051f87ed3c407bfcf25fe4cc7778"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>sauvegarde</b> ()</td></tr>
 <tr class="separator:aceb1051f87ed3c407bfcf25fe4cc7778"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6f52b8e5091958aed3be113c3165fb9"><td class="memItemLeft" align="right" valign="top"><a id="ac6f52b8e5091958aed3be113c3165fb9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>carte_existe</b> (string nom)</td></tr>
-<tr class="separator:ac6f52b8e5091958aed3be113c3165fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91460d6675087a93a18374ab02e1a4a4"><td class="memItemLeft" align="right" valign="top"><a id="a91460d6675087a93a18374ab02e1a4a4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>chargement</b> (string nom_selection)</td></tr>
-<tr class="separator:a91460d6675087a93a18374ab02e1a4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a4e84f2d3d812057c5574a1961584bb"><td class="memItemLeft" align="right" valign="top"><a id="a4a4e84f2d3d812057c5574a1961584bb"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>quel_taille</b> (string nom)</td></tr>
-<tr class="separator:a4a4e84f2d3d812057c5574a1961584bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25d96ce76fb05a2ab329ef6791b6a3f2"><td class="memItemLeft" align="right" valign="top"><a id="a25d96ce76fb05a2ab329ef6791b6a3f2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>suppression</b> (string nom)</td></tr>
-<tr class="separator:a25d96ce76fb05a2ab329ef6791b6a3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376e889c21215615bfa3b5068f46e646"><td class="memItemLeft" align="right" valign="top"><a id="a376e889c21215615bfa3b5068f46e646"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> ()</td></tr>
+<tr class="separator:a376e889c21215615bfa3b5068f46e646"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a591705d6bb95c36ce4a034b3107ae85c"><td class="memItemLeft" align="right" valign="top"><a id="a591705d6bb95c36ce4a034b3107ae85c"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getDescription</b> ()</td></tr>
+<tr class="separator:a591705d6bb95c36ce4a034b3107ae85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25815ab5ece47d7df6fa5b845d03c785"><td class="memItemLeft" align="right" valign="top"><a id="a25815ab5ece47d7df6fa5b845d03c785"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>carte_existe</b> (std::string nom)</td></tr>
+<tr class="separator:a25815ab5ece47d7df6fa5b845d03c785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c64f88c1798cd90997f9835d06c81cc"><td class="memItemLeft" align="right" valign="top"><a id="a3c64f88c1798cd90997f9835d06c81cc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>chargement</b> (std::string nom_selection)</td></tr>
+<tr class="separator:a3c64f88c1798cd90997f9835d06c81cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aa64d23c01e359285a557c847d71828"><td class="memItemLeft" align="right" valign="top"><a id="a0aa64d23c01e359285a557c847d71828"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>quel_taille</b> (std::string nom)</td></tr>
+<tr class="separator:a0aa64d23c01e359285a557c847d71828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e06941d4f9af38e63b187f61277ba4d"><td class="memItemLeft" align="right" valign="top"><a id="a5e06941d4f9af38e63b187f61277ba4d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>suppression</b> (std::string nom)</td></tr>
+<tr class="separator:a5e06941d4f9af38e63b187f61277ba4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/<a class="el" href="carte_8h_source.html">carte.h</a></li>
-<li>/Users/thibault/GitHub/CERI_software_engineering_game_1/sources/carte.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

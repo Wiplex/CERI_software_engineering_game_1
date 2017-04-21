@@ -5,6 +5,7 @@
 
 #ifndef COMPETENCE_H
 #define COMPETENCE_H
+#pragma once
 
 class competence
 {
@@ -26,7 +27,7 @@ public:
 
 	void printCompetence(); //Test
 
-	std::string competenceString(); //Convertit les carac. d'une compétence en une string formatée
+	std::string competenceString(); //Convertit les carac. d'une compï¿½tence en une string formatï¿½e
 };
 
 
