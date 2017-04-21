@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <typeinfo>
+#include <termios.h>	// Needed for terminal input manipulation
+#include <stdio.h>	// Needed for terminal input manipulation
+#include <sstream>
 
 #ifndef IO_H
 #define IO_H

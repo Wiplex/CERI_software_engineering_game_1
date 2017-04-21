@@ -1,6 +1,8 @@
 #include "../headers/io.h"
+#include "../headers/carte.h"
 #include "../headers/monstre.h"
 #include "../headers/competence.h"
+#include "../headers/personnage.h"
 #include <stack>
 
 #ifndef FONCTIONSJEU_H
