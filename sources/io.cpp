@@ -1,6 +1,5 @@
 #include "../headers/io.h"
 #include <vector>
-#include <sstream>
 
 // Notes :
 // Get the terminal column number :
@@ -36,14 +35,31 @@ namespace io
 	std::string long_input()
 	{
 		std::stringstream input;
-		char charInput;
-		ChangeTerminal();
+		char charInput,deletedChar;
+		ChangeTerminal(1);
 		do {
 			charInput = getchar();
-			input << charInput;
+			if (charInput != 127)
+				input << charInput;
+			else
+				removeLastChar(input);
+			//	if (input.tellp() > 0)
+			//		input.seekp(-1, input.cur);
 		} while(charInput != 10);
 		ResetTerminal();
 		return input.str().length() == 1 ? long_input() : input.str();
+	}
+
+	void removeLastChar(std::stringstream& input)
+	{
+		std::stringstream str;
+		std::string s = input.str();
+		if (s.size() != 0)
+		{
+			s.erase(s.end()-1);
+			input.swap(str);
+			input << s;
+		}
 	}
 
 	void bienvenue()
