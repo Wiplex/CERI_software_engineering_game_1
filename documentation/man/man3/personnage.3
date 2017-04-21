@@ -1,37 +1,21 @@
-.TH "personnage" 3 "Thu Apr 20 2017" "My Project" \" -*- nroff -*-
+.TH "personnage" 3 "Fri Apr 21 2017" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-personnage \- Classe test interactions affichage\&.  
-
+personnage
 .SH SYNOPSIS
 .br
 .PP
-.PP
-\fC#include <io\&.h>\fP
 .PP
 Inherits \fBmonstre\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBpersonnage\fP ()"
-.br
-.RI "Implémentation classe test\&. "
-.ti -1c
-.RI "\fBpersonnage\fP (string nom, string desc)"
+.RI "\fBpersonnage\fP (std::string name, int hpMax, int speed, int manaMax, std::string description)"
 .br
 .ti -1c
-.RI "string \fBget_name\fP ()"
-.br
-.ti -1c
-.RI "string \fBget_desc\fP ()"
-.br
-.ti -1c
-.RI "\fBpersonnage\fP (string name, int hpMax, int speed, int manaMax, string description)"
-.br
-.ti -1c
-.RI "\fBpersonnage\fP (string name, int hpMax, int speed, int manaMax, string description, vector< \fBcompetence\fP > allSkills)"
+.RI "\fBpersonnage\fP (std::string name, int hpMax, int speed, int manaMax, std::string description, std::vector< \fBcompetence\fP > allSkills)"
 .br
 .ti -1c
 .RI "int \fBgetManaMax\fP ()"
@@ -40,10 +24,10 @@ Inherits \fBmonstre\fP\&.
 .RI "int \fBgetManaCurrent\fP ()"
 .br
 .ti -1c
-.RI "string \fBgetDescription\fP ()"
+.RI "std::string \fBgetDescription\fP ()"
 .br
 .ti -1c
-.RI "string \fBpersonnageString\fP ()"
+.RI "std::string \fBpersonnageString\fP ()"
 .br
 .ti -1c
 .RI "void \fBsavePersoInFile\fP ()"
@@ -56,9 +40,7 @@ Inherits \fBmonstre\fP\&.
 .br
 .in -1c
 .SS "Additional Inherited Members"
-.SH "Detailed Description"
-.PP 
-Classe test interactions affichage\&. 
+
 
 .SH "Author"
 .PP 

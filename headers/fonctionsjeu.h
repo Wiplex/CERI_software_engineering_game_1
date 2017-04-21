@@ -5,12 +5,9 @@
 
 #ifndef FONCTIONSJEU_H
 #define FONCTIONSJEU_H
+#pragma once
 
 using namespace io;
-
-//! Normalement, à ca point là, la carte doit être chargée, le personnage est choisi et chargé, les monstres sont chargés et il ne reste qu'à lancer le jeu.
-
-//using namespace io;
 
 //! Ceci sera la classe du jeu. Elle contient toutes les entités, la carte, ainsi que les fonctions nécessaires à la partie.
 /*!
@@ -22,14 +19,15 @@ using namespace io;
 */
 class jeu
 {
-	// carte jeu_carte;
-	// perso jeu_perso;
+	//! Carte du jeu, à choisir au début du jeu.
+	Carte * jeu_carte;
+	//! Personnage choisi par le joueur, à choisir au début du jeu.
+	personnage * jeu_perso;
 	// std::stack<> jeu_coups;
 	//! Compte le nombre de monstres restant sur la carte.
 	int jeu_nombre_monstre;
 
-	public:
-
+public:
 	//! Constructeur par défaut sans argument.
 	/*!
 		Avec ce constructeur, on peut créer toutes les entités du jeu.

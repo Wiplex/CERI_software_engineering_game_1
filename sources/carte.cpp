@@ -26,30 +26,6 @@ Carte :: Carte (int size, string name, string desc)
 	}
 }
 
-void Carte :: affichage()
-{
-
-	// Voir thibault pour commande couleur
-	for (int i = 0 ; i < taille; i++)
-	{
-		for (int j = 0 ; j < taille ; j++)
-		{
-			//case ininteressante
-			if (plateau[i][j] == 'v') cout << " ";
-			// case avec un monstre caché
-			else if (plateau[i][j] == 'm') cout << " ";
-			// case avec obstacle
-			else if (plateau[i][j] == 'a') cout << "|";
-			else if (plateau[i][j] == 'e') cout << "~";
-			else if (plateau[i][j] == 'r') cout << "o";
-			//case joueur
-			else if (plateau[i][j] == 'j') cout << "¤";
-			else cout << plateau[i][j] ;
-		}
-			cout << endl ;
-	}
-}
-
 void Carte :: sauvegarde()
 {
 	// Nom de la carte
@@ -160,15 +136,3 @@ void Carte :: suppression(string nom)
 	if( carte_existe(nom_carte)) cout << "Echec de la suppression" << endl ;
 	else cout << "Carte supprimée" << endl ;
 }
-
-
-
-
-
-
-
-
-
-
-
-

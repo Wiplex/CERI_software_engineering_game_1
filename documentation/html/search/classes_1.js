@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['interface',['interface',['../structinterface.html',1,'']]]
+  ['ent_5fcombat',['ent_combat',['../structent__combat.html',1,'']]]
 ];

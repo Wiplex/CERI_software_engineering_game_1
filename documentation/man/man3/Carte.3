@@ -1,4 +1,4 @@
-.TH "Carte" 3 "Thu Apr 20 2017" "My Project" \" -*- nroff -*-
+.TH "Carte" 3 "Fri Apr 21 2017" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,7 +10,7 @@ Carte
 
 .in +1c
 .ti -1c
-.RI "\fBCarte\fP (int taille)"
+.RI "\fBCarte\fP (int taille, std::string name, std::string description)"
 .br
 .ti -1c
 .RI "void \fBaffichage\fP ()"
@@ -19,16 +19,22 @@ Carte
 .RI "void \fBsauvegarde\fP ()"
 .br
 .ti -1c
-.RI "bool \fBcarte_existe\fP (string nom)"
+.RI "std::string \fBgetName\fP ()"
 .br
 .ti -1c
-.RI "void \fBchargement\fP (string nom_selection)"
+.RI "std::string \fBgetDescription\fP ()"
 .br
 .ti -1c
-.RI "int \fBquel_taille\fP (string nom)"
+.RI "bool \fBcarte_existe\fP (std::string nom)"
 .br
 .ti -1c
-.RI "void \fBsuppression\fP (string nom)"
+.RI "void \fBchargement\fP (std::string nom_selection)"
+.br
+.ti -1c
+.RI "int \fBquel_taille\fP (std::string nom)"
+.br
+.ti -1c
+.RI "void \fBsuppression\fP (std::string nom)"
 .br
 .in -1c
 

@@ -4,23 +4,44 @@
 
 #ifndef IO_H
 #define IO_H
+#pragma once
 
 
 //! Cet espace sera un espace permettant de définir un buffer custom pour les input, ainsi que de pouvoir afficher tout ce que l'on souhaite.
 namespace io
 {
-	std::istream io_input();
+	//! Structures qui gardent les paramètres du terminal.
+	static struct termios before, after;
+
+	//! Changement des paramètres du terminal
+	/*!
+		Basically magic.
+		\param Ech Détermine si on veut que l'entrée utilisateur soit affichée ou pas.
+		\sa de(), long_input()
+	*/
+	extern void ChangeTerminal(bool Ech = 0);
+
+	//! Remet le terminal à zero
+	extern void ResetTerminal();
 
 	//! Input
 	/*!
-	Gestion des entrées utilisateur.
+		Gestion des entrées utilisateur, ne prends qu'un seul caractère à la fois.
 	*/
 	extern char de();
 
+	//! Enlève le dernier caractère d'un stringstream.
+	extern void removeLastChar(std::stringstream& i);
+
+	//! Long input
+	/*!
+		magic.gif
+	*/
+	extern std::string long_input();
 
 	//! Message d'accueil
 	/*!
-	Affiche un message de bienvenue.
+		Affiche un message de bienvenue.
 	*/
 	void bienvenue();
 
@@ -32,9 +53,9 @@ namespace io
 
 	//! Affichage d'objet.
 	/*!
-	Affiche le nom (et éventuellement la description) d'un objet.
-	\param object Objet à afficher.
-	\param need_desc Description ou non.
+		Affiche le nom (et éventuellement la description) d'un objet.
+		\param object Objet à afficher.
+		\param need_desc Description ou non.
 	*/
 	template<typename T> void afficher(T object, bool need_desc)
 	{
@@ -45,10 +66,10 @@ namespace io
 
 	//! Affichage d'un ensemble d'objets
 	/*!
-	Parcourt le vecteur de stockage des objets chargés, et les affiche.
-	\param vect_element Vecteur d'éléments.
-	\param need_desc Description ou non.
-	\sa afficher()
+		Parcourt le vecteur de stockage des objets chargés, et les affiche.
+		\param vect_element Vecteur d'éléments.
+		\param need_desc Description ou non.
+		\sa afficher()
 	*/
 	template<typename T> void liste_elements(std::vector<T> vect_element, bool need_desc)
 	{
@@ -67,11 +88,11 @@ namespace io
 
 	//! Choix d'un élément unique
 	/*!
-	Fonction qui prend un vecteur d'éléments en entrée ainsi qu'un booléen (affichage ou non de la description), et affiche puis renvoie l'élément choisi.
-	\param vect_element Vecteur de l'élément à choisir.
-	\param need_desc Nécessité de description ou non.
-	\return L'élement choisi.
-	\sa liste_elements(), afficher()
+		Fonction qui prend un vecteur d'éléments en entrée ainsi qu'un booléen (affichage ou non de la description), et affiche puis renvoie l'élément choisi.
+		\param vect_element Vecteur de l'élément à choisir.
+		\param need_desc Nécessité de description ou non.
+		\return L'élement choisi.
+		\sa liste_elements(), afficher()
 	*/
 	template<typename T> T choix_unique_element(std::vector<T> vect_element, bool need_desc)
 	{

@@ -9,17 +9,17 @@ Inheritance diagram for monstre\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classmonstre_a582e69a0b41162732689977e9eb5950e}\label{classmonstre_a582e69a0b41162732689977e9eb5950e}} 
-{\bfseries monstre} (string name, int hp\+Max, int speed)
+\mbox{\Hypertarget{classmonstre_a3a6290dca4b99876fe846e02e4ce140d}\label{classmonstre_a3a6290dca4b99876fe846e02e4ce140d}} 
+{\bfseries monstre} (std\+::string name, int hp\+Max, int speed)
 \item 
-\mbox{\Hypertarget{classmonstre_a74ee17231870ff10a0a13ee498c9e9eb}\label{classmonstre_a74ee17231870ff10a0a13ee498c9e9eb}} 
-{\bfseries monstre} (string name, int hp\+Max, int speed, vector$<$ \hyperlink{classcompetence}{competence} $>$ all\+Skills)
+\mbox{\Hypertarget{classmonstre_ab28517ab4e9898d3d079f2caa7cc5953}\label{classmonstre_ab28517ab4e9898d3d079f2caa7cc5953}} 
+{\bfseries monstre} (std\+::string name, int hp\+Max, int speed, std\+::vector$<$ \hyperlink{classcompetence}{competence} $>$ all\+Skills)
 \item 
-\mbox{\Hypertarget{classmonstre_a4d4035146a1735590b49dacba3de365a}\label{classmonstre_a4d4035146a1735590b49dacba3de365a}} 
-{\footnotesize template$<$typename T $>$ }\\string {\bfseries to\+String} (const T \&valeur)
+\mbox{\Hypertarget{classmonstre_aea06290b33132d84afffd3f40f651891}\label{classmonstre_aea06290b33132d84afffd3f40f651891}} 
+{\footnotesize template$<$typename T $>$ }\\std\+::string {\bfseries to\+String} (const T \&valeur)
 \item 
-\mbox{\Hypertarget{classmonstre_a73c4a866b9ce17baf4a95ba606ef687b}\label{classmonstre_a73c4a866b9ce17baf4a95ba606ef687b}} 
-string {\bfseries get\+Name} ()
+\mbox{\Hypertarget{classmonstre_ae166adf286161a19ee0bc8e5c14fc8f5}\label{classmonstre_ae166adf286161a19ee0bc8e5c14fc8f5}} 
+std\+::string {\bfseries get\+Name} ()
 \item 
 \mbox{\Hypertarget{classmonstre_aefac39c9ae67b300c2a69bfdd29662b2}\label{classmonstre_aefac39c9ae67b300c2a69bfdd29662b2}} 
 int {\bfseries get\+Hp\+Max} ()
@@ -33,14 +33,14 @@ int {\bfseries get\+Speed} ()
 \mbox{\Hypertarget{classmonstre_a7b92c8b92f0e30c4e90b6e797124a841}\label{classmonstre_a7b92c8b92f0e30c4e90b6e797124a841}} 
 bool {\bfseries get\+Alive} ()
 \item 
-\mbox{\Hypertarget{classmonstre_a419c247247df89829d798bc037dd09c7}\label{classmonstre_a419c247247df89829d798bc037dd09c7}} 
-vector$<$ \hyperlink{classcompetence}{competence} $>$ {\bfseries get\+Skill\+Vect} ()
+\mbox{\Hypertarget{classmonstre_a9529ed40be5fc8a806a7ae0287995ff1}\label{classmonstre_a9529ed40be5fc8a806a7ae0287995ff1}} 
+std\+::vector$<$ \hyperlink{classcompetence}{competence} $>$ {\bfseries get\+Skill\+Vect} ()
 \item 
-\mbox{\Hypertarget{classmonstre_a0098d2cf04819866e75a68842bc9d32e}\label{classmonstre_a0098d2cf04819866e75a68842bc9d32e}} 
-string {\bfseries monstre\+String} ()
+\mbox{\Hypertarget{classmonstre_a70fd98734f8ce2ae1e856c7d9194e89d}\label{classmonstre_a70fd98734f8ce2ae1e856c7d9194e89d}} 
+std\+::string {\bfseries monstre\+String} ()
 \item 
-\mbox{\Hypertarget{classmonstre_a44c5190667cd30a176170f8a97db0b6e}\label{classmonstre_a44c5190667cd30a176170f8a97db0b6e}} 
-int {\bfseries nb\+Ligne\+Fichier} (string nom\+Fichier)
+\mbox{\Hypertarget{classmonstre_a7591cd207cd1bee68ca79ce489f41ce2}\label{classmonstre_a7591cd207cd1bee68ca79ce489f41ce2}} 
+int {\bfseries nb\+Ligne\+Fichier} (std\+::string nom\+Fichier)
 \item 
 \mbox{\Hypertarget{classmonstre_ad3d2efc38609b3857e542423809a566d}\label{classmonstre_ad3d2efc38609b3857e542423809a566d}} 
 void {\bfseries save\+In\+File} ()
@@ -54,8 +54,8 @@ bool {\bfseries enlever\+Vie} (int degats)
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classmonstre_a6036af5aad5e24711cdf0f6403e3b46e}\label{classmonstre_a6036af5aad5e24711cdf0f6403e3b46e}} 
-string {\bfseries name}
+\mbox{\Hypertarget{classmonstre_a477ba81185ff1dc77ebedf2b72afbb05}\label{classmonstre_a477ba81185ff1dc77ebedf2b72afbb05}} 
+std\+::string {\bfseries name}
 \item 
 \mbox{\Hypertarget{classmonstre_a6cca6a9a3788ab7fca2e6ee7c321b7ea}\label{classmonstre_a6cca6a9a3788ab7fca2e6ee7c321b7ea}} 
 int {\bfseries hp\+Max}
@@ -69,12 +69,11 @@ int {\bfseries speed}
 \mbox{\Hypertarget{classmonstre_aca8671e46fd6e20fd0c1afeb276f6da4}\label{classmonstre_aca8671e46fd6e20fd0c1afeb276f6da4}} 
 bool {\bfseries alive}
 \item 
-\mbox{\Hypertarget{classmonstre_ad8cabac44854155b68f309fa54aab742}\label{classmonstre_ad8cabac44854155b68f309fa54aab742}} 
-vector$<$ \hyperlink{classcompetence}{competence} $>$ {\bfseries skill\+Vect}
+\mbox{\Hypertarget{classmonstre_a6540a325121334ddbb8847cbf97f869a}\label{classmonstre_a6540a325121334ddbb8847cbf97f869a}} 
+std\+::vector$<$ \hyperlink{classcompetence}{competence} $>$ {\bfseries skill\+Vect}
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/thibault/\+Git\+Hub/\+C\+E\+R\+I\+\_\+software\+\_\+engineering\+\_\+game\+\_\+1/headers/monstre.\+h\item 
-/\+Users/thibault/\+Git\+Hub/\+C\+E\+R\+I\+\_\+software\+\_\+engineering\+\_\+game\+\_\+1/sources/monstre.\+cpp\end{DoxyCompactItemize}
+/\+Users/thibault/\+Git\+Hub/\+C\+E\+R\+I\+\_\+software\+\_\+engineering\+\_\+game\+\_\+1/headers/monstre.\+h\end{DoxyCompactItemize}

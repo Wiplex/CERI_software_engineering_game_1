@@ -1,4 +1,4 @@
-.TH "monstre" 3 "Thu Apr 20 2017" "My Project" \" -*- nroff -*-
+.TH "monstre" 3 "Fri Apr 21 2017" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -12,16 +12,16 @@ Inherited by \fBpersonnage\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBmonstre\fP (string name, int hpMax, int speed)"
+.RI "\fBmonstre\fP (std::string name, int hpMax, int speed)"
 .br
 .ti -1c
-.RI "\fBmonstre\fP (string name, int hpMax, int speed, vector< \fBcompetence\fP > allSkills)"
+.RI "\fBmonstre\fP (std::string name, int hpMax, int speed, std::vector< \fBcompetence\fP > allSkills)"
 .br
 .ti -1c
-.RI "template<typename T > string \fBtoString\fP (const T &valeur)"
+.RI "template<typename T > std::string \fBtoString\fP (const T &valeur)"
 .br
 .ti -1c
-.RI "string \fBgetName\fP ()"
+.RI "std::string \fBgetName\fP ()"
 .br
 .ti -1c
 .RI "int \fBgetHpMax\fP ()"
@@ -36,13 +36,13 @@ Inherited by \fBpersonnage\fP\&.
 .RI "bool \fBgetAlive\fP ()"
 .br
 .ti -1c
-.RI "vector< \fBcompetence\fP > \fBgetSkillVect\fP ()"
+.RI "std::vector< \fBcompetence\fP > \fBgetSkillVect\fP ()"
 .br
 .ti -1c
-.RI "string \fBmonstreString\fP ()"
+.RI "std::string \fBmonstreString\fP ()"
 .br
 .ti -1c
-.RI "int \fBnbLigneFichier\fP (string nomFichier)"
+.RI "int \fBnbLigneFichier\fP (std::string nomFichier)"
 .br
 .ti -1c
 .RI "void \fBsaveInFile\fP ()"
@@ -58,7 +58,7 @@ Inherited by \fBpersonnage\fP\&.
 
 .in +1c
 .ti -1c
-.RI "string \fBname\fP"
+.RI "std::string \fBname\fP"
 .br
 .ti -1c
 .RI "int \fBhpMax\fP"
@@ -73,7 +73,7 @@ Inherited by \fBpersonnage\fP\&.
 .RI "bool \fBalive\fP"
 .br
 .ti -1c
-.RI "vector< \fBcompetence\fP > \fBskillVect\fP"
+.RI "std::vector< \fBcompetence\fP > \fBskillVect\fP"
 .br
 .in -1c
 
