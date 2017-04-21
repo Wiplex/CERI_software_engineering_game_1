@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../headers/io.h"
+#include <stdio.h>
 
 using namespace std;
 using namespace io;
@@ -14,6 +15,9 @@ int main()
 	cout << "Input long : ";
 	string s = long_input();
 	cout << "Result : " << s << endl;
+
+	cout << "Width : " << getTerminalWidth() << endl;
+	cout << "Height : " << getTerminalHeight() << endl;
 
 	// personnage test1("Bob", "un mec random");
 	// personnage test2("Roger", "un autre mec random");
