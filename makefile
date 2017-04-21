@@ -1,5 +1,6 @@
 # Variables :
 
+ALL="$(IO) $(CARTE) $(MONSTRE) $(COMPETENCE) $(PERSONNAGE)"
 IO="archives/io.a"
 CARTE="archives/carte.a"
 MONSTRE="archives/monstre.a"
@@ -9,6 +10,7 @@ PERSONNAGE="archives/personnage.a"
 # Cibles que l'on peut compiler directement :
 all:
 	@make -s io	# IO
+	@make -s in	# Iterface loic
 	@make -s ca	# Carte
 	@make -s co	# Compétences
 	@make -s mo	# Monstre
@@ -36,8 +38,12 @@ io:
 	@make objects/io_main.o
 	@make archives/io.a
 	@make io_main.exe
+in:
+	@make objects/interface.o
 doc:
 	@cd documentation; doxygen documentation > doxygen_output.txt; cd latex; make;
+main.exe: objects/fonctionsjeu.o objects/io.o objects/carte.o objects/personnage.o objects/competence.o objects/monstre.o objects/interface.o
+	@g++ $^ tests/main.cpp -o $@ -std=c++11
 
 # Archives des classes :
 
@@ -71,10 +77,13 @@ objects/carte.o: sources/carte.cpp
 objects/monstre.o: sources/monstre.cpp
 	@echo "Compiling $@ ..."
 	@g++ -c $< -o $@ -std=c++11
+objects/interface.o: sources/interface.cpp
+	@echo "Compiling $@ ..."
+	@g++ -c $< -o $@ -std=c++11
 objects/competence.o: sources/competence.cpp
 	@echo "Compiling $@ ..."
 	@g++ -c $< -o $@ -std=c++11
-objects/personnage.o: sources/fonctionsjeu.cpp
+objects/personnage.o: sources/personnage.cpp
 	@echo "Compiling $@ ..."
 	@g++ -c $< -o $@ -std=c++11
 objects/fonctionsjeu.o:	sources/fonctionsjeu.cpp
