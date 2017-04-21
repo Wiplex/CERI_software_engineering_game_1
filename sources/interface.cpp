@@ -474,11 +474,3 @@ vector<personnage> interface::loadAllPersonnageFromFile()
 		cerr << "Impossible d'ouvrir le fichier." << endl;
 	}
 }
-
-
-monstre interface::randomMonstre(vector<monstre> allMonstre) //Retourne un monstre aléatoire parmi un vecteur de monstre (pour création de carte par défaut)
-{
-    int aleat = rand() % allMonste.size();
-
-    return allMonstre[aleat];
-}

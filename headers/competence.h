@@ -5,13 +5,13 @@
 
 #ifndef COMPETENCE_H
 #define COMPETENCE_H
-#pragma once
 
 class competence
 {
 	std::string skillName;
 	int damage;
 	int manaCost;
+
 public:
 	competence();
 	competence(std::string skillName, int damage, int manaCost);
@@ -27,7 +27,6 @@ public:
 	void printCompetence(); //Test
 
 	std::string competenceString(); //Convertit les carac. d'une compétence en une string formatée
-
 };
 
 
