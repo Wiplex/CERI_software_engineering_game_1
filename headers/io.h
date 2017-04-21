@@ -3,6 +3,7 @@
 #include <typeinfo>
 #include <termios.h>	// Needed for terminal input manipulation
 #include <stdio.h>	// Needed for terminal input manipulation
+#include <sstream>
 
 #ifndef IO_H
 #define IO_H
@@ -31,9 +32,12 @@ namespace io
 
 	//! Long input
 	/*!
-
+		magic.gif
 	*/
 	extern std::string long_input();
+
+	//! Enlève le dernier caractère d'un stringstream.
+	extern void removeLastChar(std::stringstream& i);
 
 	//! Message d'accueil
 	/*!

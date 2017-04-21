@@ -11,6 +11,10 @@ int main()
 	cout << endl << "Result de : " << r << endl;
 	cout << "Result de : " << int(r) << endl;
 
+	cout << "Input long : ";
+	string s = long_input();
+	cout << "Result : " << s << endl;
+
 	// personnage test1("Bob", "un mec random");
 	// personnage test2("Roger", "un autre mec random");
 
