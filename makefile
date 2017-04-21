@@ -14,6 +14,7 @@ all:
 	@make -s mo	# Monstre
 	@make -s pe	# Personnage
 	@make -s fj	# Fonctions jeu
+	@make -s main.exe
 ca:
 	@make objects/carte.o
 	@make archives/carte.a

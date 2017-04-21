@@ -61,7 +61,7 @@ namespace io
 		if (s.size() != 0)
 		{
 			s.erase(s.end()-1);
-			input.swap(str);
+			input.str("");
 			input << s;
 		}
 	}
