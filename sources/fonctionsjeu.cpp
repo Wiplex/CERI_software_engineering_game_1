@@ -3,10 +3,9 @@
 
 jeu::jeu()
 {
-	jeu_perso = new personnage();			// À COMPLÉTER UNE FOIS QUE CLASSE PERSO FINIE
-	jeu_carte = new Carte(6);			// À COMPLÉTER UNE FOIS QUE CLASSE CARTE FINIE
-	jeu_nombre_monstre = 8;				// À COMPLÉTER UNE FOIS QUE CLASSE CARTE FINIE
-	// Normalement, à ca point là, la carte doit être chargée, le personnage est choisi et chargé, les monstres sont chargés et il ne reste qu'à lancer le jeu.
+	// jeu_perso = new perso();			// À COMPLÉTER UNE FOIS QUE CLASSE PERSO FINIE
+	// jeu_carte = new carte();			// À COMPLÉTER UNE FOIS QUE CLASSE CARTE FINIE
+	// jeu_nombre_monstre = carte.getMonsters();	// À COMPLÉTER UNE FOIS QUE CLASSE CARTE FINIE
 }
 
 jeu::~jeu()
@@ -15,12 +14,22 @@ jeu::~jeu()
 void jeu::demarrer_jeu()
 {
 	bienvenue();
-	std::cout << "Bienvenue dans le jeu" << std::endl;
+
+
+
 	// custom_buffer.affichercarte(jeu_carte);
 }
 
+
+
+void ent_combat::util_comp(monstre * entite, competence * comp)
+{
+
+}
+
+
 /*
-void jeu::combat(perso *p, monstre *m)
+void jeu::combat(perso &p, monstre &m)
 {
 	while (monstre_mort == 0)
 	{

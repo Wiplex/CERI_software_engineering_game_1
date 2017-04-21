@@ -10,6 +10,7 @@ class personnage : public monstre //Classe personnage héritant de la classe mon
 	std::string description;
 
 public:
+
 	//Constructeur vide
 	personnage():monstre()
 	{
@@ -46,9 +47,6 @@ public:
 	bool enleverMana(int manaCost); //Return true si le personnage a toujours du mana
 
 	void printPersonnage(); //Pour test
-
-
-
 };
 
 #endif

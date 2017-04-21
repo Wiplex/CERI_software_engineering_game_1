@@ -440,6 +440,11 @@ vector<personnage> interface::loadAllPersonnageFromFile()
 							description+=parcoursCarac;
 						}
 
+						if (nbBarre==3)
+						{
+							break;
+						}
+
 					}
 
 			}
