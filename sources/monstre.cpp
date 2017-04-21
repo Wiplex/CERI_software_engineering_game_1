@@ -7,7 +7,7 @@ using namespace std;
 
 // --------------------CONSTRUCTEURS
 
-monstre::monstre()	  //Constructeur vide
+monstre::monstre()      //Constructeur vide
 {
 	this->name = "Inconnu";
 	this->hpMax = 0;
@@ -102,7 +102,7 @@ int monstre::nbLigneFichier(string nomFichier) //Compte le nb de ligne du fichie
 
 		while(getline(fichier, ligne)) //Stockage de chaque ligne du fichier
 		{
-			 nbLigne++;
+			nbLigne++;
 		}
 		fichier.close(); //On ferme le fichier
 	}
@@ -113,7 +113,6 @@ int monstre::nbLigneFichier(string nomFichier) //Compte le nb de ligne du fichie
 	}
 
 	return nbLigne;
-
 }
 
 

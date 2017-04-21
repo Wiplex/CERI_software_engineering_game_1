@@ -36,10 +36,6 @@ public:
 	void printMonstre(); // Pour tester
 
 	bool enleverVie(int degats); //Permet d'enlever eds points de vie, faire mourir un montre. Retourne true si monstre mort.
-
-
-
-
 };
 
 
