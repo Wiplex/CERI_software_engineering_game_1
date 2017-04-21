@@ -8,12 +8,12 @@ PERSONNAGE="archives/personnage.a"
 
 # Cibles que l'on peut compiler directement :
 all:
-	@make io	# IO
-	@make ca	# Carte
-	@make co	# Compétences
-	@make mo	# Monstre
-	@make pe	# Personnage
-	@make fj	# Fonctions jeu
+	@make -s io	# IO
+	@make -s ca	# Carte
+	@make -s co	# Compétences
+	@make -s mo	# Monstre
+	@make -s pe	# Personnage
+	@make -s fj	# Fonctions jeu
 ca:
 	@make objects/carte.o
 	@make archives/carte.a
