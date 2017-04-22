@@ -23,9 +23,11 @@ class jeu
 {
 	//! Carte du jeu, à choisir au début du jeu.
 	Carte * jeu_carte;
+
 	//! Personnage choisi par le joueur, à choisir au début du jeu.
 	personnage * jeu_perso;
 	// std::stack<> jeu_coups;
+
 	//! Compte le nombre de monstres restant sur la carte.
 	int jeu_nombre_monstre;
 
@@ -41,22 +43,34 @@ public:
 		\sa perso(), carte(), monstre()
 	*/
 	jeu();
+
 	//! Destructeur par défaut.
 	~jeu();
+
 	//! Fonction permettant de déterminer comment va démarrer la partie.
 	/*!
-		Etant donné que cette fonction utilise des entités externes, il faut que tout le monde aie fini lesdites entités pour que la fonction compile.
+		Manque carte pour pouvoir finaliser cette partie.
 	*/
 	void demarrer_jeu();
+
+	//! Module de combat
+	/*!
+		Fonction permettant de gérer le combat.
+	*/
+
 	//	void combat(perso &p, monstre &m);
 	//	void application_coup(perso &p, compet &a, monstre &m, compet &b);
 };
 
-struct ent_combat
-{
-	monstre * entite;
+//struct ent_combat
+//{
+//	monstre entite;
+//
+//	ent_combat(monstre monst);
+//	monstre Get_entite();
+//	void util_comp(monstre entite, competence comp);
+//};
 
-	void util_comp(monstre * entite, competence * comp);
-};
+bool sort_speed(monstre a, monstre b);
 
 #endif
