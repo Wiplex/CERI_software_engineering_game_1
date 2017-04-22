@@ -4,14 +4,14 @@
 #define PERSONNAGE_H
 #pragma once
 
-class personnage : public entite //Classe personnage héritant de la classe monstre
+class personnage : public entite //Classe personnage héritant de la classe entité
 {
 
 public:
 
-	//! Constructeur ventiteIde
+	//! Constructeur vide
 	/*!
-		Le personnage créé aura 0 de mana, et n'aura aucune entiteDescription. Mais il sera crée.
+		Le personnage créé aura 0 de mana, et n'aura aucune description. Mais il sera crée.
 	*/
 	personnage():entite()
 	{
