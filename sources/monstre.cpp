@@ -10,6 +10,7 @@ using namespace std;
 monstre::monstre()      //Constructeur vide
 {
 	this->name = "Inconnu";
+	this->description = "";
 	this->hpMax = 0;
 	this->hpCurrent = hpMax;
 	this->speed = 0;
@@ -21,6 +22,7 @@ monstre::monstre()      //Constructeur vide
 monstre::monstre(string name, int hpMax, int speed)  //Constructeur avec arguments de caractéristiques du monstre
 {
 	this->name = name;
+	this->description = "";
 	this->hpMax = hpMax;
 	this->hpCurrent = this->hpMax;
 	this->speed = speed;
@@ -32,6 +34,7 @@ monstre::monstre(string name, int hpMax, int speed)  //Constructeur avec argumen
 monstre::monstre(string name, int hpMax, int speed, vector<competence> allSkills) //Constructeur avec arguments de carac. et de compétences
 {
 	this->name = name;
+	this->description = "";
 	this->hpMax = hpMax;
 	this->hpCurrent = this->hpMax;
 	this->speed = speed;
@@ -53,11 +56,20 @@ template<typename T>string monstre::toString( const T & valeur ) //Conversion de
 
 //-----GET ATTRIBUTS
 
+string monstre::getId()
+{
+	return this->id;
+}
+
 string monstre::getName() //Retourne le nom d'un monstre
 {
 	return this->name;
 }
 
+string monstre::getDescription()
+{
+	return this->description;
+}
 
 int monstre::getHpMax() //Retourne le nombre de points de vie max d'un monstre
 {
@@ -179,6 +191,19 @@ bool monstre::enleverVie(int degats)
 	return false;
 }
 
+///Problème ici, si la dépense de mana n'est pas possible, la mana est quand même dépensée.
+///De même, <= 0 empêche d'utiliser les compétences qui utilisent exactement le bon montant de mana.
+bool monstre::enleverMana(int manaCost)
+{
+	this->manaCurrent -= manaCost;
+	if(this->manaCurrent <=0)
+	{
+		return false;
+	}
+
+	return true;
+}
+
 
 // TESTS
 
@@ -189,7 +214,7 @@ void monstre::printMonstre()
 	cout << "hp max : " << this->hpMax<< endl;
 	cout << "speed : " << this->speed<< endl;
 
-	for (int i=0 ; i<3 ; i++)
+	for (int i=0 ; i<this->skillVect.size() ; i++)
 	{
 		this->skillVect[i].printCompetence();
 	}

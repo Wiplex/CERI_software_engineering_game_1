@@ -1,1 +1,1 @@
-c0|bzbz|petite|6|(0,0,joueur)(0,1,maison)(0,2,pierre)
+c0|bzbz|petite|6|(0,0,)(0,1,eau)(0,2,pierre)

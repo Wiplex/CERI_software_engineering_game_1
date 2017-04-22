@@ -1,4 +1,4 @@
-#include "carte.h"
+#include "../headers/carte.h"
 #include <iostream>
 
 
@@ -16,7 +16,7 @@ int main()
 	cout << "Choix de la carte : " << endl ;
 	cin >> choix ;
 
-	Carte test(100) ;
+	Carte test(100, "foret", "les arbres") ;
 	test.chargement(choix) ;
 	test.affichage() ;
 

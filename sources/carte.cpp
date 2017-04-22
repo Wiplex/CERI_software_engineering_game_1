@@ -1,4 +1,4 @@
-#include "carte.h"
+#include "../headers/carte.h"
 #include <iostream>
 #include <fstream>
 #include <limits>
@@ -11,7 +11,15 @@ Carte :: Carte()
 {
 	this->nom = "";
 	this->description = "";
-	this->plateau = new string * ;
+	this->taille = 5 ;
+
+	this->plateau = new string * [taille];
+	for (int i = 0 ; i < taille ; i++)
+	{
+		plateau[i] = new string [taille] ;
+	}
+
+	this->nbr_monstre = 0 ;
 	this -> case_dispo = 0;
 }
 
@@ -26,11 +34,11 @@ Carte :: Carte (int size, string name, string desc)
 		plateau[i] = new string [taille];
 		for (int j = 0 ; j< taille ; j++)
 		{
-			plateau[i][j] = "v" ;
-			
+			plateau[i][j] = "" ;
+
 		}
 	}
-	this -> case_dispo= taille*taille;
+	this -> case_dispo = taille*taille;
 }
 
 
@@ -57,16 +65,16 @@ void Carte :: coordonneejoueur()
 		cin >> coordonneejoueur2;
 		if (coordonneejoueur1 < taille && coordonneejoueur2 < taille)
 		{
-			plateau[coordonneejoueur1][coordonneejoueur2]="j";	
+			plateau[coordonneejoueur1][coordonneejoueur2]="j";
 			placement_fait=true;
 		}
-		else 
+		else
 		{
 			cout << "vos coordonnées sont hors de la carte!!" << endl;
 		}
 	}
 	case_dispo = case_dispo - 1;
-}	
+}
 
 void Carte::coordonneeobstacle()
 {
@@ -94,17 +102,17 @@ void Carte::coordonneeobstacle()
 				plateau[coordonneeobstacle1][coordonneeobstacle2] = "o";
 				i++;
 			}
-			else 
+			else
 			{
-				cout << "cette case est deja occupée, Veuillez en choisir une autre " << endl; 
+				cout << "cette case est deja occupée, Veuillez en choisir une autre " << endl;
 			}
 		}
 		else
 		{
 			cout << "Vos coordonnées sont hors de la carte!!" << endl;
-		}	
+		}
 	}
-	case_dispo = case_dispo - nbr_obstacle; 
+	case_dispo = case_dispo - nbr_obstacle;
 }
 
 void Carte::coordonneemonstre()
@@ -132,13 +140,13 @@ void Carte::coordonneemonstre()
 				plateau[coordonneemonstre1][coordonneemonstre2] = "m";
 				i++;
 			}
-			else 
+			else
 			{
-				cout << "Cette case est deja occupée veuillez en choisir une autre " << endl; 
+				cout << "Cette case est deja occupée veuillez en choisir une autre " << endl;
 			}
 		}
 		else
-		{ 
+		{
 			cout << "Vos coordonnées sont hors de la carte!!" << endl;
 		}
 	}
@@ -188,10 +196,10 @@ void Carte :: sauvegarde()
 	string type_obstacle;
 	string monstre;
 	int nbligne=nbLigneFichier(carte);
-	
+
 	//ouverture du fichier en écriture
 	ofstream fichier(carte, ios :: app) ;
-		
+
 	// Si fichier bien ouvert
 	if (fichier)
 	{
@@ -207,24 +215,24 @@ void Carte :: sauvegarde()
 				{
 					cout << "Quelle est l'obstacle à la case "<< i << " "<< j << ":";
 					cin >> type_obstacle;
-					fichier << "(" << i << "," << j << ","<< type_obstacle << ")"; 
+					fichier << "(" << i << "," << j << ","<< type_obstacle << ")";
 				}
 				if (plateau[i][j]=="m")
 				{
 					cout << "Quelle est le monstre à la case "<< i << " "<< j << ":";
 					cin >> monstre;
-					fichier << "(" << i << "," << j << ","<< monstre << ")"; 
+					fichier << "(" << i << "," << j << ","<< monstre << ")";
 				}
 				if (plateau[i][j]=="j")
-					fichier << "(" << i << "," << j << ",joueur" << ")"; 
-			} 
-			
+					fichier << "(" << i << "," << j << ",joueur" << ")";
+			}
+
 		}
 		fichier << '\n' ;
 		// On referme le fichier
 		fichier.close() ;
 		cout << "Carte sauvegardée" << endl ;
-	} 
+	}
 	else cerr << "échec de la sauvegarde" << endl ;
 	return ;
 }
@@ -249,96 +257,213 @@ vector <Carte> Carte :: chargement ()
 	if (fichier)
 	{
 		string current_line;
-		Carte carte_temporaire ;
+
+//cerr << "1" << endl ;
+//cerr << "current_line : " << current_line << endl ;
 		while (getline(fichier, current_line))
 		{
+//cerr << "2" << endl ;
+			bool fait = false ;
+			Carte carte_temporaire ;
 			string id = "" ;
 			string nom = "" ;
 			string description = "" ;
 			string taille= "";
-			string coordonnee1 = "" ; 
+			string coordonnee1 = "" ;
 			string coordonnee2 = "" ;
 			string type = "" ;
-			int count = 0 ;
+			int count_c = 0 ;
 			int count_coordonnee = 0 ;
 			int i = 0 ;
-
+//cerr << "id : " << id << endl ;
+//cerr << "nom : " << nom << endl ;
+//cerr << "description : " << description << endl ;
+//cerr << "taille : " << taille << endl ;
+//cerr << "coordonnée 1 : " << coordonnee1 << endl ;
+//cerr << "coordonnée 2 : " << coordonnee2 << endl ;
+//cerr << "type : " << type << endl ;
+//cerr << "count_c : " << count_c << endl ;
+//cerr << "count_coordonnee : " << count_coordonnee << endl ;
+//cerr << "i : " << i << endl ;
 			while (current_line[i+1] != '\0')
 			{
 				char tmp = current_line[i] ;
+//cerr << "3" << endl ;
+//cerr << "tmp : " << tmp << endl ;
 				if (tmp == '|')
 				{
-					count ++ ;
+					count_c ++ ;
 					i++ ;
+//cerr << "4_1 : " << endl ;
+//cerr << "count_c : " << count_c << endl ;
+//cerr << "i : " << i << endl ;
 				}
-				else if (count == 0)
+				else if (count_c == 0)
 				{
 					id = id + tmp ;
 					i++ ;
+//cerr << "4_2 : " << endl ;
+//cerr << "id : " << id << endl ;
+//cerr << "i : " << i << endl ;
 				}
-				else if (count == 1)
+				else if (count_c == 1)
 				{
 					nom = nom + tmp ;
 					i++ ;
+//cerr << "4_3 : " << endl ;
+//cerr << "nom : " << nom << endl ;
+//cerr << "i : " << i << endl ;
 				}
-				else if (count == 2)
+				else if (count_c == 2)
 				{
 					description = description + tmp ;
 					i++ ;
+//cerr << "4_4 : " << endl ;
+//cerr << "description : " << description << endl ;
+//cerr << "i : " << i << endl ;
 				}
-				else if (count == 3)
+				else if (count_c == 3)
 				{
 					taille = taille + tmp ;
 					i++ ;
+//cerr << "4_5 : " << endl ;
+//cerr << "taille : " << taille << endl ;
+//cerr << "i : " << i << endl ;
 				}
 				int t = atoi(taille.c_str());
 				carte_temporaire.taille = t ;
+
+				delete [] carte_temporaire.plateau;
+				carte_temporaire.plateau = new string * [t];
+
+				for (int i = 0 ; i < t ; i++)
+				{
+					carte_temporaire.plateau[i] = new string [t] ;
+				}
+
 				carte_temporaire.nom = nom ;
 				carte_temporaire.description = description ;
-				if (count == 4)
+//cerr << "5 : " << endl ;
+//cerr << "t : " << t << endl ;
+//cerr << "taille : " << carte_temporaire.taille << endl ;
+//cerr << "nom : " << carte_temporaire.nom << endl ;
+//cerr << "description : " << carte_temporaire.description << endl ;
+				if (count_c == 4)
 				{
-					if (tmp == ')')
+//cerr << "6 : " << endl ;
+//cerr << "count_c : " << count_c << endl ;
+					if (fait)
 					{
+						type = "";
+						coordonnee1 = "" ;
+						coordonnee2 = "" ;
+						if (current_line[i+1] != '\0') fait = false ;
+					}
+					else if (tmp == ')')
+					{
+						fait = true ;
 						count_coordonnee = 0 ;
 						i++ ;
 						int coor1 = atoi(coordonnee1.c_str()) ;
-						int coor2 = atoi(coordonnee1.c_str()) ;
-						carte_temporaire.plateau[coor1][coor2]= type;
+						int coor2 = atoi(coordonnee2.c_str()) ;
+						carte_temporaire.plateau[coor1][coor2] = id;
+//cerr << "7_1 : " << endl ;
+//cerr << "count_c_coordonnee : " << count_c_coordonnee << endl ;
+//cerr << "i : " << i << endl ;
+//cerr << "coor1 : " << coor1 << endl ;
+//cerr << "coor2 : " << coor2 << endl ;
+//cerr << "plateau : " << carte_temporaire.plateau[coor1][coor2] << endl ;
+
 					}
 					else if (tmp == ',')
 					{
 						count_coordonnee ++ ;
 						i++ ;
+//cerr << "7_2 : " << endl ;for (int i = 0; i < taille; i++)
+//cerr << "count_coordonnee : " << count_coordonnee << endl ;
+//cerr << "i : " << i << endl ;
 					}
 					else if (tmp == '(')
 					{
 						i ++ ;
+//cerr << "7_3 : " << endl ;
+//cerr << "i : " << i << endl ;
 					}
 					else if ((tmp != '(') && (tmp != ')') && (tmp != ','))
 					{
+//cerr << "7_4 : " << endl ;
 						if (count_coordonnee == 0)
 						{
 							coordonnee1 = coordonnee1 + tmp ;
 							i ++ ;
+//cerr << "7_4_1 : " << endl ;
+//cerr << "coordonnée 1 : " << coordonnee1 << endl ;
+//cerr << "i : " << i << endl ;
 						}
 						else if (count_coordonnee == 1)
 						{
 							coordonnee2 = coordonnee2 + tmp ;
 							i++ ;
+//cerr << "7_4_2 : " << endl ;
+//cerr << "coordonnée 2 : " << coordonnee2 << endl ;
+//cerr << "i : " << i << endl ;
 						}
 						else if (count_coordonnee == 2)
 						{
 							type = type + tmp ;
 							i++ ;
+//cerr << "7_4_3 : " << endl ;
+//cerr << "type : " << type << endl ;
+//cerr << "i : " << i << endl ;
 						}
 					}
 				}
 			}
+//cerr << "enregistrement dans selectionnable" << endl ;
+			selectionnable.push_back(carte_temporaire) ;
+
+			for (int i = 0; i < carte_temporaire.taille; i++)
+			{
+				for (int j = 0; j < carte_temporaire.taille; j++)
+				{
+					cout << carte_temporaire.plateau[i][j];
+				}
+				cout << endl;
+			}
 		}
-		selectionnable.push_back(carte_temporaire) ;
 	}
 	return selectionnable ;
 }
+
+Carte Carte::operator=(const Carte & a_copier)
+{
+	this -> id = a_copier.id;
+	this -> nom = a_copier.nom;
+	this -> description = a_copier.description;
+	this -> taille = a_copier.taille;
+
+	delete [] this -> plateau;
+	this -> plateau = new string * [taille];
+
+	for (int i = 0; i < taille; i++)
+	{
+		this -> plateau[i] = new string [taille];
+	}
+
+	for (int i = 0; i < taille; i++)
+	{
+		for (int j = 0; j < taille; j++)
+		{
+			this -> plateau[i][j] = a_copier.plateau[i][j];
+		}
+	}
+
+	this -> nbr_monstre = a_copier.nbr_monstre;
+	this -> case_dispo = a_copier.case_dispo;
+
+	return * this;
+}
+
 
 
 

@@ -2,19 +2,20 @@
 #include <string>
 #include <vector>
 
-using namespace std ;
-
 #ifndef CARTE_H
 #define CARTE_H
+#pragma once
 
 class Carte
 {
+	std::string id;
 	std::string nom ;
 	std:: string description;
 	int taille ;
-	string ** plateau ;
+	std::string ** plateau ;
 	int nbr_monstre;
 	int case_dispo;
+
 	public:
 		Carte();
 		Carte(int taille, std::string name, std::string description) ;
@@ -24,14 +25,15 @@ class Carte
 		void coordonneemonstre();
 		void affichage_normal();
 		//void affichage() ;
-		int nbLigneFichier(string nomFichier);
+		int nbLigneFichier(std::string nomFichier);
 		void sauvegarde() ;
 		std::string getName() ;
 		std::string getDescription() ;
 		//bool carte_existe(std::string nom) ;
 		//int quel_taille(std::string nom);
 		//void suppression(std::string nom);
-		vector <Carte> chargement ();
+		static std::vector<Carte> chargement ();	///A déplacer dans fonctionsjeu.h
+		Carte operator=(const Carte & a_copier);
 
 };
 
