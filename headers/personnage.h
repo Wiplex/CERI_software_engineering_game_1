@@ -1,14 +1,11 @@
-#include "../headers/monstre.h"
+#include "../headers/entite.h"
 
 #ifndef PERSONNAGE_H
 #define PERSONNAGE_H
 #pragma once
 
-class personnage : public monstre //Classe personnage héritant de la classe monstre
+class personnage : public entite //Classe personnage héritant de la classe monstre
 {
-	int manaMax;
-	int manaCurrent;
-	std::string description;
 
 public:
 
@@ -16,28 +13,15 @@ public:
 	/*!
 		Le personnage créé aura 0 de mana, et n'aura aucune description. Mais il sera crée.
 	*/
-	personnage():monstre()
+	personnage():entite()
 	{
-		this->manaMax=0;
-		this->manaCurrent=this->manaMax;
-		this->description="Inconnu";
 	};
 
-	//! Constructeur avec caractéristiques
-	personnage(std::string name, int hpMax, int speed, int manaMax, std::string description):monstre(name, hpMax, speed)
+
+	personnage(std::string id, std::string name, int hpMax, int speed, int manaMax, std::string description, std::vector<competence> allSkills) : entite(id, name, hpMax, speed, manaMax, description, allSkills )
 	{
-		this->manaMax=manaMax;
-		this->manaCurrent=this->manaMax;
-		this->description=description;
 	};
 
-	//! Constructeur avec caractéristiques + vecteur de compétences
-	personnage(std::string name, int hpMax, int speed, int manaMax, std::string description, std::vector<competence> allSkills):monstre(name, hpMax, speed, allSkills)
-	{
-		this->manaMax=manaMax;
-		this->manaCurrent=this->manaMax;
-		this->description=description;
-	};
 
 	//! Getter pour la mana maximum du personnage
 	int getManaMax();

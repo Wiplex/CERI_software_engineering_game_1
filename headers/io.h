@@ -91,11 +91,8 @@ namespace io
 	//! Récupérer les compétences d'un monstre dans le .txt
 	std::vector<competence> loadCompetenceFromFile(std::string nomFichier,int numLigne);
 
-	//Retourne un vecteur contenant tous les monstres du fichier .txt
-	std::vector<monstre> loadAllMonstreFromFile();
-
-	//! Retourne un vecteur contenant tous les personnages du fichier .txt
-	std::vector<personnage> loadAllPersonnageFromFile();
+	//! Retourne un vecteur contenant toutes les entites du fichier .txt
+	std::vector<personnage> loadAllEntiteFromFile(std::string nomFichier);
 
 	//! Affichage d'objet.
 	/*!

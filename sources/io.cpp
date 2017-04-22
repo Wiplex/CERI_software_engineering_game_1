@@ -170,7 +170,7 @@ namespace io
 		return creation;
 	}
 
-	competence createCompetenceMonstre() //Permet à l'utilisateur de créer une compétence pour monstre
+/*	competence createCompetenceMonstre() //Permet à l'utilisateur de créer une compétence pour monstre
 	{
 		string skillName;
 		int damage;
@@ -236,7 +236,7 @@ namespace io
 
 		return creation;
 	}
-
+*/
 
 	vector<competence> loadCompetenceFromFile(string nomFichier,int numLigne)
 	{
@@ -352,113 +352,13 @@ namespace io
 		return allSkills;
 	}
 
-	// FONCTION DE CHARGEMENT D'UN MONSTRE
 
-	vector<monstre> loadAllMonstreFromFile()
+	//FONCTIONS DE CHARGEMENT D'UNE ENTITE
+
+
+	vector<entite> loadAllentiteFromFile(string nomFichier)
 	{
-		vector<monstre> allMonsters; //Vecteur de retour
-
-		string uneLigne=""; //Variable stockant une ligne
-
-		int nbSeparateur = 0;
-		string sID;
-		string sName;
-		string sHpMax;
-		string sSpeed;
-		int hpMax;
-		int speed;
-		int cptLigne=0;
-		vector<competence> allSkills;
-
-		char parcoursCarac; //Parcours de la ligne
-
-		ifstream fichierMonstre("fichierMonstre.txt", ios::in); //Ouverture en mode lecture
-
-		if(fichierMonstre)
-		{
-			while (getline(fichierMonstre, uneLigne)) //Parcours de tout le fichier et stockage d'une ligne
-			{
-				cptLigne++;
-				sName=""; //Reset de toutes les variables afin de stocker une nouvelle ligne
-				sID="";
-				sHpMax="";
-				hpMax=0;
-				sSpeed="";
-				speed=0;
-				nbSeparateur=0;
-				allSkills.clear();
-
-
-				for(int i=0; i<uneLigne.length(); i++) //Analyse de la ligne
-				{
-					parcoursCarac = uneLigne[i];
-					if(nbSeparateur <4) // Récupération des carac. d'un monstre
-					{
-						if (parcoursCarac == '/')
-						{
-							nbSeparateur++;
-						}
-
-						if (nbSeparateur == 0) // Champ ID
-						{
-							sID+=parcoursCarac;
-						}
-
-						if (nbSeparateur == 1) //Champ Nom
-						{
-							if (parcoursCarac == '/')
-							{
-								continue;
-							}
-							sName+=parcoursCarac;
-						}
-
-						if (nbSeparateur == 2) //Champ hpMax
-						{
-							if (parcoursCarac == '/')  continue;
-							sHpMax+=parcoursCarac;
-						}
-
-						if (nbSeparateur == 3) //Champ vitesse
-						{
-							if (parcoursCarac == '/')  continue;
-							sSpeed+=parcoursCarac;
-						}
-					}
-				}
-
-
-				istringstream (sHpMax) >> hpMax; //Conversion string to int
-
-				istringstream (sSpeed) >> speed; //Conversion string to int
-
-				allSkills = loadCompetenceFromFile("fichierMonstre.txt",cptLigne); //Récupération des compétences
-
-				monstre creation(sName, hpMax, speed, allSkills); //Création du monstre
-
-				allMonsters.push_back(creation); //Stockage du monstre dans le vecteur de retour
-
-			}
-
-			return allMonsters;
-
-			fichierMonstre.close();
-		}
-
-		else
-		{
-			cerr << "Impossible d'ouvrir le fichier." << endl;
-		}
-	}
-
-
-
-	//FONCTIONS DE CHARGEMENT D'UN PERSONNAGE
-
-
-	vector<personnage> loadAllPersonnageFromFile()
-	{
-		vector<personnage> allPerso; //Vecteur de retour
+		vector<entite> allPerso; //Vecteur de retour
 
 		string uneLigne=""; //Variable stockant une ligne
 
@@ -478,11 +378,11 @@ namespace io
 
 		char parcoursCarac; //Parcours de la ligne
 
-		ifstream fichierPersonnage("fichierPersonnage.txt", ios::in); //Ouverture en mode lecture
+		ifstream fichierEntite(nomFichier.c_str(), ios::in); //Ouverture en mode lecture
 
-		if(fichierPersonnage)
+		if(fichierEntite)
 		{
-			while (getline(fichierPersonnage, uneLigne)) //Parcours de tout le fichier et stockage d'une ligne
+			while (getline(fichierEntite, uneLigne)) //Parcours de tout le fichier et stockage d'une ligne
 			{
 				cptLigne++; //Reset de toutes les variables afin de stocker une nouvelle ligne
 				sName="";
@@ -575,9 +475,9 @@ namespace io
 
 				istringstream (sManaMax) >> manaMax; //Conversion string to int
 
-				allSkills = loadCompetenceFromFile("fichierPersonnage.txt",cptLigne); //Récupération des compétences
+				allSkills = loadCompetenceFromFile("fichierEntite.txt",cptLigne); //Récupération des compétences
 
-				personnage creation(sName, hpMax, speed, manaMax, description, allSkills); //Création du personnage
+				entite creation(sID, sName, hpMax, speed, manaMax, description, allSkills); //Création du entite
 
 				allPerso.push_back(creation); //Stockage du perso dans le vecteur de retour
 
@@ -585,7 +485,7 @@ namespace io
 
 			return allPerso;
 
-			fichierPersonnage.close();
+			fichierEntite.close();
 		}
 
 		else
