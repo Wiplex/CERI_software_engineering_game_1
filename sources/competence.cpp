@@ -4,7 +4,7 @@ using namespace std;
 
 // --------------------CONSTRUCTEURS
 
-competence::competence()       //Constructeur de compétence ventiteIde
+competence::competence()       //Constructeur de compétence vide
 {
 	this->skillName = "Inconnu";
 	this->skillDamage = 0;
