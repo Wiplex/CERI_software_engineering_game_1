@@ -84,7 +84,7 @@ namespace io
 		std::puts("\n");
 	}
 
-	int getTerminalWentiteIdth()
+	int getTerminalWidth()
 	{
 		FILE * r;
 		std::string w1,w2;
