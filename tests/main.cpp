@@ -1,6 +1,5 @@
 #include "../headers/fonctionsjeu.h"
 #include "../headers/carte.h"
-#include "../headers/interface.h"
 #include "../headers/io.h"
 #include <algorithm>
 #include <iostream>
