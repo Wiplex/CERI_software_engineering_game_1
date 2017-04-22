@@ -2,7 +2,7 @@
 #include <vector>
 #include <typeinfo>
 #include <termios.h>	// Needed for terminal input manipulation
-#include <stdio.h>		// Needed for terminal input manipulation
+#include <stdio.h>	// Needed for terminal input manipulation
 #include <sstream>
 #include "../headers/competence.h"
 #include "../headers/monstre.h"
@@ -77,7 +77,7 @@ namespace io
 		Cette fonction permet de créer rapidement une compétence pour pouvoir l'utiliser facilement après.
 
 		Mode opératoire :
-		- On crée les variables qui vont tenir les infos rentrées (skillName, damage, manaCost)
+		- On crée les variables qui vont tenir les infos rentrées (skillName, skillDamage, skillManaCost)
 		- On rentre
 	*/
 	competence createCompetence(); //Creer une competence
@@ -110,7 +110,7 @@ namespace io
 	/*!
 		Parcourt le vecteur de stockage des objets chargés, et les affiche.
 		\param vect_element Vecteur d'éléments.
-		\param need_desc Description ou non.
+		\param need_desc description ou non.
 		\sa afficher()
 	*/
 	template<typename T> void liste_elements(std::vector<T> vect_element)
@@ -130,7 +130,7 @@ namespace io
 
 	//! Choix d'un élément unique
 	/*!
-		Fonction qui prend un vecteur d'éléments en entrée ainsi qu'un booléen (affichage ou non de la description), et affiche puis renvoie l'élément choisi.
+		Fonction qui prend un vecteur d'éléments en entrée ainsi qu'un booléen (affichage ou non de la entiteDescription), et affiche puis renvoie l'élément choisi.
 		\param vect_element Vecteur de l'élément à choisir.
 		\param need_desc Nécessité de description ou non.
 		\return L'élement choisi.
@@ -138,14 +138,14 @@ namespace io
 	*/
 	template<typename T> T choix_unique_element(std::vector<T> vect_element)
 	{
-		std::string type_name = typeid(T).name();						//String à partir du type appelant
+		std::string type_entiteName = typeid(T).entiteName();						//String à partir du type appelant
 
-		while (isdigit(type_name[0]))
+		while (isdigit(type_entiteName[0]))
 		{
-			type_name = type_name.substr(1, type_name.size());			//Conservation des caractères pertinents
+			type_entiteName = type_entiteName.substr(1, type_entiteName.size());			//Conservation des caractères pertinents
 		}
 
-		std::cout << "Veuillez choisir votre " << type_name << " (1-9): ";
+		std::cout << "Veuillez choisir votre " << type_entiteName << " (1-9): ";
 
 		liste_elements(vect_element);                        			//Affichage des éléments parmi lesquels choisir
 

@@ -9,51 +9,51 @@
 class entite
 {
 protected:
-	std::string id;
-	std::string name;
-	std::string description;
-	int hpMax;
-	int hpCurrent;
-	int manaMax;
-	int manaCurrent;
-	int speed;
-	bool alive;
-	std::vector<competence> skillVect;
+	std::string entiteId;
+	std::string entiteName;
+	std::string entiteDescription;
+	int entiteHpMax;
+	int entiteHpCurrent;
+	int entiteManaMax;
+	int entiteManaCurrent;
+	int entiteSpeed;
+	bool entiteAlive;
+	std::vector<competence> entiteSkillVect;
 
 public:
 	//! Constructeur vide
 	/*
 		Crée un entite vide.
-		\warning Le entite sera vide. Cela signifie qu'il ne sera pas utilisable pour le jeu, sa vie étant égale à 0
-		\post Le entite crée aura les paramètres suivants:
-		- name = "Inconnu"
-		- hpMax = 0
-		- hpCurrent = 0
-		- speed = 0
-		- alive = true (sera changé immédiatement en false)
-		- skillVect = <vecteur vide>
+		\warning L'entite sera vide. Cela signifie qu'il ne sera pas utilisable pour le jeu, sa vie étant égale à 0
+		\post L'entite crée aura les paramètres suivants:
+		- entiteName = "Inconnu"
+		- entiteHpMax = 0
+		- entiteHpCurrent = 0
+		- entiteSpeed = 0
+		- entiteAlive = true (sera changé immédiatement en false)
+		- entiteSkillVect = <vecteur vide>
 	*/
 	entite();
 
 	//! Constructeur avec tout
 	/*!
-		\param id L'identifiant de l'entite
-		\param name Le nom de l'entite
-		\param hpMax Les points de vie max de l'entite
-		\param speed La vitesse de l'entite
-		\param manaMax Les points de mana max de l'entite
-		\param description La description de l'entite
+		\param entiteId L'identifiant de l'entite
+		\param entiteName Le nom de l'entite
+		\param entiteHpMax Les points de vie max de l'entite
+		\param entiteSpeed La vitesse de l'entite
+		\param entiteManaMax Les points de mana max de l'entite
+		\param entiteDescription La description de l'entite
 		\param allSkills Un vecteur (std::vector) contenant toutes les compétences de cette entite.
 	*/
-	entite(std::string id, std::string name, int hpMax, int speed, int manaMax,std::string description, std::vector<competence> allSkills);
+	entite(std::string entiteId, std::string entiteName, int entiteHpMax, int entiteSpeed, int entiteManaMax,std::string entiteDescription, std::vector<competence> allSkills);
 
 
 
 
 	template<typename T> std::string toString(const T & valeur); // Conversion de n'importe quoi en string
 
-	//!Getter pour l'ID.
-	std::string getId();
+	//!Getter pour l'id.
+	std::string getID();
 
 	//! Getter pour le nom.
 	std::string getName();
@@ -67,10 +67,10 @@ public:
 	//! Getter pour le nombre de points de vie actuels.
 	int getHpCurrent();
 
-	//! Getter pour la vitesse d'attaque du entite.
+	//! Getter pour la vitesse d'attaque de l'entite.
 	int getSpeed();
 
-	//! Getter qui permet de savoir si le entite est en vie.
+	//! Getter qui permet de savoir si l'entite est en vie.
 	bool getAlive();
 
 	//! Getter pour la mana maximum de l'entite
@@ -86,8 +86,8 @@ public:
 	/*!
 		Convertit un objet entite en une ligne de string.
 		\post La string contiendra les infos dans cet ordre :
-		- identifiant (type <code>m\<entier></code>)
-		- nom du entite
+		- entiteIdentifiant (type <code>m\<entier></code>)
+		- nom de l'entite
 		- nombre de points de vie
 		- vitesse d'attaque
 		- toutes les compétences , séparées par des <code>:</code>
@@ -103,25 +103,25 @@ public:
 
 	std::string entiteString(std::string lettreEntite, std::string nomFichier);
 
-	//! Permet d'écrire le entite dans un fichier de sauvegarde
+	//! Permet d'écrire l'entite dans un fichier de sauvegarde
 	void saveInFile(std::string lettreEntite, std::string nomFichier);
 
 	//! Pour tester
 	void printEntite();
 
-	//! Enlève x points de vie au entite.
+	//! Enlève x points de vie a l'entite.
 	/*!
-		Cette fonction permet d'enlever des points de vie. Elle permet aussi de savoir si un entite est en vie (ptsVie < 0) ou si il est mort.
+		Cette fonction permet d'enlever des points de vie. Elle permet aussi de savoir si une entite est en vie (ptsVie < 0) ou si elle est morte.
 		\return Un booléen qui est égal à <code>true</code> si le entite est mort, <code>false</code> sinon.
 	*/
 	bool enleverVie(int degats);
 
-	//! Enlève x points de mana au entite.
+	//! Enlève x points de mana a l'entite.
 	/*!
 		Cette fonction ne sert à rien, à part ne pas faire bugger les autres.
 		\return Un booléen vérifiant la capacité à dépenser la mana.
 	*/
-	bool enleverMana(int manaCost);
+	bool enleverMana(int skillManaCost);
 
 
 };
