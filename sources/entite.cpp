@@ -7,7 +7,7 @@ using namespace std;
 
 // --------------------CONSTRUCTEURS
 
-entite::entite()      //Constructeur ventiteIde
+entite::entite()      //Constructeur vide
 {
 	this->entiteId="";
 	this->entiteName = "Inconnu";
@@ -50,7 +50,7 @@ template<typename T>string entite::toString( const T & valeur ) //Conversion de 
 
 //-----GET ATTRIBUTS
 
-string entite::getID() //Rretourne l'entiteId d'une entite
+string entite::getID() //Rretourne l'id d'une entite
 {
 	return this->entiteId;
 }
@@ -97,7 +97,7 @@ int entite::getSpeed() //Retourne la vitesse d'une entite
 }
 
 
-bool entite::getAlive() //Retourne l'�tat de vie ou de mort d'un entite
+bool entite::getAlive() //Retourne l'état de vie ou de mort d'un entite
 {
 	return this->entiteAlive;
 }
@@ -112,7 +112,7 @@ vector<competence> entite::getSkillVect() //Retourne le vecteur de compétence d
 // POUR SAUVEGARDE DANS FICHIER
 
 
-int entite::nbLigneFichier(string nomFichier) //Compte le nb de ligne du fichier pour créer l'entiteIdentifiant unique d'un entite
+int entite::nbLigneFichier(string nomFichier) //Compte le nb de ligne du fichier pour créer l'identifiant unique d'un entite
 {
 	ifstream fichier(nomFichier.c_str()); //Ouverture en mode lecture
 	int nbLigne = 0;
