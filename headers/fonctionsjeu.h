@@ -71,6 +71,6 @@ public:
 //	void util_comp(monstre entite, competence comp);
 //};
 
-bool sort_entiteSpeed(monstre a, monstre b);
+bool sort_speed(entite a, entite b);
 
 #endif

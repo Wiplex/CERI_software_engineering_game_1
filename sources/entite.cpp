@@ -26,7 +26,7 @@ entite::entite(string entiteId, string entiteName, int entiteHpMax, int entiteSp
 {
 	this->entiteId=entiteId;
 	this->entiteName = entiteName;
-	this->entiteDescription = "";
+	this->entiteDescription = entiteDescription;
 	this->entiteHpMax = entiteHpMax;
 	this->entiteHpCurrent = this->entiteHpMax;
 	this->entiteManaMax = entiteManaMax;
