@@ -11,13 +11,13 @@ Carte :: Carte()
 {
 	this->nom = "";
 	this->description = "";
-	this->taille = 5 ;
-
-	this->plateau = new string * [taille];
-	for (int i = 0 ; i < taille ; i++)
-	{
-		plateau[i] = new string [taille] ;
-	}
+//	this->taille = 5 ;
+//
+//	this->plateau = new string * [taille];
+//	for (int i = 0 ; i < taille ; i++)
+//	{
+//		plateau[i] = new string [taille] ;
+//	}
 
 	this->nbr_monstre = 0 ;
 	this -> case_dispo = 0;
@@ -263,6 +263,7 @@ vector <Carte> Carte :: chargement ()
 		while (getline(fichier, current_line))
 		{
 //cerr << "2" << endl ;
+			bool init = false;
 			bool fait = false ;
 			Carte carte_temporaire ;
 			string id = "" ;
@@ -292,7 +293,7 @@ vector <Carte> Carte :: chargement ()
 //cerr << "tmp : " << tmp << endl ;
 				if (tmp == '|')
 				{
-					count_c ++ ;
+					count_c++ ;
 					i++ ;
 //cerr << "4_1 : " << endl ;
 //cerr << "count_c : " << count_c << endl ;
@@ -330,19 +331,6 @@ vector <Carte> Carte :: chargement ()
 //cerr << "taille : " << taille << endl ;
 //cerr << "i : " << i << endl ;
 				}
-				int t = atoi(taille.c_str());
-				carte_temporaire.taille = t ;
-
-				delete [] carte_temporaire.plateau;
-				carte_temporaire.plateau = new string * [t];
-
-				for (int i = 0 ; i < t ; i++)
-				{
-					carte_temporaire.plateau[i] = new string [t] ;
-				}
-
-				carte_temporaire.nom = nom ;
-				carte_temporaire.description = description ;
 //cerr << "5 : " << endl ;
 //cerr << "t : " << t << endl ;
 //cerr << "taille : " << carte_temporaire.taille << endl ;
@@ -350,6 +338,24 @@ vector <Carte> Carte :: chargement ()
 //cerr << "description : " << carte_temporaire.description << endl ;
 				if (count_c == 4)
 				{
+				int t = atoi(taille.c_str());
+				carte_temporaire.taille = t ;
+
+				if (init == false)
+				{
+					init = true;
+
+					carte_temporaire.plateau = new string * [t];
+
+					for (int i = 0 ; i < t ; i++)
+					{
+						carte_temporaire.plateau[i] = new string [t] ;
+					}
+				}
+
+				carte_temporaire.nom = nom ;
+				carte_temporaire.description = description ;
+
 //cerr << "6 : " << endl ;
 //cerr << "count_c : " << count_c << endl ;
 					if (fait)
@@ -366,7 +372,7 @@ vector <Carte> Carte :: chargement ()
 						i++ ;
 						int coor1 = atoi(coordonnee1.c_str()) ;
 						int coor2 = atoi(coordonnee2.c_str()) ;
-						carte_temporaire.plateau[coor1][coor2] = id;
+						carte_temporaire.plateau[coor1][coor2] = type;
 //cerr << "7_1 : " << endl ;
 //cerr << "count_c_coordonnee : " << count_c_coordonnee << endl ;
 //cerr << "i : " << i << endl ;
@@ -419,17 +425,19 @@ vector <Carte> Carte :: chargement ()
 					}
 				}
 			}
+
+
 //cerr << "enregistrement dans selectionnable" << endl ;
 			selectionnable.push_back(carte_temporaire) ;
 
-			for (int i = 0; i < carte_temporaire.taille; i++)
-			{
-				for (int j = 0; j < carte_temporaire.taille; j++)
-				{
-					cout << carte_temporaire.plateau[i][j];
-				}
-				cout << endl;
-			}
+//			for (int i = 0; i < carte_temporaire.taille; i++)
+//			{
+//				for (int j = 0; j < carte_temporaire.taille; j++)
+//				{
+//					cout << carte_temporaire.plateau[i][j];
+//				}
+//				cout << endl;
+//			}
 		}
 	}
 	return selectionnable ;
