@@ -57,19 +57,8 @@ public:
 	/*!
 		Fonction permettant de gérer le combat.
 	*/
-
-	//	void combat(perso &p, monstre &m);
-	//	void application_coup(perso &p, compet &a, monstre &m, compet &b);
 };
 
-//struct ent_combat
-//{
-//	monstre entite;
-//
-//	ent_combat(monstre monst);
-//	monstre Get_entite();
-//	void util_comp(monstre entite, competence comp);
-//};
 
 bool sort_speed(entite a, entite b);
 

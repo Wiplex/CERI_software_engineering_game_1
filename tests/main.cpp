@@ -73,14 +73,20 @@ int main()
 
 		for (ite = vect_entite.begin(); ite != vect_entite.end(); ite++)
 		{
-			if ((* ite).getID().substr(0, 1) == "p")			//Si personnage (choix manuel compétence)
+			string type = (* ite).getID().substr(0,1);
+
+			if (type == "p")			//Si personnage (choix manuel compétence)
 			{
 				choix:
+				cout << "Choix compétence personnage: " << endl;
 				comp_util = choix_unique_element((* ite).getSkillVect());
 			}
 			else												//Si monstre (choix aléatoire compétence)
 			{
+				cout << "Choix compétence aléatoire monstre: " << endl;
 				comp_util = (* ite).getSkillVect()[rand() % (* ite).getSkillVect().size()];
+				cout << "Compétence utilisée: ";
+				comp_util.printCompetence();
 			}
 
 			if (!(* ite).enleverMana(comp_util.getManaCost()))	//Mana insuffisant pour lancer compétence
@@ -94,10 +100,12 @@ int main()
 					//Choix cible
 				if ((* ite).getID().substr(0, 1) == "p")		//Si personnage (choix manuel cible)
 				{
+					cout << "Choix cible personnage: " << endl;
                     target = choix_unique_element(vect_entite);
 				}
 				else											//Si monstre (choix aléatoire cible)
 				{
+					cout << "Choix cible aléatoire monstre: " << endl;
 					int cible = rand() % vect_p.size();
 					target = vect_entite[cible];
 				}
@@ -106,20 +114,28 @@ int main()
 				{
                     if (target.getID().substr(0, 1) == "p")		//Si personnage
 					{
+						cout << "Un personnage est mort" << endl;
                         nb_players--;							//Personnage mort
 					}
 					else
 					{
+						cout << "Un monstre est mort" << endl;
 						nb_monsters--;							//Monstre mort
 					}
+				}
+				else
+				{
+					continue;
 				}
 
 				if (nb_players == 0)							//Tous personnages morts
 				{
+					cout << "Tous les personnages sont morts" << endl;
 					return 1;
 				}
 				else if (nb_monsters == 0)						//Tous monstres morts
 				{
+					cout << "Tous les monstres sont morts" << endl;
 					return 1;
 				}
 			}

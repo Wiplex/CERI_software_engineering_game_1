@@ -33,7 +33,7 @@ entite::entite(string entiteId, string entiteName, int entiteHpMax, int entiteSp
 	this->entiteManaCurrent = entiteManaMax;
 	this->entiteSpeed = entiteSpeed;
 	this->entiteAlive = true;
-	vector<competence> entiteSkillVect = allSkills;
+	this->entiteSkillVect = allSkills;
 }
 
 
@@ -62,7 +62,7 @@ string entite::getName() //Retourne le nom d'une entite
 }
 
 
-string entite::getDescription() //Retourne la entiteDescription d'une entite
+string entite::getDescription() //Retourne la description d'une entite
 {
 	return this->entiteDescription;
 }
@@ -85,7 +85,7 @@ int entite::getManaMax() //Retourne les points de mana MAX d'une entite
 	return this->entiteManaMax;
 }
 
-int entite::getManaCurrent() //Retourne les points de mana actuel d'une entite
+int entite::getManaCurrent() //Retourne les points de mana actuels d'une entite
 {
 	return this->entiteManaCurrent;
 }
@@ -97,13 +97,13 @@ int entite::getSpeed() //Retourne la vitesse d'une entite
 }
 
 
-bool entite::getAlive() //Retourne l'état de vie ou de mort d'un entite
+bool entite::getAlive() //Retourne l'état de vie ou de mort d'une entite
 {
 	return this->entiteAlive;
 }
 
 
-vector<competence> entite::getSkillVect() //Retourne le vecteur de compétence d'un entite
+vector<competence> entite::getSkillVect() //Retourne le vecteur de compétences d'un entite
 {
 	return this->entiteSkillVect;
 }
@@ -112,7 +112,7 @@ vector<competence> entite::getSkillVect() //Retourne le vecteur de compétence d
 // POUR SAUVEGARDE DANS FICHIER
 
 
-int entite::nbLigneFichier(string nomFichier) //Compte le nb de ligne du fichier pour créer l'identifiant unique d'un entite
+int entite::nbLigneFichier(string nomFichier) //Compte le nb de lignes du fichier pour créer l'identifiant unique d'un entite
 {
 	ifstream fichier(nomFichier.c_str()); //Ouverture en mode lecture
 	int nbLigne = 0;
@@ -203,8 +203,7 @@ bool entite::enleverVie(int degats)
 	return false;
 }
 
-///Problème ici, si la dépense de mana n'est pas possible, la mana est quand même dépensée.
-///De même, <= 0 empêche d'utiliser les compétences qui utilisent exactement le bon montant de mana.
+
 bool entite::enleverMana(int skillManaCost)
 {
 	if (this->entiteManaCurrent>= skillManaCost)
