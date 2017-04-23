@@ -23,7 +23,7 @@ all:
 	@make -s mo	# Monstre
 	@make -s pe	# Personnage
 	@make -s fj	# Fonctions jeu
-	@make -s main.exe
+	# @make -s main.exe
 ca:
 	@make objects/carte.o
 	@make archives/carte.a
@@ -48,8 +48,8 @@ io:
 	# @make io_main.exe
 doc:
 	@cd documentation; doxygen documentation > doxygen_output.txt; cd latex; make;
-main.exe: objects/fonctionsjeu.o objects/io.o objects/carte.o objects/personnage.o objects/competence.o objects/monstre.o
-	@g++ $^ tests/main.cpp -o $@ -std=c++11
+#main.exe: objects/fonctionsjeu.o objects/io.o objects/carte.o objects/personnage.o objects/competence.o objects/monstre.o
+#	@g++ $^ tests/main.cpp -o $@ -std=c++11
 
 # Archives des classes :
 
