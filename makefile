@@ -46,11 +46,9 @@ io:
 	# @make objects/io_main.o
 	@make archives/io.a
 	# @make io_main.exe
-in:
-	@make objects/interface.o
 doc:
 	@cd documentation; doxygen documentation > doxygen_output.txt; cd latex; make;
-main.exe: objects/fonctionsjeu.o objects/io.o objects/carte.o objects/personnage.o objects/competence.o objects/monstre.o objects/interface.o
+main.exe: objects/fonctionsjeu.o objects/io.o objects/carte.o objects/personnage.o objects/competence.o objects/monstre.o
 	@g++ $^ tests/main.cpp -o $@ -std=c++11
 
 # Archives des classes :
@@ -89,9 +87,6 @@ objects/entite.o: sources/entitecpp
 	@echo "Compiling $@ ..."
 	@g++ -c $< -o $@ -std=c++11
 objects/monstre.o: sources/monstre.cpp
-	@echo "Compiling $@ ..."
-	@g++ -c $< -o $@ -std=c++11
-objects/interface.o: sources/interface.cpp
 	@echo "Compiling $@ ..."
 	@g++ -c $< -o $@ -std=c++11
 objects/competence.o: sources/competence.cpp
