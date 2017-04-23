@@ -1,11 +1,19 @@
 # Variables :
 
-ALL="$(IO) $(CARTE) $(MONSTRE) $(COMPETENCE) $(PERSONNAGE)"
 IO="archives/io.a"
 CARTE="archives/carte.a"
+ENTITE="archives/entite.a"
 MONSTRE="archives/monstre.a"
 COMPETENCE="archives/competence.a"
 PERSONNAGE="archives/personnage.a"
+OIO="objects/io.o"
+OCARTE="objects/carte.o"
+OENTITE="objects/entite.o"
+OMONSTRE="objects/monstre.o"
+OCOMPETENCE="objects/competence.o"
+OPERSONNAGE="objects/personnage.o"
+ALL="$(IO) $(CARTE) $(ENTITE) $(MONSTRE) $(COMPETENCE) $(PERSONNAGE)"
+OALL="$(OIO) $(OCARTE) $(OENTITE) $(OMONSTRE) $(OCOMPETENCE) $(OPERSONNAGE)"
 
 # Cibles que l'on peut compiler directement :
 all:
@@ -30,14 +38,14 @@ pe:
 	@make archives/personnage.a
 fj:
 	@make objects/fonctionsjeu.o
-	@make objects/fonctionsjeu_main.o
+	# @make objects/fonctionsjeu_main.o
 	@make archives/fonctionsjeu.a
-	@make fonctionsjeu.exe
+	# @make fonctionsjeu.exe
 io:
 	@make objects/io.o
-	@make objects/io_main.o
+	# @make objects/io_main.o
 	@make archives/io.a
-	@make io_main.exe
+	# @make io_main.exe
 in:
 	@make objects/interface.o
 doc:
@@ -51,6 +59,9 @@ archives/io.a: objects/io.o
 	@echo "Archiving $@ ..."
 	@ar rvs $@ $<
 archives/carte.a: objects/carte.o
+	@echo "Archiving $@ ..."
+	@ar rvs $@ $<
+archives/entite.a: objects/entite.o
 	@echo "Archiving $@ ..."
 	@ar rvs $@ $<
 archives/monstre.a: objects/monstre.o
@@ -72,6 +83,9 @@ objects/io.o: sources/io.cpp
 	@echo "Compiling $@ ..."
 	@g++ -c $< -o $@ -std=c++11
 objects/carte.o: sources/carte.cpp
+	@echo "Compiling $@ ..."
+	@g++ -c $< -o $@ -std=c++11
+objects/entite.o: sources/entitecpp
 	@echo "Compiling $@ ..."
 	@g++ -c $< -o $@ -std=c++11
 objects/monstre.o: sources/monstre.cpp
