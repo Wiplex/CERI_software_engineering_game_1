@@ -1,83 +1,90 @@
 \begin{theindex}
 
   \item {afficher}
-    \subitem {io}, \hyperpage{8}
+    \subitem {io}, \hyperpage{9}
 
   \indexspace
 
   \item {bienvenue}
-    \subitem {io}, \hyperpage{8}
+    \subitem {io}, \hyperpage{9}
 
   \indexspace
 
-  \item {Carte}, \hyperpage{13}
+  \item {Carte}, \hyperpage{15}
   \item {Change\+Terminal}
-    \subitem {io}, \hyperpage{8}
+    \subitem {io}, \hyperpage{9}
   \item {check\+Input}
     \subitem {io}, \hyperpage{9}
   \item {choix\+\_\+unique\+\_\+element}
-    \subitem {io}, \hyperpage{9}
-  \item {competence}, \hyperpage{13}
+    \subitem {io}, \hyperpage{10}
+  \item {competence}, \hyperpage{16}
   \item {create\+Competence}
     \subitem {io}, \hyperpage{10}
 
   \indexspace
 
   \item {de}
-    \subitem {io}, \hyperpage{10}
+    \subitem {io}, \hyperpage{11}
   \item {demarrer\+\_\+jeu}
-    \subitem {jeu}, \hyperpage{15}
+    \subitem {jeu}, \hyperpage{20}
 
   \indexspace
 
+  \item {enlever\+Mana}
+    \subitem {entite}, \hyperpage{18}
   \item {enlever\+Vie}
-    \subitem {monstre}, \hyperpage{17}
-  \item {ent\+\_\+combat}, \hyperpage{14}
+    \subitem {entite}, \hyperpage{18}
+  \item {entite}, \hyperpage{16}
+    \subitem {enlever\+Mana}, \hyperpage{18}
+    \subitem {enlever\+Vie}, \hyperpage{18}
+    \subitem {entite}, \hyperpage{17}
+    \subitem {nb\+Ligne\+Fichier}, \hyperpage{18}
 
   \indexspace
 
   \item {io}, \hyperpage{7}
-    \subitem {afficher}, \hyperpage{8}
-    \subitem {bienvenue}, \hyperpage{8}
-    \subitem {Change\+Terminal}, \hyperpage{8}
+    \subitem {afficher}, \hyperpage{9}
+    \subitem {bienvenue}, \hyperpage{9}
+    \subitem {Change\+Terminal}, \hyperpage{9}
     \subitem {check\+Input}, \hyperpage{9}
-    \subitem {choix\+\_\+unique\+\_\+element}, \hyperpage{9}
+    \subitem {choix\+\_\+unique\+\_\+element}, \hyperpage{10}
     \subitem {create\+Competence}, \hyperpage{10}
-    \subitem {de}, \hyperpage{10}
-    \subitem {liste\+\_\+elements}, \hyperpage{10}
-    \subitem {long\+\_\+input}, \hyperpage{11}
+    \subitem {de}, \hyperpage{11}
+    \subitem {liste\+\_\+elements}, \hyperpage{11}
+    \subitem {long\+\_\+input}, \hyperpage{12}
+    \subitem {remove\+Last\+Char}, \hyperpage{12}
 
   \indexspace
 
-  \item {jeu}, \hyperpage{14}
-    \subitem {demarrer\+\_\+jeu}, \hyperpage{15}
-    \subitem {jeu}, \hyperpage{14}
+  \item {jeu}, \hyperpage{19}
+    \subitem {demarrer\+\_\+jeu}, \hyperpage{20}
+    \subitem {jeu}, \hyperpage{20}
 
   \indexspace
 
   \item {liste\+\_\+elements}
-    \subitem {io}, \hyperpage{10}
-  \item {long\+\_\+input}
     \subitem {io}, \hyperpage{11}
+  \item {long\+\_\+input}
+    \subitem {io}, \hyperpage{12}
 
   \indexspace
 
-  \item {monstre}, \hyperpage{15}
-    \subitem {enlever\+Vie}, \hyperpage{17}
-    \subitem {monstre}, \hyperpage{16, 17}
-    \subitem {monstre\+String}, \hyperpage{17}
-    \subitem {nb\+Ligne\+Fichier}, \hyperpage{18}
-  \item {monstre\+String}
-    \subitem {monstre}, \hyperpage{17}
+  \item {monstre}, \hyperpage{21}
+    \subitem {monstre}, \hyperpage{21}
 
   \indexspace
 
   \item {nb\+Ligne\+Fichier}
-    \subitem {monstre}, \hyperpage{18}
+    \subitem {entite}, \hyperpage{18}
 
   \indexspace
 
-  \item {personnage}, \hyperpage{18}
-    \subitem {personnage}, \hyperpage{19}
+  \item {personnage}, \hyperpage{22}
+    \subitem {personnage}, \hyperpage{22}
+
+  \indexspace
+
+  \item {remove\+Last\+Char}
+    \subitem {io}, \hyperpage{12}
 
 \end{theindex}

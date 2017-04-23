@@ -1,4 +1,4 @@
-.TH "personnage" 3 "Fri Apr 21 2017" "My Project" \" -*- nroff -*-
+.TH "personnage" 3 "Sun Apr 23 2017" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,7 +7,7 @@ personnage
 .br
 .PP
 .PP
-Inherits \fBmonstre\fP\&.
+Inherits \fBentite\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
@@ -16,37 +16,8 @@ Inherits \fBmonstre\fP\&.
 .br
 .RI "Constructeur vide\&. "
 .ti -1c
-.RI "\fBpersonnage\fP (std::string name, int hpMax, int speed, int manaMax, std::string description)"
+.RI "\fBpersonnage\fP (std::string entiteId, std::string entiteName, int entiteHpMax, int entiteSpeed, int entiteManaMax, std::string entiteDescription, std::vector< \fBcompetence\fP > allSkills)"
 .br
-.RI "Constructeur avec caractéristiques\&. "
-.ti -1c
-.RI "\fBpersonnage\fP (std::string name, int hpMax, int speed, int manaMax, std::string description, std::vector< \fBcompetence\fP > allSkills)"
-.br
-.RI "Constructeur avec caractéristiques + vecteur de compétences\&. "
-.ti -1c
-.RI "int \fBgetManaMax\fP ()"
-.br
-.RI "Getter pour la mana maximum du personnage\&. "
-.ti -1c
-.RI "int \fBgetManaCurrent\fP ()"
-.br
-.RI "Getter pour la mana actuelle du personnage\&. "
-.ti -1c
-.RI "std::string \fBgetDescription\fP ()"
-.br
-.RI "Getter pour la desciption du personnage\&. "
-.ti -1c
-.RI "std::string \fBpersonnageString\fP ()"
-.br
-.RI "Convertit toutes les caracs\&. d'un personnage en string\&. "
-.ti -1c
-.RI "void \fBsavePersoInFile\fP ()"
-.br
-.RI "Ecrit toutes les carac\&. d'un perso dans un fichier\&. "
-.ti -1c
-.RI "bool \fBenleverMana\fP (int manaCost)"
-.br
-.RI "Return true si le personnage a toujours du mana\&. "
 .ti -1c
 .RI "void \fBprintPersonnage\fP ()"
 .br

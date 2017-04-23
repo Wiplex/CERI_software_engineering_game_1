@@ -1,20 +1,36 @@
-#include "../headers/io.h"
 #include <vector>
 #include <termios.h>	// Needed for terminal input manipulation
 #include <stdio.h>	// Needed for terminal input manipulation
 #include <fstream>
 #include <iostream>
-
-// Notes :
-// Get the terminal column number :
-// 	> stty -a | grep "col" | tail -c 22 | tail -c 13 | head -c 3
-// Get the terminal rows number :
-// 	> stty -a | grep "col" | tail -c 22 | head -c 2
+#include "../headers/carte.h"
+#include "../headers/io.h"
 
 using namespace std;
 
 namespace io
 {
+	// Variable :
+
+	int TermWidth = 0;
+	int TermHeight = 0;
+
+	string BLANK = "\033[0m";
+	string RED = "\033[91m";
+	string GREEN = "\033[92m";
+	string YELLOW = "\033[93m";
+	string BLUE = "\033[94m";
+	string MAGENTA = "\033[95m";
+
+	int mapPositionX = 0;
+	int mapPositionY = 0;
+
+	std::pair<int,int> currentPlayerPosition(0,0);
+
+	///////////////////////////////////////////////////
+	/////////// FONCTIONS LIEES AU TERMINAL ///////////
+	///////////////////////////////////////////////////
+
 	void ChangeTerminal(bool Ech)
 	{
 		tcgetattr(0, &before);			/* Grab old terminal i/o settings */
@@ -48,7 +64,10 @@ namespace io
 			if (charInput != 127)
 				input << charInput;
 			else
+			{
+
 				removeLastChar(input);
+			}
 			//	if (input.tellp() > 0)
 			//		input.seekp(-1, input.cur);
 		} while(charInput != 10);
@@ -59,29 +78,18 @@ namespace io
 	void removeLastChar(std::stringstream& input)
 	{
 		std::stringstream str;
+		// Mode opératoire #1
 		std::string s = input.str();
+		// Mode opératoire #2
 		if (s.size() != 0)
 		{
+			// Mode opératoire #2.1
 			s.erase(s.end()-1);
+			// Mode opératoire #2.2
 			input.str("");
+			// Mode opératoire #2.3
 			input << s;
 		}
-	}
-
-	void bienvenue()
-	{
-		std::puts("\n");
-		std::puts("                                         Welcome to");
-		std::puts(" __________   ___    ___   __________     __________   __________   __     ___   __________");
-		std::puts("/___   ___/  /  /   /  /  /  _______/    /  _______/  /  ____   /  /  \\__ /  /  /  _______/");
-		std::puts("   /  /     /  /__ /  /  /  /__         /  /  __     /  /___/  /  /         /  /  /__");
-		std::puts("  /  /     /   __    /  /   __/        /  /  /  \\   /  ____   /  /  / - /  /  /   __/");
-		std::puts(" /  /     /  /   /  /  /  /______     /  /___/  /  /  /   /  /  /  /   /  /  /  /______");
-		std::puts("/_ /     /_ /   /_ /  /_________/    /_________/  /_ /   /_ /  /_ /   /_ /  /_________/");
-		std::puts("\n");
-
-		std::puts("Dans The Game, vous devez débusquer et tuer tous les monstres présents sur la carte. Bonne chance!");
-		std::puts("\n");
 	}
 
 	int getTerminalWidth()
@@ -101,9 +109,15 @@ namespace io
 		fclose(r);
 		system("rm dump.txt");
 		if (w1[0] == 'c')
-			return std::stoi(w2.substr(0,w2.size()-1));
+		{
+			io::TermWidth = std::stoi(w2.substr(0,w2.size()-1));
+			return io::TermWidth;
+		}
 		else
-			return std::stoi(w1.substr(0,w1.size()-1));
+		{
+			io::TermWidth = std::stoi(w1.substr(0,w1.size()-1));
+			return io::TermWidth;
+		}
 	}
 
 	int getTerminalHeight()
@@ -123,9 +137,114 @@ namespace io
 		fclose(r);
 		system("rm dump.txt");
 		if (h1[0] == 'r')
-			return std::stoi(h2.substr(0,h2.size()-1));
+		{
+			io::TermHeight = std::stoi(h2.substr(0,h2.size()-1));
+			return io::TermHeight;
+		}
 		else
-			return std::stoi(h1.substr(0,h1.size()-1));
+		{
+			io::TermHeight = std::stoi(h1.substr(0,h1.size()-1));
+			return io::TermHeight;
+		}
+	}
+
+	void clearScreen()
+	{
+		std::cout << '\n'*TermHeight;
+	}
+
+	void afficherCarte(Carte& c, int t)
+	{
+		// On prends le plateau en copie
+		std::string ** map = c.plateau;					// ATTENTE D'UN PARTAGE DU PLATEAU
+
+		// On (re)vérifie la taille du terminal
+		checkTerminalSize();
+
+		// On efface l'écran
+		clearScreen();
+
+		// Prendre la position de la carte
+		// currentPlayerPosition = c.playerPosition();			// ATTENTE DE LA FONCTION
+
+		// Si le joueur est plus bas que l'affichage de la carte
+		while (currentPlayerPosition.first >= TermWidth)
+			mapPositionX += TermWidth;
+
+		// Si le joueur est plus sur la droite que la carte
+		while (currentPlayerPosition.second >= TermHeight)
+			mapPositionY += TermHeight;
+
+		int displayX = mapPositionX;
+		int displayY = mapPositionY;
+		int TermPosX = 0;
+		int TermPosY = 0;
+
+		// On affiche les petites cases WUBBA LUBBA DUB DUB
+		while (TermPosY < TermHeight && displayY < t)
+		{
+			while (TermPosX < TermWidth && displayX < t)
+			{
+				std::cout << map[displayX][displayY];		// RESTE A AJOUTER LA COULEUR
+				TermPosX++;
+				displayX++;
+			}
+			if (TermPosY != TermHeight-1)
+				std::cout << std::endl;
+			TermPosY++;
+			TermPosX=0;
+			displayY++;
+			displayX=0;
+		}
+	}
+
+	void afficherInteractions()
+	{
+		// Si le joueur est dans le bas de la carte, on affiche les
+		// interactions possibles sur le haut de la fenêtre Terminal
+		if (currentPlayerPosition.first >= (mapPositionY+TermHeight-6))
+			printf("\033[0,0H");
+		else
+			printf("\033[%d,OH",(mapPositionY+TermHeight-6));
+
+		// afficher les interactions possibles
+		cout << BLUE << '%'*TermWidth << BLANK;
+		cout << BLUE << '%' << BLANK << "  Voici les actions possibles à ce point dans le jeu :" << ' '*(TermWidth-56) << BLUE << '%' << BLANK << std::endl;
+		//if (enough_space())// si assez d'espace, on affiche la merde
+		cout << BLUE << '%'*TermWidth << BLANK;
+		printf("\033[%dD", TermWidth - 1);	// Gauche de TermWidth-1 cases
+		printf("\033[1A");			// Haut d'1 case
+	}
+
+	void checkTerminalSize()
+	{
+		// Met à jour la taille du terminal
+		getTerminalHeight();
+		getTerminalWidth();
+		while (TermHeight < 15 || TermWidth < 91)
+		{
+			std::cout << "Votre terminal n'est pas dimensionné correctement.";
+			std::cout << "Veuillez redimensionner votre terminal afin d'avoir";
+			std::cout << "une taille d'au moins 15 lignes par 91 colonnes." << std::endl;
+			getTerminalWidth();
+			getTerminalHeight();
+		}
+	}
+
+	void bienvenue()
+	{
+		std::puts("\n");
+		std::puts("                                         Welcome to");
+		std::puts(" __________   ___    ___   __________     __________   __________   __     ___   __________");
+		std::puts("/___   ___/  /  /   /  /  /  _______/    /  _______/  /  ____   /  /  \\__ /  /  /  _______/");
+		std::puts("   /  /     /  /__ /  /  /  /__         /  /  __     /  /___/  /  /         /  /  /__");
+		std::puts("  /  /     /   __    /  /   __/        /  /  /  \\   /  ____   /  /  / - /  /  /   __/");
+		std::puts(" /  /     /  /   /  /  /  /______     /  /___/  /  /  /   /  /  /  /   /  /  /  /______");
+		std::puts("/_ /     /_ /   /_ /  /_________/    /_________/  /_ /   /_ /  /_ /   /_ /  /_________/");
+		std::puts("\n");
+
+		std::puts("Dans The Game, vous devez débusquer et tuer tous les monstres présents sur la carte. Bonne chance!");
+		std::puts("\n");
 	}
 
 	bool checkInput(int x) //Verifie que l'utilisateur entre bien un entier
@@ -268,7 +387,7 @@ namespace io
 					{
 						parcoursSkill = laLigne[i]; //Variable de parcours de la ligne
 
-						if(nbSeparateur <4) //Recherche du champ compétence sur la ligne
+						if(nbSeparateur < 4) //Recherche du champ compétence sur la ligne
 						{
 							if (parcoursSkill == '/')
 							{
@@ -350,5 +469,194 @@ namespace io
 			cerr << "Impossible d'ouvrir le fichier." << endl;
 		}
 		return allSkills;
+	}
+
+
+	vector <Carte> loadAllCarteFromFile(string nomFichier)
+	{
+		vector<Carte> selectionnable ;
+		ifstream fichier(nomFichier, ios :: in) ;
+
+		if (fichier)
+		{
+			string current_line;
+
+	//cerr << "1" << endl ;
+	//cerr << "current_line : " << current_line << endl ;
+			while (getline(fichier, current_line))
+			{
+	//cerr << "2" << endl ;
+				bool init = false;
+				bool fait = false ;
+				Carte carte_temporaire ;
+				string id = "" ;
+				string nom = "" ;
+				string description = "" ;
+				string taille= "";
+				string coordonnee1 = "" ;
+				string coordonnee2 = "" ;
+				string type = "" ;
+				int count_c = 0 ;
+				int count_coordonnee = 0 ;
+				int i = 0 ;
+	//cerr << "id : " << id << endl ;
+	//cerr << "nom : " << nom << endl ;
+	//cerr << "description : " << description << endl ;
+	//cerr << "taille : " << taille << endl ;
+	//cerr << "coordonnée 1 : " << coordonnee1 << endl ;
+	//cerr << "coordonnée 2 : " << coordonnee2 << endl ;
+	//cerr << "type : " << type << endl ;
+	//cerr << "count_c : " << count_c << endl ;
+	//cerr << "count_coordonnee : " << count_coordonnee << endl ;
+	//cerr << "i : " << i << endl ;
+				while (current_line[i+1] != '\0')
+				{
+					char tmp = current_line[i] ;
+	//cerr << "3" << endl ;
+	//cerr << "tmp : " << tmp << endl ;
+					if (tmp == '|')
+					{
+						count_c++ ;
+						i++ ;
+	//cerr << "4_1 : " << endl ;
+	//cerr << "count_c : " << count_c << endl ;
+	//cerr << "i : " << i << endl ;
+					}
+					else if (count_c == 0)
+					{
+						id = id + tmp ;
+						i++ ;
+	//cerr << "4_2 : " << endl ;
+	//cerr << "id : " << id << endl ;
+	//cerr << "i : " << i << endl ;
+					}
+					else if (count_c == 1)
+					{
+						nom = nom + tmp ;
+						i++ ;
+	//cerr << "4_3 : " << endl ;
+	//cerr << "nom : " << nom << endl ;
+	//cerr << "i : " << i << endl ;
+					}
+					else if (count_c == 2)
+					{
+						description = description + tmp ;
+						i++ ;
+	//cerr << "4_4 : " << endl ;
+	//cerr << "description : " << description << endl ;
+	//cerr << "i : " << i << endl ;
+					}
+					else if (count_c == 3)
+					{
+						taille = taille + tmp ;
+						i++ ;
+	//cerr << "4_5 : " << endl ;
+	//cerr << "taille : " << taille << endl ;
+	//cerr << "i : " << i << endl ;
+					}
+	//cerr << "5 : " << endl ;
+	//cerr << "t : " << t << endl ;
+	//cerr << "taille : " << carte_temporaire.taille << endl ;
+	//cerr << "nom : " << carte_temporaire.nom << endl ;
+	//cerr << "description : " << carte_temporaire.description << endl ;
+					if (count_c == 4)
+					{
+					int t = atoi(taille.c_str());
+
+					if (init == false)
+					{
+						init = true;
+						carte_temporaire.setName(nom);
+						carte_temporaire.setDescription(description);
+						carte_temporaire.setPlateau(t);
+
+					}
+
+	//cerr << "6 : " << endl ;
+	//cerr << "count_c : " << count_c << endl ;
+						if (fait)
+						{
+							type = "";
+							coordonnee1 = "" ;
+							coordonnee2 = "" ;
+							if (current_line[i+1] != '\0') fait = false ;
+						}
+						else if (tmp == ')')
+						{
+							fait = true ;
+							count_coordonnee = 0 ;
+							i++ ;
+							int coor1 = atoi(coordonnee1.c_str()) ;
+							int coor2 = atoi(coordonnee2.c_str()) ;
+							carte_temporaire.setCase(coor1, coor2, type);
+
+	//cerr << "7_1 : " << endl ;
+	//cerr << "count_c_coordonnee : " << count_c_coordonnee << endl ;
+	//cerr << "i : " << i << endl ;
+	//cerr << "coor1 : " << coor1 << endl ;
+	//cerr << "coor2 : " << coor2 << endl ;
+	//cerr << "plateau : " << carte_temporaire.plateau[coor1][coor2] << endl ;
+
+						}
+						else if (tmp == ',')
+						{
+							count_coordonnee ++ ;
+							i++ ;
+	//cerr << "7_2 : " << endl ;for (int i = 0; i < taille; i++)
+	//cerr << "count_coordonnee : " << count_coordonnee << endl ;
+	//cerr << "i : " << i << endl ;
+						}
+						else if (tmp == '(')
+						{
+							i ++ ;
+	//cerr << "7_3 : " << endl ;
+	//cerr << "i : " << i << endl ;
+						}
+						else if ((tmp != '(') && (tmp != ')') && (tmp != ','))
+						{
+	//cerr << "7_4 : " << endl ;
+							if (count_coordonnee == 0)
+							{
+								coordonnee1 = coordonnee1 + tmp ;
+								i ++ ;
+	//cerr << "7_4_1 : " << endl ;
+	//cerr << "coordonnée 1 : " << coordonnee1 << endl ;
+	//cerr << "i : " << i << endl ;
+							}
+							else if (count_coordonnee == 1)
+							{
+								coordonnee2 = coordonnee2 + tmp ;
+								i++ ;
+	//cerr << "7_4_2 : " << endl ;
+	//cerr << "coordonnée 2 : " << coordonnee2 << endl ;
+	//cerr << "i : " << i << endl ;
+							}
+							else if (count_coordonnee == 2)
+							{
+								type = type + tmp ;
+								i++ ;
+	//cerr << "7_4_3 : " << endl ;
+	//cerr << "type : " << type << endl ;
+	//cerr << "i : " << i << endl ;
+							}
+						}
+					}
+				}
+
+
+	//cerr << "enregistrement dans selectionnable" << endl ;
+				selectionnable.push_back(carte_temporaire) ;
+
+	//			for (int i = 0; i < carte_temporaire.taille; i++)
+	//			{
+	//				for (int j = 0; j < carte_temporaire.taille; j++)
+	//				{
+	//					cout << carte_temporaire.plateau[i][j];
+	//				}
+	//				cout << endl;
+	//			}
+			}
+		}
+		return selectionnable ;
 	}
 }

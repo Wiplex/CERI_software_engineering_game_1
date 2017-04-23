@@ -12,159 +12,40 @@ Inheritance diagram for monstre\+:\begin{figure}[H]
 \mbox{\Hypertarget{classmonstre_a718cb1c5f9297f00e42e6b884ca85d6d}\label{classmonstre_a718cb1c5f9297f00e42e6b884ca85d6d}} 
 \hyperlink{classmonstre_a718cb1c5f9297f00e42e6b884ca85d6d}{monstre} ()
 \begin{DoxyCompactList}\small\item\em Constructeur vide. \end{DoxyCompactList}\item 
-\hyperlink{classmonstre_a3a6290dca4b99876fe846e02e4ce140d}{monstre} (std\+::string name, int hp\+Max, int speed)
-\begin{DoxyCompactList}\small\item\em Constructeur avec carac d\textquotesingle{}un monstre. \end{DoxyCompactList}\item 
-\hyperlink{classmonstre_ab28517ab4e9898d3d079f2caa7cc5953}{monstre} (std\+::string name, int hp\+Max, int speed, std\+::vector$<$ \hyperlink{classcompetence}{competence} $>$ all\+Skills)
-\begin{DoxyCompactList}\small\item\em Constructeur avec les compétences. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classmonstre_aea06290b33132d84afffd3f40f651891}\label{classmonstre_aea06290b33132d84afffd3f40f651891}} 
-{\footnotesize template$<$typename T $>$ }\\std\+::string {\bfseries to\+String} (const T \&valeur)
-\item 
-\mbox{\Hypertarget{classmonstre_ae166adf286161a19ee0bc8e5c14fc8f5}\label{classmonstre_ae166adf286161a19ee0bc8e5c14fc8f5}} 
-std\+::string \hyperlink{classmonstre_ae166adf286161a19ee0bc8e5c14fc8f5}{get\+Name} ()
-\begin{DoxyCompactList}\small\item\em Getter pour le nom. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classmonstre_aefac39c9ae67b300c2a69bfdd29662b2}\label{classmonstre_aefac39c9ae67b300c2a69bfdd29662b2}} 
-int \hyperlink{classmonstre_aefac39c9ae67b300c2a69bfdd29662b2}{get\+Hp\+Max} ()
-\begin{DoxyCompactList}\small\item\em Getter pour le nombre de points de vie max. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classmonstre_a5cda5112e283bc62d0a8a2d8c21885e2}\label{classmonstre_a5cda5112e283bc62d0a8a2d8c21885e2}} 
-int \hyperlink{classmonstre_a5cda5112e283bc62d0a8a2d8c21885e2}{get\+Hp\+Current} ()
-\begin{DoxyCompactList}\small\item\em Getter pour le nombre de points de vie actuels. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classmonstre_a0177c6bac35608e9c940de2550f0b3be}\label{classmonstre_a0177c6bac35608e9c940de2550f0b3be}} 
-int \hyperlink{classmonstre_a0177c6bac35608e9c940de2550f0b3be}{get\+Speed} ()
-\begin{DoxyCompactList}\small\item\em Getter pour la vitesse d\textquotesingle{}attaque du monstre. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classmonstre_a7b92c8b92f0e30c4e90b6e797124a841}\label{classmonstre_a7b92c8b92f0e30c4e90b6e797124a841}} 
-bool \hyperlink{classmonstre_a7b92c8b92f0e30c4e90b6e797124a841}{get\+Alive} ()
-\begin{DoxyCompactList}\small\item\em Getter qui permet de savoir si le monstre est en vie. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classmonstre_a9529ed40be5fc8a806a7ae0287995ff1}\label{classmonstre_a9529ed40be5fc8a806a7ae0287995ff1}} 
-std\+::vector$<$ \hyperlink{classcompetence}{competence} $>$ \hyperlink{classmonstre_a9529ed40be5fc8a806a7ae0287995ff1}{get\+Skill\+Vect} ()
-\begin{DoxyCompactList}\small\item\em Getter qui renvoie un vecteur (std\+::vector) de compétences. \end{DoxyCompactList}\item 
-std\+::string \hyperlink{classmonstre_a70fd98734f8ce2ae1e856c7d9194e89d}{monstre\+String} ()
-\begin{DoxyCompactList}\small\item\em Retour d\textquotesingle{}une string représentant un monstre. \end{DoxyCompactList}\item 
-int \hyperlink{classmonstre_a7591cd207cd1bee68ca79ce489f41ce2}{nb\+Ligne\+Fichier} (std\+::string nom\+Fichier)
-\begin{DoxyCompactList}\small\item\em Retourne le nombre de lignes d\textquotesingle{}un fichier. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classmonstre_ad3d2efc38609b3857e542423809a566d}\label{classmonstre_ad3d2efc38609b3857e542423809a566d}} 
-void \hyperlink{classmonstre_ad3d2efc38609b3857e542423809a566d}{save\+In\+File} ()
-\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}écrire le monstre dans un fichier de sauvegarde. \end{DoxyCompactList}\item 
+\hyperlink{classmonstre_a863d9f9a553a2e3a49d16182dd004da8}{monstre} (std\+::string entite\+Id, std\+::string entite\+Name, int entite\+Hp\+Max, int entite\+Speed, int entite\+Mana\+Max, std\+::string entite\+Description, std\+::vector$<$ \hyperlink{classcompetence}{competence} $>$ all\+Skills)
+\begin{DoxyCompactList}\small\item\em Constructeur avec tout. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classmonstre_aeb60395664bbca7846e037b058b5c716}\label{classmonstre_aeb60395664bbca7846e037b058b5c716}} 
 void \hyperlink{classmonstre_aeb60395664bbca7846e037b058b5c716}{print\+Monstre} ()
-\begin{DoxyCompactList}\small\item\em Pour tester. \end{DoxyCompactList}\item 
-bool \hyperlink{classmonstre_af5b61c4c0e2118760ce6f610bf9349e2}{enlever\+Vie} (int degats)
-\begin{DoxyCompactList}\small\item\em Enlève x points de vie au monstre. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classmonstre_a477ba81185ff1dc77ebedf2b72afbb05}\label{classmonstre_a477ba81185ff1dc77ebedf2b72afbb05}} 
-std\+::string {\bfseries name}
-\item 
-\mbox{\Hypertarget{classmonstre_a6cca6a9a3788ab7fca2e6ee7c321b7ea}\label{classmonstre_a6cca6a9a3788ab7fca2e6ee7c321b7ea}} 
-int {\bfseries hp\+Max}
-\item 
-\mbox{\Hypertarget{classmonstre_afc39f2b9c79b34c7690886b9fd1f97f9}\label{classmonstre_afc39f2b9c79b34c7690886b9fd1f97f9}} 
-int {\bfseries hp\+Current}
-\item 
-\mbox{\Hypertarget{classmonstre_a2a118a2943476096ff05f0ddbee5a2eb}\label{classmonstre_a2a118a2943476096ff05f0ddbee5a2eb}} 
-int {\bfseries speed}
-\item 
-\mbox{\Hypertarget{classmonstre_aca8671e46fd6e20fd0c1afeb276f6da4}\label{classmonstre_aca8671e46fd6e20fd0c1afeb276f6da4}} 
-bool {\bfseries alive}
-\item 
-\mbox{\Hypertarget{classmonstre_a6540a325121334ddbb8847cbf97f869a}\label{classmonstre_a6540a325121334ddbb8847cbf97f869a}} 
-std\+::vector$<$ \hyperlink{classcompetence}{competence} $>$ {\bfseries skill\+Vect}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Pour tester. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classmonstre_a3a6290dca4b99876fe846e02e4ce140d}\label{classmonstre_a3a6290dca4b99876fe846e02e4ce140d}} 
+\mbox{\Hypertarget{classmonstre_a863d9f9a553a2e3a49d16182dd004da8}\label{classmonstre_a863d9f9a553a2e3a49d16182dd004da8}} 
 \index{monstre@{monstre}!monstre@{monstre}}
 \index{monstre@{monstre}!monstre@{monstre}}
-\subsubsection{\texorpdfstring{monstre()}{monstre()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily monstre\+::monstre (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{hp\+Max,  }\item[{int}]{speed }\end{DoxyParamCaption})}
+\subsubsection{\texorpdfstring{monstre()}{monstre()}}
+{\footnotesize\ttfamily monstre\+::monstre (\begin{DoxyParamCaption}\item[{std\+::string}]{entite\+Id,  }\item[{std\+::string}]{entite\+Name,  }\item[{int}]{entite\+Hp\+Max,  }\item[{int}]{entite\+Speed,  }\item[{int}]{entite\+Mana\+Max,  }\item[{std\+::string}]{entite\+Description,  }\item[{std\+::vector$<$ \hyperlink{classcompetence}{competence} $>$}]{all\+Skills }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Constructeur avec carac d\textquotesingle{}un monstre. 
-
-Constructeur assignant tout, sauf les compétences, qui ne seront pas rajoutées (pas de fonctions). 
-\begin{DoxyParams}{Parameters}
-{\em name} & Le nom du monstre. \\
-\hline
-{\em hp\+Max} & Le nombre de points de vie max du monstre. \\
-\hline
-{\em speed} & La vitesse d\textquotesingle{}attaque du monstre. \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classmonstre_ab28517ab4e9898d3d079f2caa7cc5953}\label{classmonstre_ab28517ab4e9898d3d079f2caa7cc5953}} 
-\index{monstre@{monstre}!monstre@{monstre}}
-\index{monstre@{monstre}!monstre@{monstre}}
-\subsubsection{\texorpdfstring{monstre()}{monstre()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily monstre\+::monstre (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{hp\+Max,  }\item[{int}]{speed,  }\item[{std\+::vector$<$ \hyperlink{classcompetence}{competence} $>$}]{all\+Skills }\end{DoxyParamCaption})}
-
-
-
-Constructeur avec les compétences. 
+Constructeur avec tout. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em name} & Le nom du monstre. \\
+{\em entite\+Id} & L\textquotesingle{}identifiant du monstre \\
 \hline
-{\em hp\+Max} & Le nombre de points de vie max du monstre. \\
+{\em entite\+Name} & Le nom du monstre \\
 \hline
-{\em speed} & La vitesse d\textquotesingle{}attaque du monstre. \\
+{\em entite\+Hp\+Max} & Les points de vie max du monstre \\
+\hline
+{\em entite\+Speed} & La vitesse du monstre \\
+\hline
+{\em entite\+Mana\+Max} & Les points de mana max du monstre \\
+\hline
+{\em entite\+Description} & La entite\+Description du monstre \\
 \hline
 {\em all\+Skills} & Un vecteur (std\+::vector) contenant toutes les compétences de ce monstre. \\
-\hline
-\end{DoxyParams}
-
-
-\subsection{Member Function Documentation}
-\mbox{\Hypertarget{classmonstre_af5b61c4c0e2118760ce6f610bf9349e2}\label{classmonstre_af5b61c4c0e2118760ce6f610bf9349e2}} 
-\index{monstre@{monstre}!enlever\+Vie@{enlever\+Vie}}
-\index{enlever\+Vie@{enlever\+Vie}!monstre@{monstre}}
-\subsubsection{\texorpdfstring{enlever\+Vie()}{enleverVie()}}
-{\footnotesize\ttfamily bool monstre\+::enlever\+Vie (\begin{DoxyParamCaption}\item[{int}]{degats }\end{DoxyParamCaption})}
-
-
-
-Enlève x points de vie au monstre. 
-
-Cette fonction permet d\textquotesingle{}enlever des points de vie. Elle permet aussi de savoir si un monstre est en vie (pts\+Vie $<$ 0) ou si il est mort. \begin{DoxyReturn}{Returns}
-Un booléen qui est égal à {\ttfamily true} si le monstre est mort, {\ttfamily false} sinon. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classmonstre_a70fd98734f8ce2ae1e856c7d9194e89d}\label{classmonstre_a70fd98734f8ce2ae1e856c7d9194e89d}} 
-\index{monstre@{monstre}!monstre\+String@{monstre\+String}}
-\index{monstre\+String@{monstre\+String}!monstre@{monstre}}
-\subsubsection{\texorpdfstring{monstre\+String()}{monstreString()}}
-{\footnotesize\ttfamily std\+::string monstre\+::monstre\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Retour d\textquotesingle{}une string représentant un monstre. 
-
-Convertit un objet monstre en une ligne de string. \begin{DoxyPostcond}{Postcondition}
-La string contiendra les infos dans cet ordre \+:
-\begin{DoxyItemize}
-\item identifiant (type {\ttfamily m$<$entier$>$})
-\item nom du monstre
-\item nombre de points de vie
-\item vitesse d\textquotesingle{}attaque
-\item toutes les compétences , séparées par des {\ttfamily \+:} 
-\end{DoxyItemize}
-\end{DoxyPostcond}
-\mbox{\Hypertarget{classmonstre_a7591cd207cd1bee68ca79ce489f41ce2}\label{classmonstre_a7591cd207cd1bee68ca79ce489f41ce2}} 
-\index{monstre@{monstre}!nb\+Ligne\+Fichier@{nb\+Ligne\+Fichier}}
-\index{nb\+Ligne\+Fichier@{nb\+Ligne\+Fichier}!monstre@{monstre}}
-\subsubsection{\texorpdfstring{nb\+Ligne\+Fichier()}{nbLigneFichier()}}
-{\footnotesize\ttfamily int monstre\+::nb\+Ligne\+Fichier (\begin{DoxyParamCaption}\item[{std\+::string}]{nom\+Fichier }\end{DoxyParamCaption})}
-
-
-
-Retourne le nombre de lignes d\textquotesingle{}un fichier. 
-
-Compte le nb de ligne du fichier pour créer l\textquotesingle{}identifiant unique d\textquotesingle{}un monstre. L\textquotesingle{}identifiant sera {\ttfamily  nb\+Lignes + 1 } \begin{DoxyReturn}{Returns}
-Un entier représentant le nombre de lignes. 
-\end{DoxyReturn}
-
-\begin{DoxyParams}{Parameters}
-{\em nom\+Fichier} & Une string (std\+::string) qui sera le nom du fichier à ouvrir. \\
 \hline
 \end{DoxyParams}
 

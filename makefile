@@ -43,9 +43,9 @@ fj:
 	# @make fonctionsjeu.exe
 io:
 	@make objects/io.o
-	# @make objects/io_main.o
+	@make objects/io_main.o
 	@make archives/io.a
-	# @make io_main.exe
+	@make io_main.exe
 doc:
 	@cd documentation; doxygen documentation > doxygen_output.txt; cd latex; make;
 #main.exe: objects/fonctionsjeu.o objects/io.o objects/carte.o objects/personnage.o objects/competence.o objects/monstre.o
@@ -112,7 +112,7 @@ objects/fonctionsjeu_main.o: tests/fonctionsjeu_main.cpp
 
 io_main.exe: objects/io_main.o objects/io.o
 	@echo "Compiling $@ ..."
-	@g++ $^ -o $@ -std=c++11
+	@g++ $^ $(OCOMPETENCE) -o $@ -std=c++11
 fonctionsjeu.exe: objects/fonctionsjeu.o objects/fonctionsjeu_main.o archives/io.a
 	@echo "Compiling $@ ..."
 	@g++ $^ $(IO) $(CARTE) $(COMPETENCE) $(MONSTRE) $(PERSONNAGE) -o $@ -std=c++11

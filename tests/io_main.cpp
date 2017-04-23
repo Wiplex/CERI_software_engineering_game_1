@@ -7,19 +7,19 @@ using namespace io;
 
 int main()
 {
-	cout << "Input de: ";
+	cout << "Test " << BLUE << "io::" << MAGENTA << "de()" << BLANK << " : ";
 	char r = de();
-	cout << endl << "Result de : " << r << endl;
-	cout << "Result de : " << int(r) << endl;
+	cout << endl << "Resultat " << BLUE << "io::" << MAGENTA << "de()" << BLANK << " : " << r << endl;
+	cout << "Resultat " << YELLOW << "int" << BLANK << "( " << BLUE << "io::" << MAGENTA << "de()" << BLANK << " ) : " << int(r) << endl;
 
-	cout << "Input long : ";
+	cout << "Test " << BLUE << "io::" << MAGENTA << "long_input()" << BLANK << " : ";
 	string s = long_input();
-	cout << "Result : " << s << endl;
+	cout << "Resultat : " << s << endl;
 
-	cout << "Width : " << getTerminalWidth() << endl;
-	cout << "Height : " << getTerminalHeight() << endl;
-
-	bienvenue();
+	cout << "Test " << BLUE << "io::" << MAGENTA << "getTerminalWidth()" << BLANK << " : " << getTerminalWidth() << endl;
+	cout << "Test " << BLUE << "io::" << MAGENTA << "getTerminalHeight()" << BLANK << " : " << getTerminalHeight() << endl;
+	cout << "Test " << BLUE << "io::" << RED << "TermWidth" << BLANK << " : " << io::TermWidth << endl;
+	cout << "Test " << BLUE << "io::" << RED << "TermWidth" << BLANK << " : " << io::TermHeight << endl;
 
 	return 0;
 }
