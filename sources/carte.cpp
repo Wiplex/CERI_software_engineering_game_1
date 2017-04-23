@@ -11,14 +11,6 @@ Carte :: Carte()
 {
 	this->nom = "";
 	this->description = "";
-//	this->taille = 5 ;
-//
-//	this->plateau = new string * [taille];
-//	for (int i = 0 ; i < taille ; i++)
-//	{
-//		plateau[i] = new string [taille] ;
-//	}
-
 	this->nbr_monstre = 0 ;
 	this -> case_dispo = 0;
 }

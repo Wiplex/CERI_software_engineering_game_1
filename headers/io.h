@@ -101,7 +101,11 @@ namespace io
 	template<typename T> void afficher(T object)
 	{
 		std::cout << (object).getName();                            //Affiche le nom
-		std::cout << ", \"" << (object).getDescription() << "\"";  //Affiche la description
+
+		if ((object).getDescription() != "")
+		{
+			std::cout << ", \"" << (object).getDescription() << "\"";  //Affiche la description
+		}
 	}
 
 	//! Affichage d'un ensemble d'objets
