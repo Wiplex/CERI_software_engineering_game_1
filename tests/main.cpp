@@ -13,39 +13,15 @@ int main()
 {
 	//Phase préparation partie
 	jeu a;
-	a.demarrer_jeu();
+	a.preparation_partie();
 
-		//Choix personnage
-	vector<personnage> tous_persos;
-	personnage pers;
-	string nom_file = "fichierPersonnage.txt";
-	tous_persos = loadAllEntiteFromFile(pers, nom_file);
-
-	entite perso_jeu = personnage();
-	perso_jeu = choix_unique_element(tous_persos);
-
-		//Choix carte
-	vector<Carte> toutes_cartes;
-
-	Carte carte;
-
-	toutes_cartes = carte.chargement();
-
-	Carte map_jeu = choix_unique_element(toutes_cartes);
-
-		//Chargement monstres
-	vector<monstre> monstres_jeu;
-	vector<monstre>::iterator itm;
-	monstre mons;
-	nom_file = "fichierMonstre.txt";
-	monstres_jeu = loadAllEntiteFromFile(mons, nom_file);
-
+	//Combat
 	vector<entite> vect_entite;
 	vector<entite>::iterator ite;
 	vector<entite>::iterator death;
 
-	vect_entite.push_back(perso_jeu);
-	vect_entite.push_back(monstres_jeu[0]);
+	vect_entite.push_back(a.getPerso());
+	vect_entite.push_back(a.getMonstres()[0]);
 
 	sort(vect_entite.begin(), vect_entite.end(), sort_speed);
 
@@ -97,7 +73,7 @@ int main()
 			}
 			else												//Mana suffisant pour lancer compétence
 			{
-					//Choix cible
+//					Choix cible
 				if ((* ite).getID().substr(0, 1) == "p")		//Si personnage (choix manuel cible)
 				{
 					cout << "Choix cible personnage: " << endl;
@@ -123,9 +99,11 @@ int main()
 						nb_monsters--;							//Monstre mort
 					}
 				}
-				else
+				else if (!target.enleverVie(comp_util.getDamage()))
 				{
-					continue;
+					cout << target.getName() << " subit " << comp_util.getDamage() << " dégâts" << endl;
+					cout << target.getName() << " a désormais " << target.getHpCurrent() << " points de vie" << endl;
+
 				}
 
 				if (nb_players == 0)							//Tous personnages morts
