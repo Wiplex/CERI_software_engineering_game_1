@@ -146,7 +146,7 @@ namespace io
 	//! Récupérer les compétences d'un monstre dans le .txt
 	std::vector<competence> loadCompetenceFromFile(std::string nomFichier,int numLigne);
 
-<<<<<<< HEAD
+
 	//! Efface l'écran.
 	extern void clearScreen();
 
@@ -154,10 +154,9 @@ namespace io
 	extern void afficherCarte(Carte&, int);
 
 	extern void checkTerminalSize();
-=======
+
 	//! Récupérer les cartes dans le .txt
 	std::vector<Carte> loadAllCarteFromFile(std::string nomFichier);
->>>>>>> origin/master
 
 	//! Affichage d'objet.
 	/*!
