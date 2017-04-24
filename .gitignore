@@ -2,3 +2,9 @@
 *.a
 *.exe
 *.a
+archives/*
+objects/*
+documentation/html/*
+documentation/latex/*
+documentation/man/*
+documentation/*.txt
