@@ -87,7 +87,7 @@ namespace io
 		    -# Alors on utilise la fonction std::string::erase(std::string::iterator) pour enlever le dernier caractère
 		    -# On remplace le contenu du flux de caractère par du vide
 		    -# On remet la chaîne de caractère coupée dans le flux.
-		    
+
 		\pre La fonction recevra un stringstream d'entrée utilisateur. Son but est d'enlever le dernier caractère entré (cette fonction est appelée dans long_input() dans une condition si le caractère rentré est 127, aussi connu sous le nom de DEL ASCII).
 		\post La fonction ne retourne rien, car le seul argument est passé par argument (lol) et est donc automatiquement modifié.
 		\param i C'est un flux de caractères (std::stringstream) à partir duquel il faudra enlever le dernier caractère.
