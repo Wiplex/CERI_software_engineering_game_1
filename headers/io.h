@@ -46,6 +46,9 @@ namespace io
 	//! Variable permettant de retenir à partir de quelle coordonnée "y" la carte est affichée (si la carte est plus grande que la fenêtre de terminal, cette valeur ne sera pas toujours à 0 ...)
 	extern int mapPositiony;
 
+	//! Stocke la position (x) de l'affichage de l'overlay des actions. Nous n'avons pas besoin du Y car l'overlay prends toute la largeur quoi qu'il arrive.
+	extern int interactionsOverlayX;
+
 	//! Paire de valeurs (std::pair) gardant la position actuelle du joueur dans
 	extern std::pair<int,int> currentPlayerPosition;
 
@@ -84,12 +87,13 @@ namespace io
 		Voici son mode opératoire :
 		-# On prends tout le contenu du stringstream et on le met dans une chaîne de caractères (std::string)
 		-# Si la chaîne de caractère contient au moins 1 caractère :
+		    -# On enlève le dernier caractère affiché sur stdout (en déplacant le curseur vers la droite après avoir affiché un espace)
 		    -# Alors on utilise la fonction std::string::erase(std::string::iterator) pour enlever le dernier caractère
 		    -# On remplace le contenu du flux de caractère par du vide
 		    -# On remet la chaîne de caractère coupée dans le flux.
-		    
+
 		\pre La fonction recevra un stringstream d'entrée utilisateur. Son but est d'enlever le dernier caractère entré (cette fonction est appelée dans long_input() dans une condition si le caractère rentré est 127, aussi connu sous le nom de DEL ASCII).
-		\post La fonction ne retourne rien, car le seul argument est passé par argument (lol) et est donc automatiquement modifié.
+		\post La fonction ne retourne rien, car le seul argument est passé **par argument** et est donc automatiquement modifié.
 		\param i C'est un flux de caractères (std::stringstream) à partir duquel il faudra enlever le dernier caractère.
 	*/
 	extern void removeLastChar(std::stringstream& i);
@@ -151,7 +155,10 @@ namespace io
 	extern void clearScreen();
 
 	//! Affichage de la carte
-	extern void afficherCarte(Carte&, int);
+	extern void afficherCarte(Carte&, personnage&, int);
+
+	extern void afficherMouvements();
+	extern void afficherMouvements(std::string);
 
 	extern void checkTerminalSize();
 

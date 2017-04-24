@@ -112,7 +112,7 @@ objects/fonctionsjeu_main.o: tests/fonctionsjeu_main.cpp
 
 io_main.exe: objects/io_main.o objects/io.o
 	@echo "Compiling $@ ..."
-	@g++ $^ $(OCOMPETENCE) -o $@ -std=c++11
+	@g++ $^ $(OCARTE) $(OCOMPETENCE) -o $@ -std=c++11
 fonctionsjeu.exe: objects/fonctionsjeu.o objects/fonctionsjeu_main.o archives/io.a
 	@echo "Compiling $@ ..."
 	@g++ $^ $(IO) $(CARTE) $(COMPETENCE) $(MONSTRE) $(PERSONNAGE) -o $@ -std=c++11
