@@ -7,35 +7,37 @@
 \contentsline {chapter}{\numberline {4}Namespace Documentation}{7}{chapter.4}
 \contentsline {section}{\numberline {4.1}io Namespace Reference}{7}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Detailed Description}{8}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Function Documentation}{8}{subsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.2.1}afficher()}{8}{subsubsection.4.1.2.1}
-\contentsline {subsubsection}{\numberline {4.1.2.2}bienvenue()}{8}{subsubsection.4.1.2.2}
+\contentsline {subsection}{\numberline {4.1.2}Function Documentation}{9}{subsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}afficher()}{9}{subsubsection.4.1.2.1}
+\contentsline {subsubsection}{\numberline {4.1.2.2}bienvenue()}{9}{subsubsection.4.1.2.2}
 \contentsline {subsubsection}{\numberline {4.1.2.3}Change\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Terminal()}{9}{subsubsection.4.1.2.3}
-\contentsline {subsubsection}{\numberline {4.1.2.4}check\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Input()}{9}{subsubsection.4.1.2.4}
-\contentsline {subsubsection}{\numberline {4.1.2.5}choix\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}unique\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}element()}{9}{subsubsection.4.1.2.5}
-\contentsline {subsubsection}{\numberline {4.1.2.6}create\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Competence()}{10}{subsubsection.4.1.2.6}
-\contentsline {subsubsection}{\numberline {4.1.2.7}de()}{10}{subsubsection.4.1.2.7}
-\contentsline {subsubsection}{\numberline {4.1.2.8}liste\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}elements()}{10}{subsubsection.4.1.2.8}
-\contentsline {subsubsection}{\numberline {4.1.2.9}long\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}input()}{11}{subsubsection.4.1.2.9}
-\contentsline {chapter}{\numberline {5}Class Documentation}{13}{chapter.5}
-\contentsline {section}{\numberline {5.1}Carte Class Reference}{13}{section.5.1}
-\contentsline {section}{\numberline {5.2}competence Class Reference}{13}{section.5.2}
-\contentsline {section}{\numberline {5.3}ent\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}combat Struct Reference}{14}{section.5.3}
-\contentsline {section}{\numberline {5.4}jeu Class Reference}{14}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{14}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}Constructor \& Destructor Documentation}{14}{subsection.5.4.2}
-\contentsline {subsubsection}{\numberline {5.4.2.1}jeu()}{15}{subsubsection.5.4.2.1}
-\contentsline {subsection}{\numberline {5.4.3}Member Function Documentation}{15}{subsection.5.4.3}
-\contentsline {subsubsection}{\numberline {5.4.3.1}demarrer\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}jeu()}{15}{subsubsection.5.4.3.1}
-\contentsline {section}{\numberline {5.5}monstre Class Reference}{15}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}Constructor \& Destructor Documentation}{16}{subsection.5.5.1}
-\contentsline {subsubsection}{\numberline {5.5.1.1}monstre()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [1/2]}}{16}{subsubsection.5.5.1.1}
-\contentsline {subsubsection}{\numberline {5.5.1.2}monstre()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [2/2]}}{17}{subsubsection.5.5.1.2}
-\contentsline {subsection}{\numberline {5.5.2}Member Function Documentation}{17}{subsection.5.5.2}
-\contentsline {subsubsection}{\numberline {5.5.2.1}enlever\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Vie()}{17}{subsubsection.5.5.2.1}
-\contentsline {subsubsection}{\numberline {5.5.2.2}monstre\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}String()}{18}{subsubsection.5.5.2.2}
-\contentsline {subsubsection}{\numberline {5.5.2.3}nb\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Ligne\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Fichier()}{18}{subsubsection.5.5.2.3}
-\contentsline {section}{\numberline {5.6}personnage Class Reference}{18}{section.5.6}
-\contentsline {subsection}{\numberline {5.6.1}Constructor \& Destructor Documentation}{19}{subsection.5.6.1}
-\contentsline {subsubsection}{\numberline {5.6.1.1}personnage()}{19}{subsubsection.5.6.1.1}
-\contentsline {chapter}{Index}{21}{section*.14}
+\contentsline {subsubsection}{\numberline {4.1.2.4}check\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Input()}{10}{subsubsection.4.1.2.4}
+\contentsline {subsubsection}{\numberline {4.1.2.5}choix\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}unique\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}element()}{10}{subsubsection.4.1.2.5}
+\contentsline {subsubsection}{\numberline {4.1.2.6}create\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Competence()}{11}{subsubsection.4.1.2.6}
+\contentsline {subsubsection}{\numberline {4.1.2.7}de()}{11}{subsubsection.4.1.2.7}
+\contentsline {subsubsection}{\numberline {4.1.2.8}liste\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}elements()}{11}{subsubsection.4.1.2.8}
+\contentsline {subsubsection}{\numberline {4.1.2.9}long\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}input()}{12}{subsubsection.4.1.2.9}
+\contentsline {subsubsection}{\numberline {4.1.2.10}remove\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Last\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Char()}{12}{subsubsection.4.1.2.10}
+\contentsline {chapter}{\numberline {5}Class Documentation}{15}{chapter.5}
+\contentsline {section}{\numberline {5.1}Carte Class Reference}{15}{section.5.1}
+\contentsline {section}{\numberline {5.2}competence Class Reference}{16}{section.5.2}
+\contentsline {section}{\numberline {5.3}entite Class Reference}{16}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Constructor \& Destructor Documentation}{17}{subsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.1.1}entite()}{17}{subsubsection.5.3.1.1}
+\contentsline {subsection}{\numberline {5.3.2}Member Function Documentation}{18}{subsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.2.1}enlever\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Mana()}{18}{subsubsection.5.3.2.1}
+\contentsline {subsubsection}{\numberline {5.3.2.2}enlever\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Vie()}{18}{subsubsection.5.3.2.2}
+\contentsline {subsubsection}{\numberline {5.3.2.3}nb\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Ligne\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Fichier()}{19}{subsubsection.5.3.2.3}
+\contentsline {section}{\numberline {5.4}jeu Class Reference}{19}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{20}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Constructor \& Destructor Documentation}{20}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.2.1}jeu()}{20}{subsubsection.5.4.2.1}
+\contentsline {subsection}{\numberline {5.4.3}Member Function Documentation}{20}{subsection.5.4.3}
+\contentsline {subsubsection}{\numberline {5.4.3.1}demarrer\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}jeu()}{20}{subsubsection.5.4.3.1}
+\contentsline {section}{\numberline {5.5}monstre Class Reference}{21}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Constructor \& Destructor Documentation}{21}{subsection.5.5.1}
+\contentsline {subsubsection}{\numberline {5.5.1.1}monstre()}{21}{subsubsection.5.5.1.1}
+\contentsline {section}{\numberline {5.6}personnage Class Reference}{22}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Constructor \& Destructor Documentation}{22}{subsection.5.6.1}
+\contentsline {subsubsection}{\numberline {5.6.1.1}personnage()}{22}{subsubsection.5.6.1.1}
+\contentsline {chapter}{Index}{23}{section*.17}

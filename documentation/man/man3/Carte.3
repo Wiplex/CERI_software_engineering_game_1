@@ -1,4 +1,4 @@
-.TH "Carte" 3 "Fri Apr 21 2017" "My Project" \" -*- nroff -*-
+.TH "Carte" 3 "Sun Apr 23 2017" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,7 +13,22 @@ Carte
 .RI "\fBCarte\fP (int taille, std::string name, std::string description)"
 .br
 .ti -1c
-.RI "void \fBaffichage\fP ()"
+.RI "void \fBverif_taille\fP (int size)"
+.br
+.ti -1c
+.RI "void \fBcoordonneejoueur\fP ()"
+.br
+.ti -1c
+.RI "void \fBcoordonneeobstacle\fP ()"
+.br
+.ti -1c
+.RI "void \fBcoordonneemonstre\fP ()"
+.br
+.ti -1c
+.RI "void \fBaffichage_normal\fP ()"
+.br
+.ti -1c
+.RI "int \fBnbLigneFichier\fP (std::string nomFichier)"
 .br
 .ti -1c
 .RI "void \fBsauvegarde\fP ()"
@@ -25,16 +40,15 @@ Carte
 .RI "std::string \fBgetDescription\fP ()"
 .br
 .ti -1c
-.RI "bool \fBcarte_existe\fP (std::string nom)"
+.RI "\fBCarte\fP \fBoperator=\fP (const \fBCarte\fP &a_copier)"
 .br
+.RI "A déplacer dans \fBfonctionsjeu\&.h\fP\&. "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
 .ti -1c
-.RI "void \fBchargement\fP (std::string nom_selection)"
-.br
-.ti -1c
-.RI "int \fBquel_taille\fP (std::string nom)"
-.br
-.ti -1c
-.RI "void \fBsuppression\fP (std::string nom)"
+.RI "static std::vector< \fBCarte\fP > \fBchargement\fP ()"
 .br
 .in -1c
 

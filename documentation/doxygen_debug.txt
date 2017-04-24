@@ -1,39 +1,66 @@
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/fonctionsjeu.h:56: warning: Compound ent_combat is not documented.
 /Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:11: warning: Compound competence is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:8: warning: Compound Carte is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/personnage.h:7: warning: Compound personnage is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:9: warning: Compound monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:15: warning: Member Carte(int taille, std::string name, std::string description) (function) of class Carte is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:16: warning: Member affichage() (function) of class Carte is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:17: warning: Member sauvegarde() (function) of class Carte is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:18: warning: Member getName() (function) of class Carte is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:19: warning: Member getDescription() (function) of class Carte is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:20: warning: Member carte_existe(std::string nom) (function) of class Carte is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:21: warning: Member chargement(std::string nom_selection) (function) of class Carte is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:22: warning: Member quel_taille(std::string nom) (function) of class Carte is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:23: warning: Member suppression(std::string nom) (function) of class Carte is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:18: warning: Member competence(std::string skillName, int damage, int manaCost) (function) of class competence is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:19: warning: Member competence(std::string skillName, int damage) (function) of class competence is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:22: warning: Member getSkillName() (function) of class competence is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:23: warning: Member getDamage() (function) of class competence is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:24: warning: Member getManaCost() (function) of class competence is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:26: warning: Member toString(const T &valeur) (function) of class competence is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:28: warning: Member printCompetence() (function) of class competence is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:30: warning: Member competenceString() (function) of class competence is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/fonctionsjeu.h:59: warning: Member util_comp(monstre *entite, competence *comp) (function) of class ent_combat is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/fonctionsjeu.h:57: warning: Member entite (variable) of class ent_combat is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:49: warning: Member toString(const T &valeur) (function) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:11: warning: Member name (variable) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:12: warning: Member hpMax (variable) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:13: warning: Member hpCurrent (variable) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:14: warning: Member speed (variable) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:15: warning: Member alive (variable) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:16: warning: Member skillVect (variable) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:49: warning: Member toString(const T &valeur) (function) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:11: warning: Member name (variable) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:12: warning: Member hpMax (variable) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:13: warning: Member hpCurrent (variable) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:14: warning: Member speed (variable) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:15: warning: Member alive (variable) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:16: warning: Member skillVect (variable) of class monstre is not documented.
-/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/io.h:87: warning: Member loadAllMonstreFromFile() (function) of namespace io is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:10: warning: Compound Carte is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:10: warning: Compound entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/personnage.h:8: warning: Compound personnage is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/monstre.h:8: warning: Compound monstre is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:21: warning: Member Carte(int taille, std::string name, std::string description) (function) of class Carte is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:22: warning: Member verif_taille(int size) (function) of class Carte is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:23: warning: Member coordonneejoueur() (function) of class Carte is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:24: warning: Member coordonneeobstacle() (function) of class Carte is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:25: warning: Member coordonneemonstre() (function) of class Carte is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:26: warning: Member affichage_normal() (function) of class Carte is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:28: warning: Member nbLigneFichier(std::string nomFichier) (function) of class Carte is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:29: warning: Member sauvegarde() (function) of class Carte is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:30: warning: Member getName() (function) of class Carte is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:31: warning: Member getDescription() (function) of class Carte is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/carte.h:35: warning: Member chargement() (function) of class Carte is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:18: warning: Member competence(std::string skillName, int skillDamage, int skillManaCost) (function) of class competence is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:19: warning: Member competence(std::string skillName, int skillDamage) (function) of class competence is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:22: warning: Member getName() (function) of class competence is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:23: warning: Member getDescription() (function) of class competence is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:24: warning: Member getDamage() (function) of class competence is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:25: warning: Member getManaCost() (function) of class competence is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:27: warning: Member toString(const T &valeur) (function) of class competence is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:29: warning: Member printCompetence() (function) of class competence is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/competence.h:31: warning: Member competenceString() (function) of class competence is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:53: warning: Member toString(const T &valeur) (function) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:104: warning: Member entiteString(std::string lettreEntite, std::string nomFichier) (function) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:12: warning: Member entiteId (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:13: warning: Member entiteName (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:14: warning: Member entiteDescription (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:15: warning: Member entiteHpMax (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:16: warning: Member entiteHpCurrent (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:17: warning: Member entiteManaMax (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:18: warning: Member entiteManaCurrent (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:19: warning: Member entiteSpeed (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:20: warning: Member entiteAlive (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:21: warning: Member entiteSkillVect (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:53: warning: Member toString(const T &valeur) (function) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:104: warning: Member entiteString(std::string lettreEntite, std::string nomFichier) (function) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:12: warning: Member entiteId (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:13: warning: Member entiteName (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:14: warning: Member entiteDescription (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:15: warning: Member entiteHpMax (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:16: warning: Member entiteHpCurrent (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:17: warning: Member entiteManaMax (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:18: warning: Member entiteManaCurrent (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:19: warning: Member entiteSpeed (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:20: warning: Member entiteAlive (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:21: warning: Member entiteSkillVect (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/personnage.h:21: warning: Member personnage(std::string entiteId, std::string entiteName, int entiteHpMax, int entiteSpeed, int entiteManaMax, std::string entiteDescription, std::vector< competence > allSkills) (function) of class personnage is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:53: warning: Member toString(const T &valeur) (function) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:104: warning: Member entiteString(std::string lettreEntite, std::string nomFichier) (function) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:12: warning: Member entiteId (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:13: warning: Member entiteName (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:14: warning: Member entiteDescription (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:15: warning: Member entiteHpMax (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:16: warning: Member entiteHpCurrent (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:17: warning: Member entiteManaMax (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:18: warning: Member entiteManaCurrent (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:19: warning: Member entiteSpeed (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:20: warning: Member entiteAlive (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/entite.h:21: warning: Member entiteSkillVect (variable) of class entite is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/io.h:154: warning: Member checkTerminalSize() (function) of namespace io is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/io.h:234: warning: Member loadAllEntiteFromFile(T temp, std::string nomFichier) (function) of namespace io is not documented.
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/io.h:195: warning: argument 'need_desc' of command @param is not found in the argument list of io::choix_unique_element(std::vector< T > vect_element)
+/Users/thibault/GitHub/CERI_software_engineering_game_1/headers/io.h:173: warning: argument 'need_desc' of command @param is not found in the argument list of io::liste_elements(std::vector< T > vect_element)
