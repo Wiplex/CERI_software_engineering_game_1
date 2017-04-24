@@ -62,7 +62,6 @@ int jeu::combat(string id_monstre)	///mb argument vecteur pour prévoir évoluti
 {
 	vector<entite> vect_entite;
 	vector<entite>::iterator ite;
-	vector<entite>::iterator death;
 
 	cout << vect_entite.size();
 
@@ -92,7 +91,7 @@ int jeu::combat(string id_monstre)	///mb argument vecteur pour prévoir évoluti
 
 			target = choix_target(comp_util, (* ite), vect_entite, vect_p);	//Choix cible
 
-			sortie = appliquer_comp(target, comp_util, nb_players, nb_monsters);	//Effet compétence
+			sortie = appliquer_comp(target, vect_entite, comp_util, nb_players, nb_monsters);	//Effet compétence
 		}
 	}
 }
@@ -203,7 +202,7 @@ entite jeu::choix_target(competence comp_util, entite indiv, vector<entite> vect
 	if (is_personnage(indiv))	//Personnage
 	{
 		cout << "- Choix de la cible pour la compétence " << comp_util.getName() << " -" << endl;
-		target = choix_unique_element(vect_entite);	///Souci de passage: modifications non répercutées sur l'objet du vecteur
+		target = choix_unique_element(vect_entite);
 		cout << "Le personnage ";
 	}
 	else	//Monstre
@@ -220,25 +219,33 @@ entite jeu::choix_target(competence comp_util, entite indiv, vector<entite> vect
 	return target;
 }
 
-int jeu::appliquer_comp(entite & target, competence comp_util, int & nb_players, int & nb_monsters)
+int jeu::appliquer_comp(entite & target, vector<entite> & vect_entite, competence comp_util, int & nb_players, int & nb_monsters)
 {
-	target.enleverVie(comp_util.getDamage());	//Application attaque
+	vector<entite>::iterator ite;
+	vector<entite>::iterator death;
 
-    cout << "La cible " << target.getName() << " est touchée par ";
-    cout << comp_util.getName();
-    cout << ". Son total de points de vie s'élève désormais à " << target.getHpCurrent() << "." << endl;
-
-	if (target.getAlive() == false)	//Si cible morte
+	for(ite = vect_entite.begin(); ite != vect_entite.end(); ite++)
 	{
-		if (is_personnage(target))	//Si personnage
+		if ((* ite).getID() == target.getID())
 		{
-			cout << "Le personnage " << target.getName() << " est mort." << endl;
-			nb_players--;
+			(* ite) = (* ite).enleverVie(comp_util.getDamage());	//Application attaque
+			break;
+		}
+	}
+
+    cout << "La cible " << (* ite).getName() << " est touchée par ";
+    cout << comp_util.getName();
+    cout << ". Son total de points de vie s'élève désormais à " << (* ite).getHpCurrent() << "." << endl;
+
+	if ((* ite).getAlive() == false)	//Si cible morte
+	{
+		if (is_personnage(* ite))	//Si personnage
+		{
+			cout << "Le personnage " << (* ite).getName() << " est mort." << endl;
 		}
 		else	//Si monstre
 		{
-			cout << "Le monstre " << target.getName() << " est mort." << endl;
-			nb_monsters--;
+			cout << "Le monstre " << (* ite).getName() << " est mort." << endl;
 		}
 	}
 

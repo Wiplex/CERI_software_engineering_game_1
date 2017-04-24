@@ -30,7 +30,7 @@ public:
 		\param entiteHpMax Les points de vie max du monstre
 		\param entiteSpeed La vitesse du monstre
 		\param entiteManaMax Les points de mana max du monstre
-		\param entiteDescription La entiteDescription du monstre
+		\param entiteDescription La description du monstre
 		\param allSkills Un vecteur (std::vector) contenant toutes les compétences de ce monstre.
 	*/
 	monstre(std::string entiteId, std::string entiteName, int entiteHpMax, int entiteSpeed, int entiteManaMax, std::string entiteDescription, std::vector<competence> allSkills) : entite(entiteId, entiteName, entiteHpMax, entiteSpeed, entiteManaMax, entiteDescription, allSkills ){};

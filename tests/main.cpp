@@ -11,6 +11,8 @@ using namespace std;
 
 int main()
 {
+
+
 	jeu a;
 
 	a.preparation_partie();

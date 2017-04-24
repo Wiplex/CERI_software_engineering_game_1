@@ -114,7 +114,7 @@ public:
 	entite choix_target(competence comp_util, entite indiv, std::vector<entite> vect_entite, std::vector<int> vect_p);
 
 	//! Appliquer compétence
-    int appliquer_comp(entite & target, competence comp_util, int & nb_players, int & nb_monsters);
+    int appliquer_comp(entite & target, std::vector<entite> & vect_entite, competence comp_util, int & nb_players, int & nb_monsters);
 };
 
 bool sort_speed(entite a, entite b);

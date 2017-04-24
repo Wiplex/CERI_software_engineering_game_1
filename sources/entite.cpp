@@ -13,7 +13,7 @@ entite::entite()      //Constructeur vide
 	this->entiteName = "Inconnu";
 	this->entiteDescription = "";
 	this->entiteHpMax = 0;
-	this->entiteHpCurrent = entiteHpMax;
+	this->entiteHpCurrent = 0;
 	this->entiteManaMax = 0;
 	this->entiteManaCurrent = 0;
 	this->entiteSpeed = 0;
@@ -28,7 +28,7 @@ entite::entite(string entiteId, string entiteName, int entiteHpMax, int entiteSp
 	this->entiteName = entiteName;
 	this->entiteDescription = entiteDescription;
 	this->entiteHpMax = entiteHpMax;
-	this->entiteHpCurrent = this->entiteHpMax;
+	this->entiteHpCurrent = entiteHpMax;
 	this->entiteManaMax = entiteManaMax;
 	this->entiteManaCurrent = entiteManaMax;
 	this->entiteSpeed = entiteSpeed;
@@ -191,7 +191,7 @@ void entite::saveInFile(string lettreEntite,string nomFichier) //Ecrit les carac
 // FONCTIONS
 
 
-void entite::enleverVie(int degats)
+entite entite::enleverVie(int degats)
 {
 	this->entiteHpCurrent-=degats;
 
@@ -199,12 +199,14 @@ void entite::enleverVie(int degats)
 	{
 		this->entiteAlive = false;
 	}
+
+	return * this;
 }
 
 
 bool entite::enleverMana(int skillManaCost)
 {
-	if (this->entiteManaCurrent>= skillManaCost)
+	if (this->entiteManaCurrent >= skillManaCost)
 	{
 		this->entiteManaCurrent -= skillManaCost;
 		return true;
@@ -222,11 +224,19 @@ bool entite::enleverMana(int skillManaCost)
 
 void entite::printEntite()
 {
-	cout << "nom : " << this->entiteName<< endl;
-	cout << "hp max : " << this->entiteHpMax<< endl;
-	cout << "entiteSpeed : " << this->entiteSpeed<< endl;
+	cout << "Nom: " << this->entiteName<< endl;
+	cout << "HP: " << this->entiteHpCurrent << "/" << this->entiteHpMax << endl;
+	cout << "MP: " << this->entiteManaCurrent << "/" << this->entiteManaMax << endl;
+	cout << "Vitesse: " << this->entiteSpeed<< endl;
 
-	for (int i=0 ; i<this->entiteSkillVect.size() ; i++)
+	if (this->entiteDescription != "")
+	{
+		cout << "Description: " <<this->entiteDescription<<endl;
+	}
+
+	cout << endl << "Compétences: " << endl;
+
+	for (int i=0 ; i<3 ; i++)
 	{
 		this->entiteSkillVect[i].printCompetence();
 	}

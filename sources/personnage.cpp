@@ -10,11 +10,13 @@ using namespace std;
 
 void personnage::printPersonnage()
 {
-	cout << "nom : " << this->entiteName<< endl;
-	cout << "hp max : " << this->entiteHpMax<< endl;
-	cout << "entiteSpeed : " << this->entiteSpeed<< endl;
-	cout << "mana max : " << this->entiteManaMax<<endl;
-	cout << "entiteDescription : " <<this->entiteDescription<<endl;
+	cout << "Nom: " << this->entiteName<< endl;
+	cout << "HP: " << this->entiteHpCurrent << "/" << this->entiteHpMax;
+	cout << "Vitesse: " << this->entiteSpeed<< endl;
+	cout << "MP: " << this->entiteManaCurrent << "/" << this->entiteManaMax;
+	cout << "Description: " <<this->entiteDescription<<endl;
+
+	cout << endl << "Compétences: " << endl;
 
 	for (int i=0 ; i<3 ; i++)
 	{
