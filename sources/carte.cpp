@@ -289,7 +289,16 @@ Carte Carte::operator=(const Carte & a_copier)
 	return * this;
 }
 
+void Carte::afficher_detail()
+{
+	cout << "Détails de la carte " << nom << endl << endl;
+	cout << "Taille: " << taille << "*" << taille << " = " << taille * taille << " cases au total." << endl;
+	cout << "Nombre total de monstres sur la carte: " << nbr_monstre << endl;
+	cout << "Nombre d'obstacles présents sur la carte: " << case_dispo << endl;
+	cout << "Description: " << description << endl;
 
+	cout << endl;
+}
 
 
 

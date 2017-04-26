@@ -37,6 +37,7 @@ class Carte
 		//int quel_taille(std::string nom);
 		//void suppression(std::string nom);
 		Carte operator=(const Carte & a_copier);
+		void afficher_detail();
 };
 
 #endif

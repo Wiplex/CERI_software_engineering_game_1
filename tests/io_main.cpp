@@ -21,10 +21,5 @@ int main()
 	cout << "Test " << BLUE << "io::" << RED << "TermWidth" << BLANK << " : " << io::TermWidth << endl;
 	cout << "Test " << BLUE << "io::" << RED << "TermWidth" << BLANK << " : " << io::TermHeight << endl;
 
-	cout << "Test " << BLUE << "io::" << MAGENTA << "afficherInteractions()" << BLANK << " : " << endl;
-	afficherMouvements();
-	de();
-	afficherMouvements("Désolé, cette case n'est pas accessible car vous êtes trop cons !");
-
 	return 0;
 }

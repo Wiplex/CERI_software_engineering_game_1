@@ -25,7 +25,7 @@ public:
 
 	template<typename T> std::string toString(const T & valeur);
 
-	void printCompetence(); //Test
+	void afficher_detail(); //Test
 
 	std::string competenceString(); //Convertit les carac. d'une comp�tence en une string format�e
 };

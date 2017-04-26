@@ -46,9 +46,6 @@ namespace io
 	//! Variable permettant de retenir à partir de quelle coordonnée "y" la carte est affichée (si la carte est plus grande que la fenêtre de terminal, cette valeur ne sera pas toujours à 0 ...)
 	extern int mapPositiony;
 
-	//! Stocke la position (x) de l'affichage de l'overlay des actions. Nous n'avons pas besoin du Y car l'overlay prends toute la largeur quoi qu'il arrive.
-	extern int interactionsOverlayX;
-
 	//! Paire de valeurs (std::pair) gardant la position actuelle du joueur dans
 	extern std::pair<int,int> currentPlayerPosition;
 
@@ -87,13 +84,12 @@ namespace io
 		Voici son mode opératoire :
 		-# On prends tout le contenu du stringstream et on le met dans une chaîne de caractères (std::string)
 		-# Si la chaîne de caractère contient au moins 1 caractère :
-		    -# On enlève le dernier caractère affiché sur stdout (en déplacant le curseur vers la droite après avoir affiché un espace)
 		    -# Alors on utilise la fonction std::string::erase(std::string::iterator) pour enlever le dernier caractère
 		    -# On remplace le contenu du flux de caractère par du vide
 		    -# On remet la chaîne de caractère coupée dans le flux.
 
 		\pre La fonction recevra un stringstream d'entrée utilisateur. Son but est d'enlever le dernier caractère entré (cette fonction est appelée dans long_input() dans une condition si le caractère rentré est 127, aussi connu sous le nom de DEL ASCII).
-		\post La fonction ne retourne rien, car le seul argument est passé **par argument** et est donc automatiquement modifié.
+		\post La fonction ne retourne rien, car le seul argument est passé par argument (lol) et est donc automatiquement modifié.
 		\param i C'est un flux de caractères (std::stringstream) à partir duquel il faudra enlever le dernier caractère.
 	*/
 	extern void removeLastChar(std::stringstream& i);
@@ -155,13 +151,7 @@ namespace io
 	extern void clearScreen();
 
 	//! Affichage de la carte
-	extern void afficherCarte(Carte&, personnage&, int);
-
-	extern void afficherMouvements();
-	extern void afficherMouvements(std::string);
-
-	//! Compte la taille d'une string mieux que la fonction std::string::size(), car elle ne compte pas les accents comme deux caractères.
-	extern int taille_str(std::string);
+	extern void afficherCarte(Carte&, int);
 
 	extern void checkTerminalSize();
 
@@ -204,7 +194,6 @@ namespace io
 		}
 	}
 
-
 	//! Choix d'un élément unique
 	/*!
 		Fonction qui prend un vecteur d'éléments en entrée ainsi qu'un booléen, et affiche puis renvoie l'élément choisi.
@@ -222,22 +211,45 @@ namespace io
 			type_name = type_name.substr(1, type_name.size());			//Conservation des caractères pertinents
 		}
 
-		std::transform(type_name.begin(), type_name.end(), type_name.begin(), ::tolower);
-		std::cout << "Veuillez choisir votre " << type_name << " (1-9): ";
+		T choix = T();
+		bool valid = false;
 
-		liste_elements(vect_element);                        			//Affichage des éléments parmi lesquels choisir
-
-		char c_input = de();                                            //Input utilisateur
-		int input = c_input - '0';                                      //Transcription en chiffres
-
-		while (input < 0 || input > vect_element.size())                //Input incorrect
+		while (valid == false)
 		{
-			std::puts("Input incorrect. Réessayez!");
-			c_input = de();                                             //Input utilisateur
-			input = c_input - '0';                                      //Trancription en chiffres
-		}
+			std::transform(type_name.begin(), type_name.end(), type_name.begin(), ::tolower);
+			std::cout << "Veuillez choisir votre " << type_name << " (1-9): ";
 
-		T choix = vect_element[input - 1];                              //Sélection de l'objet dans son vecteur
+			liste_elements(vect_element);                        			//Affichage des éléments parmi lesquels choisir
+
+			char c_input = de();                                            //Input utilisateur
+			int input = c_input - '0';                                      //Transcription en chiffres
+
+			while (input < 0 || input > vect_element.size())                //Input incorrect
+			{
+				std::puts("Input incorrect. Réessayez!");
+				c_input = de();                                             //Input utilisateur
+				input = c_input - '0';                                      //Trancription en chiffres
+			}
+
+			choix = vect_element[input - 1];                              //Sélection de l'objet dans son vecteur
+
+				//Fiche détaillée
+			if (type_name == "competence")
+			{
+				valid = true;
+			}
+			else
+			{
+				choix.afficher_detail();
+				puts("Appuyez sur \"v\" pour valider votre choix, ou sur \"q\" pour revenir au menu de sélection");
+				c_input = de();
+
+				if (c_input == 'v')
+				{
+					valid = true;
+				}
+			}
+		}
 
 		std::cout << std::endl << "Vous avez choisi: ";
 		afficher(choix);												//Affichage de l'objet choisi

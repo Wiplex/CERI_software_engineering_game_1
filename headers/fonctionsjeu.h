@@ -16,9 +16,7 @@ using namespace io;
 /*!
 	Cette classe contient les fonctions nécessaires au démarrage de la partie, au combat, ainsi que toutes les fonctions intermédiaires nécessaires au bon fonctionnement de celles-ci.
 
-	Librairies incluses :
-		- std::stack ,
-		- io ( depuis io.h )
+	Inclut la librairie io.
 */
 class jeu
 {
@@ -69,7 +67,7 @@ public:
 		Choix de la carte.
 		Chargement des monstres.
 	*/
-	void preparation_partie();
+	int preparation_partie();
 
 	//! Module de combat
 	/*!
@@ -91,6 +89,7 @@ public:
 	//! Chargement acteurs combat
 	/*!
 		Permet de charger tous les acteurs du combat dans un vecteur d'entités.
+		\param vect_entite Vecteur où chercher le monstre.
 		\param id_monstre Identifiant du monstre à charger.
 		\return Chargement réussi ou non.
 		\sa cherche_monstre()
@@ -100,9 +99,11 @@ public:
 	//! Organisation entités
 	/*!
 		Permet de trier les entités (selon leur vitesse).
-		Identifie également les indices de vecteur correspondant à des personnages.
+		Identifie également les indices de vecteur correspondant à des personnages et les stocke dans un vecteur (pour ciblage par monstres).
+		\param vect_entite Vecteur de personnages à trier.
+		\return
 	*/
-	std::vector<int> orga_entites(std::vector<entite> vect_entite);
+	std::vector<int> orga_entites(std::vector<entite> & vect_entite);
 
 	//! Identification personnage
 	bool is_personnage(entite indiv);
@@ -111,10 +112,10 @@ public:
 	competence choix_comp(entite & indiv);
 
 	//! Choix cible
-	entite choix_target(competence comp_util, entite indiv, std::vector<entite> vect_entite, std::vector<int> vect_p);
+	entite choix_target(competence comp_util, entite & indiv, std::vector<entite> & vect_entite, std::vector<int> vect_p);
 
 	//! Appliquer compétence
-    int appliquer_comp(entite & target, std::vector<entite> & vect_entite, competence comp_util, int & nb_players, int & nb_monsters);
+    int appliquer_comp(entite target, std::vector<entite> & vect_entite, competence comp_util, int & nb_players, int & nb_monsters);
 };
 
 bool sort_speed(entite a, entite b);
