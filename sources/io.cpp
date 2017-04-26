@@ -626,9 +626,12 @@ namespace io
 					if (init == false)
 					{
 						init = true;
+						carte_temporaire.setTaille(t);
 						carte_temporaire.setName(nom);
 						carte_temporaire.setDescription(description);
 						carte_temporaire.setPlateau(t);
+						///carte_temporaire.setNbrMonstre();
+						///carte_temporaire.setCaseDispo();
 
 					}
 

@@ -40,7 +40,7 @@ int main()
 	else if (nbMonstres == 0)
 	{
 		cout << "Tous les monstres sont morts! Partie gagnée!" << endl;
-		cout << "Game Complete";
+		cout << "Here. Have a cookie";
 		return 1;
 	}
 }

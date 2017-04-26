@@ -60,8 +60,6 @@ int competence::getManaCost() //Retourne le cout en mana d'une compétence
 	return this->skillManaCost;
 }
 
-
-
 template<typename T>string competence::toString( const T & valeur ) //Convertit n'importe quoi en string
 {
 	ostringstream flux;
