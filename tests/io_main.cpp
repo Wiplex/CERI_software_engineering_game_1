@@ -24,7 +24,7 @@ int main()
 	cout << "Test " << BLUE << "io::" << MAGENTA << "afficherInteractions()" << BLANK << " : " << endl;
 	afficherMouvements();
 	de();
-	afficherMouvements("Désolé, cette case est inaccessible car vous êtes cons !");
+	afficherMouvements("Désolé, cette case n'est pas accessible car vous êtes trop cons !");
 
 	return 0;
 }
