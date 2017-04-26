@@ -46,7 +46,7 @@ int jeu::preparation_partie()
 	tous_persos = loadAllEntiteFromFile(pers, nom_file);	//Remplissage vecteur personnages depuis fichier
 	jeu_perso = choix_unique_element(tous_persos);			//Choix + assignation personnage partie
 
-		Choix carte
+		//Choix carte
 	vector<Carte> toutes_cartes;							//Vecteur cartes
 	nom_file = "fichierCarte.txt";							//Nom fichier source cartes
 	toutes_cartes = loadAllCarteFromFile(nom_file);			//Chargement carte depuis fichier
