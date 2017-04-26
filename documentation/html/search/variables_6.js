@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['yellow',['YELLOW',['../namespaceio.html#a0bb7c89e9e48840601811e4e35421767',1,'io']]]
+  ['red',['RED',['../namespaceio.html#ac9181eea4e6d57e5481bc7e5822de4cb',1,'io']]]
 ];
