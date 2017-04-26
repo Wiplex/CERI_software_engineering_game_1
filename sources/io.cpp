@@ -249,7 +249,7 @@ namespace io
 		cout << couleurDelimiteur << delimiteur << BLANK << std::string(TermWidth-2, ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
 
 		deplacementNecessaire = (TermWidth - 2 - taille_str(erreur_deplacement));
-		
+
 		// Affiche une ligne vide et / ou un message d'erreur.
 		cout << couleurDelimiteur << delimiteur << BLANK << std::string(deplacementNecessaire/2, ' ') << erreur_deplacement << std::string(deplacementNecessaire/2+deplacementNecessaire%2, ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
 
@@ -417,8 +417,35 @@ namespace io
 		return creation;
 	}
 */
+	bool checkSeparatorEntite(string uneLigne) //Retourne false si le nb de séparateurs dans une ligne n'est pas le nombre définit
+	{
+		int cptBarre=0;
+		int cptSlash=0;
+		char parcours;
 
-	vector<competence> loadCompetenceFromFile(string nomFichier,int numLigne)
+		for (int i=0; i<uneLigne.length(); i++)
+		{
+			parcours = uneLigne[i];
+			if(parcours=='/')
+			{
+				cptSlash++;
+			}
+
+			if(parcours=='|')
+			{
+				cptBarre++;
+			}
+		}
+
+		if((cptSlash == 4) && (cptBarre == 3))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	vector<competence> loadCompetenceFromFile(std::string nomFichier,int numLigne)
 	{
 		int nbSeparateur = 0;
 		string sskillName;
