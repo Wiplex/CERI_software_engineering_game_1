@@ -24,7 +24,7 @@ int main()
 	cout << "Test " << BLUE << "io::" << MAGENTA << "afficherInteractions()" << BLANK << " : " << endl;
 	afficherMouvements();
 	de();
-	afficherMouvements("Désolé, cette case n'est pas accessible car vous êtes trop cons !");
+	afficherMouvements("Have you heard of the tragedy of Darth Plagueis the wise ? I thought not, it's not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a Dark Lord of the Sith.");
 
 	return 0;
 }

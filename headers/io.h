@@ -157,13 +157,37 @@ namespace io
 	//! Affichage de la carte
 	extern void afficherCarte(Carte&, personnage&, int);
 
+	//! Fonction permettant d'afficher un overlay sur la carte
+	/*!
+		Fonction permettant d'afficher un overlay sur la carte, montrant au joueur dans quelles directions il peut aller.
+
+		Ne fait qu'appeller afficherMouvements(std::string deplacements_possibles, std::string erreur_deplacement)
+		\sa afficherMouvements(std::string erreur_deplacement) & afficherMouvements(std::string deplacements_possibles, std::string erreur_deplacement)
+	*/
 	extern void afficherMouvements();
-	extern void afficherMouvements(std::string);
+	//! Fonction permettant d'afficher un overlay sur la carte
+	/*!
+		Fonction permettant d'afficher un overlay sur la carte, montrant au joueur dans quelles directions il peut aller. Il affiche aussi un message d'erreur si demandé.
+
+		Ne fait qu'appeller afficherMouvements(std::string deplacements_possibles, std::string erreur_deplacement)
+		\sa afficherMouvements() & afficherMouvements(std::string deplacements_possibles, std::string erreur_deplacement)
+	*/
+	extern void afficherMouvements(std::string erreur_deplacement);
+	//! Fonction permettant d'afficher un overlay sur la carte
+	/*!
+		Fonction permettant d'afficher un overlay sur la carte, montrant au joueur dans quelles directions il peut aller.
+
+		Ne fait qu'appeller afficherMouvements(std::string deplacements_possibles, std::string erreur_deplacement)
+		\sa afficherMouvements() & afficherMouvements(std::string erreur_deplacement)
+	*/
+	extern void afficherMouvements(std::string deplacements_possibles, std::string erreur_deplacement);
 
 	//! Compte la taille d'une string mieux que la fonction std::string::size(), car elle ne compte pas les accents comme deux caractères.
 	extern int taille_str(std::string);
 
 	extern void checkTerminalSize();
+
+	extern void setPlayerPosition(int, int);
 
 	//! Récupérer les cartes dans le .txt
 	std::vector<Carte> loadAllCarteFromFile(std::string nomFichier);
