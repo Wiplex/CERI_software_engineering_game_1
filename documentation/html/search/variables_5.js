@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['termheight',['TermHeight',['../namespaceio.html#afaeef00a45e14dc7227025fa7fd27240',1,'io']]],
-  ['termwidth',['TermWidth',['../namespaceio.html#a09b19ec88fb58a6086ca54be52b7bc08',1,'io']]]
+  ['magenta',['MAGENTA',['../namespaceio.html#a1e4a43cea85f576e62aebce6aabc60b5',1,'io']]],
+  ['mappositionx',['mapPositionX',['../namespaceio.html#a7f2af984af03881a45da957db2c48be2',1,'io']]],
+  ['mappositiony',['mapPositiony',['../namespaceio.html#aa0322ffa705df7bd3c4fa5eaefde5d6d',1,'io']]]
 ];

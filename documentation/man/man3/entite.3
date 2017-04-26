@@ -1,4 +1,4 @@
-.TH "entite" 3 "Sun Apr 23 2017" "My Project" \" -*- nroff -*-
+.TH "entite" 3 "Wed Apr 26 2017" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,6 +6,8 @@ entite
 .SH SYNOPSIS
 .br
 .PP
+.PP
+\fC#include <entite\&.h>\fP
 .PP
 Inherited by \fBmonstre\fP, and \fBpersonnage\fP\&.
 .SS "Public Member Functions"
@@ -16,7 +18,7 @@ Inherited by \fBmonstre\fP, and \fBpersonnage\fP\&.
 .br
 .RI "Constructeur vide\&. "
 .ti -1c
-.RI "\fBentite\fP (std::string entiteId, std::string entiteName, int entiteHpMax, int entiteSpeed, int entiteManaMax, std::string entiteDescription, std::vector< \fBcompetence\fP > allSkills)"
+.RI "\fBentite\fP (std::string \fBentiteId\fP, std::string \fBentiteName\fP, int \fBentiteHpMax\fP, int \fBentiteSpeed\fP, int \fBentiteManaMax\fP, std::string \fBentiteDescription\fP, std::vector< \fBcompetence\fP > allSkills)"
 .br
 .RI "Constructeur avec tout\&. "
 .ti -1c
@@ -122,6 +124,10 @@ Inherited by \fBmonstre\fP, and \fBpersonnage\fP\&.
 .in -1c
 .SH "Constructor & Destructor Documentation"
 .PP 
+.SS "entite::entite ()"
+
+.PP
+Constructeur vide\&. 
 .SS "entite::entite (std::string entiteId, std::string entiteName, int entiteHpMax, int entiteSpeed, int entiteManaMax, std::string entiteDescription, std::vector< \fBcompetence\fP > allSkills)"
 
 .PP
@@ -169,6 +175,48 @@ Un booléen qui est égal à \fCtrue\fP si le entite est mort, \fCfalse\fP sinon
 .RE
 .PP
 
+.SS "std::string entite::entiteString (std::string lettreEntite, std::string nomFichier)"
+
+.SS "bool entite::getAlive ()"
+
+.PP
+Getter qui permet de savoir si l'entite est en vie\&. 
+.SS "std::string entite::getDescription ()"
+
+.PP
+Getter pour la description\&. 
+.SS "int entite::getHpCurrent ()"
+
+.PP
+Getter pour le nombre de points de vie actuels\&. 
+.SS "int entite::getHpMax ()"
+
+.PP
+Getter pour le nombre de points de vie max\&. 
+.SS "std::string entite::getID ()"
+
+.PP
+Getter pour l'id\&. 
+.SS "int entite::getManaCurrent ()"
+
+.PP
+Getter pour la mana actuelle de l'entite\&. 
+.SS "int entite::getManaMax ()"
+
+.PP
+Getter pour la mana maximum de l'entite\&. 
+.SS "std::string entite::getName ()"
+
+.PP
+Getter pour le nom\&. 
+.SS "std::vector<\fBcompetence\fP> entite::getSkillVect ()"
+
+.PP
+Getter qui renvoie un vecteur (std::vector) de compétences\&. 
+.SS "int entite::getSpeed ()"
+
+.PP
+Getter pour la vitesse d'attaque de l'entite\&. 
 .SS "int entite::nbLigneFichier (std::string nomFichier)"
 
 .PP
@@ -202,6 +250,38 @@ Un entier représentant le nombre de lignes\&.
 \fInomFichier\fP Une string (std::string) qui sera le nom du fichier à ouvrir\&. 
 .RE
 .PP
+
+.SS "void entite::printEntite ()"
+
+.PP
+Pour tester\&. 
+.SS "void entite::saveInFile (std::string lettreEntite, std::string nomFichier)"
+
+.PP
+Permet d'écrire l'entite dans un fichier de sauvegarde\&. 
+.SS "template<typename T > std::string entite::toString (const T & valeur)"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "bool entite::entiteAlive\fC [protected]\fP"
+
+.SS "std::string entite::entiteDescription\fC [protected]\fP"
+
+.SS "int entite::entiteHpCurrent\fC [protected]\fP"
+
+.SS "int entite::entiteHpMax\fC [protected]\fP"
+
+.SS "std::string entite::entiteId\fC [protected]\fP"
+
+.SS "int entite::entiteManaCurrent\fC [protected]\fP"
+
+.SS "int entite::entiteManaMax\fC [protected]\fP"
+
+.SS "std::string entite::entiteName\fC [protected]\fP"
+
+.SS "std::vector<\fBcompetence\fP> entite::entiteSkillVect\fC [protected]\fP"
+
+.SS "int entite::entiteSpeed\fC [protected]\fP"
 
 
 .SH "Author"

@@ -1,4 +1,4 @@
-.TH "jeu" 3 "Sun Apr 23 2017" "My Project" \" -*- nroff -*-
+.TH "jeu" 3 "Wed Apr 26 2017" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -21,7 +21,19 @@ jeu \- Ceci sera la classe du jeu\&. Elle contient toutes les entités, la carte
 .br
 .RI "Destructeur par défaut\&. "
 .ti -1c
-.RI "void \fBdemarrer_jeu\fP ()"
+.RI "\fBCarte\fP \fBgetCarte\fP ()"
+.br
+.ti -1c
+.RI "\fBpersonnage\fP \fBgetPerso\fP ()"
+.br
+.ti -1c
+.RI "std::vector< \fBmonstre\fP > \fBgetMonstres\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetNbMonstres\fP ()"
+.br
+.ti -1c
+.RI "void \fBpreparation_partie\fP ()"
 .br
 .RI "Fonction permettant de déterminer comment va démarrer la partie\&. "
 .in -1c
@@ -59,12 +71,24 @@ perso(), carte(), \fBmonstre()\fP
 .RE
 .PP
 
-.SH "Member Function Documentation"
-.PP 
-.SS "void jeu::demarrer_jeu ()"
+.SS "jeu::~jeu ()"
 
 .PP
-Fonction permettant de déterminer comment va démarrer la partie\&. Manque carte pour pouvoir finaliser cette partie\&. 
+Destructeur par défaut\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBCarte\fP jeu::getCarte ()"
+
+.SS "std::vector<\fBmonstre\fP> jeu::getMonstres ()"
+
+.SS "int jeu::getNbMonstres ()"
+
+.SS "\fBpersonnage\fP jeu::getPerso ()"
+
+.SS "void jeu::preparation_partie ()"
+
+.PP
+Fonction permettant de déterminer comment va démarrer la partie\&. Affichage d'un message de bienvenue\&. Choix du personnage\&. Choix de la carte\&. Chargement des monstres\&. 
 
 .SH "Author"
 .PP 

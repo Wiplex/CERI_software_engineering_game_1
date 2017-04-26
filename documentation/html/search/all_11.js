@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7ejeu',['~jeu',['../classjeu.html#a55385a33ef40e0579eb3a3634566c4a8',1,'jeu']]]
+  ['verif_5ftaille',['verif_taille',['../class_carte.html#a49cb3378355966e82d28fd81fa84abd4',1,'Carte']]]
 ];
