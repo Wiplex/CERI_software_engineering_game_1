@@ -98,6 +98,13 @@ void competence::afficher_detail() //Affichage pour test
 		cout << "Dégâts: " << this->skillDamage<< endl;
 	}
 
-	cout << "Coût en mana: " << this->skillManaCost<< endl;
+	if (this->skillManaCost < 0)
+	{
+		cout << "Gain de mana: " << -1 * (this->skillManaCost)<< endl;
+	}
+	else
+	{
+		cout << "Coût en mana: " << this->skillManaCost<< endl;
+	}
 }
 
