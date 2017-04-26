@@ -1,4 +1,4 @@
-.TH "monstre" 3 "Sun Apr 23 2017" "My Project" \" -*- nroff -*-
+.TH "monstre" 3 "Wed Apr 26 2017" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,6 +6,8 @@ monstre
 .SH SYNOPSIS
 .br
 .PP
+.PP
+\fC#include <monstre\&.h>\fP
 .PP
 Inherits \fBentite\fP\&.
 .SS "Public Member Functions"
@@ -16,7 +18,7 @@ Inherits \fBentite\fP\&.
 .br
 .RI "Constructeur vide\&. "
 .ti -1c
-.RI "\fBmonstre\fP (std::string entiteId, std::string entiteName, int entiteHpMax, int entiteSpeed, int entiteManaMax, std::string entiteDescription, std::vector< \fBcompetence\fP > allSkills)"
+.RI "\fBmonstre\fP (std::string \fBentiteId\fP, std::string \fBentiteName\fP, int \fBentiteHpMax\fP, int \fBentiteSpeed\fP, int \fBentiteManaMax\fP, std::string \fBentiteDescription\fP, std::vector< \fBcompetence\fP > allSkills)"
 .br
 .RI "Constructeur avec tout\&. "
 .ti -1c
@@ -27,6 +29,10 @@ Inherits \fBentite\fP\&.
 .SS "Additional Inherited Members"
 .SH "Constructor & Destructor Documentation"
 .PP 
+.SS "monstre::monstre ()\fC [inline]\fP"
+
+.PP
+Constructeur vide\&. 
 .SS "monstre::monstre (std::string entiteId, std::string entiteName, int entiteHpMax, int entiteSpeed, int entiteManaMax, std::string entiteDescription, std::vector< \fBcompetence\fP > allSkills)\fC [inline]\fP"
 
 .PP
@@ -50,6 +56,12 @@ Constructeur avec tout\&.
 .RE
 .PP
 
+.SH "Member Function Documentation"
+.PP 
+.SS "void monstre::printMonstre ()"
+
+.PP
+Pour tester\&. 
 
 .SH "Author"
 .PP 

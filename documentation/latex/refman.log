@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.31)  23 APR 2017 23:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.31)  26 APR 2017 13:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1188,18 +1188,26 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 1.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 6.29996pt on input line 13.
- [1
+(Font)              scaled to size 6.29996pt on input line 14.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 15.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 15.
 
-])
+(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+) [1
+
+]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 65.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 6.29996pt on input line 65.
+ [2] [3]
+[4] [5])
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 136.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.29996pt on input line 136.
- [2]
+ [6]
 Package hyperref Info: Option `pageanchor' set `true' on input line 138.
 
 Chapter 1.
@@ -1240,6 +1248,10 @@ Chapter 3.
 
 ]
 Chapter 4.
+(./files.tex) [7] [8
+
+]
+Chapter 5.
 (./namespaceio.tex
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 8.
@@ -1254,167 +1266,278 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 12.
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
-(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 19.
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 18.
 LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 19.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 52.
- [7]
+(Font)              scaled to size 8.09995pt on input line 18.
+ [9]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 96.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 46.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.29996pt on input line 96.
+(Font)              scaled to size 6.29996pt on input line 46.
+ [10]
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 106.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 107.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
+(Font)              scaled to size 8.99994pt on input line 95.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 108.
- [8]
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 97.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 6.29996pt on input line 132.
-
-Underfull \hbox (badness 10000) detected at line 144
-[][][]
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 164--166
-
- []
-
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 180.
-
-Underfull \hbox (badness 10000) detected at line 193
-[][][]
- []
+(Font)              scaled to size 6.29996pt on input line 111.
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 7.19995pt on input line 121.
 
 
-Underfull \hbox (badness 10000) detected at line 196
-[][][]
- []
-
-[10]
-Underfull \hbox (badness 10000) detected at line 233
-[][][]
- []
+LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
+(Font)              using `T1/pcr/m/n' instead on input line 121.
 
 [11]
-Underfull \hbox (badness 10000) detected at line 255
+Underfull \hbox (badness 10000) detected at line 155
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 291
+Underfull \hbox (badness 10000) in paragraph at lines 175--177
+
+ []
+
+
+Overfull \vbox (7.6177pt too high) has occurred while \output is active []
+
+
+[12]
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 197.
+
+Underfull \hbox (badness 10000) detected at line 210
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 294
+Underfull \hbox (badness 10000) detected at line 213
 [][][]
  []
 
-[12]) [13] [14
+[13]
+Underfull \hbox (badness 10000) detected at line 280
+[][][]
+ []
+
+[14] [15]
+Underfull \hbox (badness 10000) detected at line 322
+[][][]
+ []
+
+[16]
+Underfull \hbox (badness 10000) detected at line 386
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 389
+[][][]
+ []
+
+[17] [18]) [19] [20
 
 ]
-Chapter 5.
-(./class_carte.tex) (./classcompetence.tex [15]) (./classentite.tex
-<classentite.pdf, id=454, 501.875pt x 230.75209pt>
+Chapter 6.
+(./class_carte.tex [21] [22]) (./classcompetence.tex [23] [24] [25])
+(./classentite.tex <classentite.pdf, id=1164, 501.875pt x 230.75209pt>
 File: classentite.pdf Graphic file (type pdf)
- <use classentite.pdf>
-Package pdftex.def Info: classentite.pdf used on input line 6.
+
+<use classentite.pdf>
+Package pdftex.def Info: classentite.pdf used on input line 10.
 (pdftex.def)             Requested size: 123.7607pt x 56.9055pt.
-
-[16 <./classentite.pdf>] [17]
-Underfull \hbox (badness 10000) detected at line 141
+ [26 <./classentite.pdf>] [27]
+Underfull \hbox (badness 10000) detected at line 130
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 154
+Underfull \hbox (badness 10000) detected at line 143
+[][][]
+ []
+
+[28] [29]
+Underfull \hbox (badness 10000) detected at line 262
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 167
+Underfull \hbox (badness 10000) detected at line 272
 [][][]
  []
 
-[18]
-Underfull \hbox (badness 10000) detected at line 177
+[30] [31]) (./classjeu.tex [32] [33]
+Underfull \hbox (badness 10000) detected at line 62
 [][][]
  []
 
-) (./classjeu.tex [19]
-Underfull \hbox (badness 10000) detected at line 55
-[][][]
- []
-
-) (./classmonstre.tex <classmonstre.pdf, id=554, 501.875pt x 627.34375pt>
+[34]) (./classmonstre.tex <classmonstre.pdf, id=1311, 501.875pt x 627.34375pt>
 File: classmonstre.pdf Graphic file (type pdf)
 
 <use classmonstre.pdf>
-Package pdftex.def Info: classmonstre.pdf used on input line 6.
+Package pdftex.def Info: classmonstre.pdf used on input line 10.
 (pdftex.def)             Requested size: 45.51906pt x 56.9055pt.
- [20]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [21 <./classmonstre.pdf>]) (./classpersonnage.tex
-<classpersonnage.pdf, id=582, 501.875pt x 461.49413pt>
+ [35 <./classmonstre.pdf>]) (./classpersonnage.tex
+<classpersonnage.pdf, id=1340, 501.875pt x 461.49413pt>
 File: classpersonnage.pdf Graphic file (type pdf)
 
 <use classpersonnage.pdf>
-Package pdftex.def Info: classpersonnage.pdf used on input line 6.
+Package pdftex.def Info: classpersonnage.pdf used on input line 10.
 (pdftex.def)             Requested size: 61.88417pt x 56.9055pt.
-) [22 <./classpersonnage.pdf>] (./refman.ind [23
+ [36] [37 <./classpersonnage.pdf>]) [38]
+Chapter 7.
+(./carte_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--6
+
+ []
+
+) (./competence_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /[]Users/thibault/[]Git[]Hub/[]C[]E[]R[]I[]_[]software[]_[]
+engineering[]_[]game[]_[]1/headers/competence.h
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--6
+
+ []
+
+) (./entite_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /[]Users/thibault/[]Git[]Hub/[]C[]E[]R[]I[]_[]software[]_[]
+engineering[]_[]game[]_[]1/headers/entite.h File
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--6
+
+ []
+
+[39
+
+]) (./fonctionsjeu_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /[]Users/thibault/[]Git[]Hub/[]C[]E[]R[]I[]_[]software[]_[]
+engineering[]_[]game[]_[]1/headers/fonctionsjeu.h
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--10
+
+ []
+
+[40]) (./io_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--15
+
+ []
+
+[41] [42]) (./monstre_8h.tex
+Underfull \hbox (badness 5008) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /[]Users/thibault/[]Git[]Hub/[]C[]E[]R[]I[]_[]software[]_[]
+engineering[]_[]game[]_[]1/headers/monstre.h File
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+) (./personnage_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /[]Users/thibault/[]Git[]Hub/[]C[]E[]R[]I[]_[]software[]_[]
+engineering[]_[]game[]_[]1/headers/personnage.h
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+[43]) [44] (./refman.ind
+Underfull \hbox (badness 10000) in paragraph at lines 3--5
+[]\T1/phv/m/n/10 /[]Users/thibault/[]Git[]Hub/[]C[]E[]R[]I[]_[]software[]_[]eng
+ineering[]_[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--7
+[]\T1/phv/m/n/10 /[]Users/thibault/[]Git[]Hub/[]C[]E[]R[]I[]_[]software[]_[]eng
+ineering[]_[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--9
+[]\T1/phv/m/n/10 /[]Users/thibault/[]Git[]Hub/[]C[]E[]R[]I[]_[]software[]_[]eng
+ineering[]_[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--11
+[]\T1/phv/m/n/10 /[]Users/thibault/[]Git[]Hub/[]C[]E[]R[]I[]_[]software[]_[]eng
+ineering[]_[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--13
+[]\T1/phv/m/n/10 /[]Users/thibault/[]Git[]Hub/[]C[]E[]R[]I[]_[]software[]_[]eng
+ineering[]_[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+[]\T1/phv/m/n/10 /[]Users/thibault/[]Git[]Hub/[]C[]E[]R[]I[]_[]software[]_[]eng
+ineering[]_[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--17
+[]\T1/phv/m/n/10 /[]Users/thibault/[]Git[]Hub/[]C[]E[]R[]I[]_[]software[]_[]eng
+ineering[]_[]
+ []
+
+[45
 
 
 
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
-
-(./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
+] [46] [47])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 176.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 176.
+ (./refman.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 176.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 176.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: E96F8F9F1F73DAFE4C98FE6621223444;8226.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
+(rerunfilecheck)             Checksum: E83C357FED7C6FE938E285C4992818C7;32827.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 176.
  ) 
 Here is how much of TeX's memory you used:
- 15167 strings out of 493014
- 220865 string characters out of 6133351
- 317834 words of memory out of 5000000
- 18231 multiletter control sequences out of 15000+600000
- 67227 words of font info for 86 fonts, out of 8000000 for 9000
+ 15500 strings out of 493014
+ 228022 string characters out of 6133351
+ 321480 words of memory out of 5000000
+ 18373 multiletter control sequences out of 15000+600000
+ 68861 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,14n,92p,604b,632s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{io_8h_source} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{fonctionsjeu_8h_source} has been referenced but doe
-s not exist, replaced by a fixed one
-
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/201
+ 53i,15n,92p,1900b,632s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
 6/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2016/texmf-
 dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2016/texmf-dist/fo
 nts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
 e1/urw/helvetic/uhvb8ac.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw
 /helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvet
 ic/uhvro8a.pfb>
-Output written on refman.pdf (27 pages, 157353 bytes).
+Output written on refman.pdf (55 pages, 226058 bytes).
 PDF statistics:
- 727 PDF objects out of 1000 (max. 8388607)
- 674 compressed objects within 7 object streams
- 205 named destinations out of 1000 (max. 500000)
- 360 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1832 PDF objects out of 2073 (max. 8388607)
+ 1739 compressed objects within 18 object streams
+ 379 named destinations out of 1000 (max. 500000)
+ 1264 words of extra memory for PDF output out of 10000 (max. 10000000)
 

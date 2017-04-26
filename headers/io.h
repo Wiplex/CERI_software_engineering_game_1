@@ -160,6 +160,9 @@ namespace io
 	extern void afficherMouvements();
 	extern void afficherMouvements(std::string);
 
+	//! Compte la taille d'une string mieux que la fonction std::string::size(), car elle ne compte pas les accents comme deux caractères.
+	extern int taille_str(std::string);
+
 	extern void checkTerminalSize();
 
 	//! Récupérer les cartes dans le .txt

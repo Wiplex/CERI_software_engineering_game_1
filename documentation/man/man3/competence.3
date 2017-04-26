@@ -1,4 +1,4 @@
-.TH "competence" 3 "Sun Apr 23 2017" "My Project" \" -*- nroff -*-
+.TH "competence" 3 "Wed Apr 26 2017" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,14 +6,22 @@ competence
 .SH SYNOPSIS
 .br
 .PP
+.PP
+\fC#include <competence\&.h>\fP
 .SS "Public Member Functions"
 
 .in +1c
+.ti -1c
+.RI "\fBcompetence\fP ()"
+.br
 .ti -1c
 .RI "\fBcompetence\fP (std::string skillName, int skillDamage, int skillManaCost)"
 .br
 .ti -1c
 .RI "\fBcompetence\fP (std::string skillName, int skillDamage)"
+.br
+.ti -1c
+.RI "\fB~competence\fP ()"
 .br
 .ti -1c
 .RI "std::string \fBgetName\fP ()"
@@ -37,6 +45,32 @@ competence
 .RI "std::string \fBcompetenceString\fP ()"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "competence::competence ()"
+
+.SS "competence::competence (std::string skillName, int skillDamage, int skillManaCost)"
+
+.SS "competence::competence (std::string skillName, int skillDamage)"
+
+.SS "competence::~competence ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "std::string competence::competenceString ()"
+
+.SS "int competence::getDamage ()"
+
+.SS "std::string competence::getDescription ()"
+
+.SS "int competence::getManaCost ()"
+
+.SS "std::string competence::getName ()"
+
+.SS "void competence::printCompetence ()"
+
+.SS "template<typename T > std::string competence::toString (const T & valeur)"
+
 
 .SH "Author"
 .PP 

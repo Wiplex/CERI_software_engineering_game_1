@@ -220,15 +220,17 @@ namespace io
 
 		// Si le joueur est dans le bas de la carte, on affiche les
 		// interactions possibles sur le haut de la fenêtre Terminal
-		if (currentPlayerPosition.first >= (mapPositionY+TermHeight-6))
+		if (currentPlayerPosition.first >= (mapPositionY+TermHeight-5))
 			interactionsOverlayX = 0;
 		else
-			interactionsOverlayX = (TermHeight - 4);
+			interactionsOverlayX = (TermHeight - 5);
 
 		if (erreur_deplacement.size() >= TermWidth-2)
 			erreur_deplacement = "";
 
-		int deplacementNecessaire = (TermWidth - erreur_deplacement.size());
+		std::string message_affiche = "Voici les déplacements possibles à ce point dans le jeu :";
+
+		int deplacementNecessaire = (TermWidth - 2 - taille_str(message_affiche));
 
 		// Pour une raison X ou Y, cet appel printf(positionDansTerminal) ne marchait pas.
 		// ¯\_(ツ)_/¯
@@ -237,14 +239,25 @@ namespace io
 
 		// Affiche une ligne entière de délimiteurs, à la couleur demandée.
 		cout << couleurDelimiteur << std::string(TermWidth, delimiteur) << BLANK;
+
 		// Affiche la deuxième ligne de l'overlay, qui demande le mouvement au joueur.
-		cout << couleurDelimiteur << delimiteur << BLANK << "  Voici les déplacements possibles à ce point dans le jeu :" << std::string((TermWidth-59-2), ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
+		cout << couleurDelimiteur << delimiteur << BLANK << std::string(deplacementNecessaire/2, ' ') << message_affiche << std::string(deplacementNecessaire/2+deplacementNecessaire%2, ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
+
 		// Affiche la troisième ligne de l'overlay, qui affiche les choix possibles aux joueurs.
-		cout << couleurDelimiteur << delimiteur << BLANK << std::string(((TermWidth-46-2)/2), ' ') << " q - Haut | z - Gauche | d - Bas | s - Droite " << std::string(((TermWidth-46-2)/2)+(TermWidth%2), ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
+		cout << couleurDelimiteur << delimiteur << BLANK << std::string(((TermWidth-46-2)/2), ' ') << " Z - Haut | Q - Gauche | S - Bas | D - Droite " << std::string(((TermWidth-46-2)/2)+(TermWidth%2), ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
+
+		cout << couleurDelimiteur << delimiteur << BLANK << std::string(TermWidth-2, ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
+
+		deplacementNecessaire = (TermWidth - 2 - taille_str(erreur_deplacement));
+		
 		// Affiche une ligne vide et / ou un message d'erreur.
-		cout << couleurDelimiteur << delimiteur << BLANK << std::string(deplacementNecessaire/2, ' ') << erreur_deplacement << std::string(deplacementNecessaire/2, ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
+		cout << couleurDelimiteur << delimiteur << BLANK << std::string(deplacementNecessaire/2, ' ') << erreur_deplacement << std::string(deplacementNecessaire/2+deplacementNecessaire%2, ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
+
+		// Affiche la ligne de fin.
 		cout << couleurDelimiteur << std::string(TermWidth, delimiteur) << BLANK << '\r' << flush;
-		printf("\033[5A");			// Haut de deux lignes
+
+		// Remet le curseur dans l'overlay
+		printf("\033[6A");			// Haut de deux lignes
 		printf("\033[%dD", TermWidth - 2);	// Gauche de TermWidth-2 cases
 	}
 
@@ -261,6 +274,22 @@ namespace io
 			getTerminalWidth();
 			getTerminalHeight();
 		}
+	}
+
+	int taille_str(std::string s)
+	{
+		int j = 0;
+		for (int i = 0; i < s.size(); i++)
+		{
+			if (int(s[i] < 0))
+			{
+				j++;
+				i++;
+			}
+			else
+				j++;
+		}
+		return j;
 	}
 
 	void bienvenue()
