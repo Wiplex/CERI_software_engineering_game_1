@@ -143,6 +143,20 @@ namespace io
 	*/
 	bool checkSeparatorEntite(std::string uneLigne);
 
+	//!Verifie qu'un champ compétences est correct dans un fichier texte d'entités (bon nombre de séparateurs)
+	/*!
+		Cette fonction permet de vérifier qu'un champ compétences d'une ligne contient bien le bon nombre de séparateurs pour éviter les erreurs dans le chargement d'une entité
+
+		Mode opératoire:
+		- Recherche de la ligne dans le fichier
+		- Parcours de toute la ligne
+		- A chaque séparateur trouvé, on ajoute 1 aux compteurs
+		- Si le nombre de séparateurs correspond au nombre défini, on retourne true
+		\param nomFichier Le nom du fichier .txt dans lequel on fait la vérification
+		\param numLigne Le numéro de la ligne à vérifier
+	*/
+	bool checkSeparatorSkill(std::string nomFichier, int numLigne);
+
 
 	//! Creer une competence
 	/*!
@@ -399,11 +413,19 @@ namespace io
 
 					std::istringstream (sentiteManaMax) >> entiteManaMax; //Conversion string to int
 
-					allSkills = loadCompetenceFromFile(nomFichier, cptLigne); //Récupération des compétences
+					if (checkSeparatorSkill(nomFichier, cptLigne) == true) //Verification que le champ compétence est correct
+					{
+						allSkills = loadCompetenceFromFile(nomFichier, 2); //Récupération des compétences
 
-					T creation(sentiteId, sentiteName, entiteHpMax, entiteSpeed, entiteManaMax, entiteDescription, allSkills); //Création de l'entite
+						T creation(sentiteId, sentiteName, entiteHpMax, entiteSpeed, entiteManaMax, entiteDescription, allSkills); //Création de l'entite
 
-					allEntite.push_back(creation); //Stockage du perso dans le vecteur de retour
+						allEntite.push_back(creation); //Stockage du perso dans le vecteur de retour
+					}
+
+					else
+					{
+						continue;
+					}
 				}
 			}
 
