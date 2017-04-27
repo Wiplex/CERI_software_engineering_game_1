@@ -302,7 +302,6 @@ Carte Carte::operator=(const Carte & a_copier)
 	this -> case_dispo = a_copier.case_dispo;
 
 	return * this;
-<<<<<<< HEAD
 }
 
 bool Carte::caseAccessible(int i, int j)
