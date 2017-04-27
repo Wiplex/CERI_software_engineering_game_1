@@ -105,16 +105,16 @@ namespace io
 	extern std::string long_input();
 
 	//! Retourne la largeur du terminal
-	int getTerminalWidth();
+	extern int getTerminalWidth();
 
 	//! Retourne la hauteur du terminal
-	int getTerminalHeight();
+	extern int getTerminalHeight();
 
 	//! Message d'accueil
 	/*!
 		Affiche un message de bienvenue.
 	*/
-	void bienvenue();
+	extern void bienvenue();
 
 	//! Vérifie que l'user entre des entier
 	/*!
@@ -129,7 +129,7 @@ namespace io
 		- Sinon retourne vrai
 		\param x on sait pas ce qu'il fait là, mais il est là.
 	*/
-	bool checkInput(int x); //Vérifie que l'user entre des entier
+	extern bool checkInput(int x); //Vérifie que l'user entre des entier
 
 	//! Creer une competence
 	/*!
@@ -139,23 +139,25 @@ namespace io
 		- On crée les variables qui vont tenir les infos rentrées (skillName, skillDamage, skillManaCost)
 		- On rentre
 	*/
-	competence createCompetence(); //Creer une competence
+	extern competence createCompetence(); //Creer une competence
 
 	//! Créer une compétence pour monstre (sans mana)
-	competence createCompetenceMonstre();
+	extern competence createCompetenceMonstre();
 
 	//! Créer un monstre
-	monstre createMonstre();
+	extern monstre createMonstre();
 
 	//! Récupérer les compétences d'un monstre dans le .txt
-	std::vector<competence> loadCompetenceFromFile(std::string nomFichier,int numLigne);
-
+	extern std::vector<competence> loadCompetenceFromFile(std::string nomFichier,int numLigne);
 
 	//! Efface l'écran.
 	extern void clearScreen();
 
 	//! Affichage de la carte
-	extern void afficherCarte(Carte&, personnage&, int);
+	extern void afficherCarte(Carte&, int);
+
+	//! Met à jour l'affichage de la carte.
+	extern void updateMap(std::pair<int,int> newPlayerPos);
 
 	//! Fonction permettant d'afficher un overlay sur la carte
 	/*!
@@ -268,9 +270,9 @@ namespace io
 		std::puts("\n");
 
 		return choix;													//Renvoi de l'objet choisi
-    }
+	}
 
-    template<typename T> std::vector<T> loadAllEntiteFromFile(T temp, std::string nomFichier)
+	template<typename T> std::vector<T> loadAllEntiteFromFile(T temp, std::string nomFichier)
 	{
 		std::vector<T> allEntite; //Vecteur de retour
 

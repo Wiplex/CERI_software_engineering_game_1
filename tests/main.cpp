@@ -16,12 +16,12 @@ int main()
 	jeu a;
 
 	a.preparation_partie();
+	a.afficherJeu();
+	a.deplacement();
 
-//	a.deplacement();
+//	string monster = "m1";
 
-	string monster = "m1";
-
-	a.combat(monster);
+//	a.combat(monster);
 
 
 	return 0;

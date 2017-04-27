@@ -71,7 +71,11 @@ public:
 	*/
 	void preparation_partie();
 
-	std::string genererDeplacement();
+	void deplacement();
+
+	void afficherJeu();
+
+	std::string genererDeplacement(std::vector<bool>& v);
 
 	//! Module de combat
 	/*!

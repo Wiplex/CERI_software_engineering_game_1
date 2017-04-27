@@ -1,8 +1,10 @@
 #include <iostream>	// à remplacer avec notre librairie I/O plus tard
 #include <vector>
+#include "../headers/io.h"
 #include "../headers/carte.h"
 #include "../headers/fonctionsjeu.h"
 
+using namespace io;
 using namespace std;
 
 jeu::jeu()
@@ -42,44 +44,74 @@ void jeu::preparation_partie()
 		//Choix personnage
 	vector<personnage> tous_persos;							//Vecteur personnages
 	personnage pers;										//Dummy identification type template
-	string nom_file = "fichierPersonnage.txt";				//Nom fichier source personnages
+	string nom_file = "sources/fichierPersonnage.txt";				//Nom fichier source personnages
 	tous_persos = loadAllEntiteFromFile(pers, nom_file);	//Remplissage vecteur personnages depuis fichier
 	jeu_perso = choix_unique_element(tous_persos);			//Choix + assignation personnage partie
 
 		//Choix carte
 	vector<Carte> toutes_cartes;							//Vecteur cartes
-	nom_file = "fichierCarte.txt";							//Nom fichier source cartes
+	nom_file = "sources/fichierCarte.txt";							//Nom fichier source cartes
 	toutes_cartes = loadAllCarteFromFile(nom_file);			//Chargement carte depuis fichier
-	Carte jeu_carte = choix_unique_element(toutes_cartes);	//Choix + assignation carte partie
+	jeu_carte = choix_unique_element(toutes_cartes);	//Choix + assignation carte partie
 
 		//Chargement monstres
 	monstre mons;											//Dummy identification type template
-	nom_file = "fichierMonstre.txt";						//Nom fichier source monstres
+	nom_file = "sources/fichierMonstre.txt";						//Nom fichier source monstres
 	jeu_monstres = loadAllEntiteFromFile(mons, nom_file);	//Chargement monstres depuis fichier
 }
 
-std::string genererDeplacement()
+void jeu::afficherJeu()
 {
+	io::afficherCarte(jeu_carte, jeu_carte.getTaille());
+	afficherMouvements();
+}
+
+std::string jeu::genererDeplacement(std::vector<bool>& v)
+{
+	int x = currentPlayerPosition.first;
+	int y = currentPlayerPosition.second;
+	int max = jeu_carte.getTaille();
+
+	std::string deplacements = "";
+
 	// Si le joueur peut se déplacer vers le haut :
-	if (io::currentPlayerPosition.second != 0)
+	if (y != 0 && jeu_carte.caseAccessible(x,y-1))
 	{
 		deplacements += "| Z - Haut ";
+		v[0] = true;
 	}
+	else
+		v[0] = false;
 	// Si le joueur peut se deplacer vers la gauche :
-	if(io::currentPlayerPosition.first != 0)
+	if(x != 0 && jeu_carte.caseAccessible(x-1,y))
 	{
 		deplacements += "| Q - Gauche ";
+		v[1] = true;
 	}
+	else
+		v[1] = false;
 	// Si le joueur peut se déplacer vers le bas
-	if (io::currentPlayerPosition.second != jeu_carte.getTaille())
+	if (y != max && jeu_carte.caseAccessible(x,y+1))
 	{
 		deplacements += "| S - Bas ";
+		v[2] = true;
 	}
+	else
+		v[2] = false;
 	// Si le joueur peut se déplacer vers la droite :
-	if (io::currentPlayerPosition.first != jeu_carte.getTaille())
+	if (x != max && jeu_carte.caseAccessible(x+1,y))
 	{
-		deplacements += "| D - Droite |";
+		deplacements += "| D - Droite ";
+		v[3] = true;
 	}
+	else
+		v[3] = false;
+	return deplacements + "|";
+}
+
+void jeu::deplacement()
+{
+	return;
 }
 
 int jeu::combat(string id_monstre)	///mb argument vecteur pour prévoir évolution (plusieurs monstres par case)
