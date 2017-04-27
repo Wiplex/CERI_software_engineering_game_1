@@ -71,6 +71,8 @@ public:
 	*/
 	void preparation_partie();
 
+	std::string genererDeplacement();
+
 	//! Module de combat
 	/*!
 		Permet de gérer le combat.

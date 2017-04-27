@@ -37,6 +37,8 @@ class Carte
 		//int quel_taille(std::string nom);
 		//void suppression(std::string nom);
 		Carte operator=(const Carte & a_copier);
+		int getTaille(){return taille;}
+		std::string getPlateau(){return plateau;}
 };
 
 #endif

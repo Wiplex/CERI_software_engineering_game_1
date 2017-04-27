@@ -58,6 +58,30 @@ void jeu::preparation_partie()
 	jeu_monstres = loadAllEntiteFromFile(mons, nom_file);	//Chargement monstres depuis fichier
 }
 
+std::string genererDeplacement()
+{
+	// Si le joueur peut se déplacer vers le haut :
+	if (io::currentPlayerPosition.second != 0)
+	{
+		deplacements += "| Z - Haut ";
+	}
+	// Si le joueur peut se deplacer vers la gauche :
+	if(io::currentPlayerPosition.first != 0)
+	{
+		deplacements += "| Q - Gauche ";
+	}
+	// Si le joueur peut se déplacer vers le bas
+	if (io::currentPlayerPosition.second != jeu_carte.getTaille())
+	{
+		deplacements += "| S - Bas ";
+	}
+	// Si le joueur peut se déplacer vers la droite :
+	if (io::currentPlayerPosition.first != jeu_carte.getTaille())
+	{
+		deplacements += "| D - Droite |";
+	}
+}
+
 int jeu::combat(string id_monstre)	///mb argument vecteur pour prévoir évolution (plusieurs monstres par case)
 {
 	vector<entite> vect_entite;
@@ -233,9 +257,9 @@ int jeu::appliquer_comp(entite & target, vector<entite> & vect_entite, competenc
 		}
 	}
 
-    cout << "La cible " << (* ite).getName() << " est touchée par ";
-    cout << comp_util.getName();
-    cout << ". Son total de points de vie s'élève désormais à " << (* ite).getHpCurrent() << "." << endl;
+	cout << "La cible " << (* ite).getName() << " est touchée par ";
+	cout << comp_util.getName();
+	cout << ". Son total de points de vie s'élève désormais à " << (* ite).getHpCurrent() << "." << endl;
 
 	if ((* ite).getAlive() == false)	//Si cible morte
 	{
