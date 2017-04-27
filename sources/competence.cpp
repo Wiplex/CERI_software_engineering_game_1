@@ -60,8 +60,6 @@ int competence::getManaCost() //Retourne le cout en mana d'une compétence
 	return this->skillManaCost;
 }
 
-
-
 template<typename T>string competence::toString( const T & valeur ) //Convertit n'importe quoi en string
 {
 	ostringstream flux;
@@ -85,10 +83,26 @@ string competence::competenceString() //Convertit une compétence en une ligne d
 }
 
 
-void competence::printCompetence() //Affichage pour test
+void competence::afficher_detail() //Affichage pour test
 {
-	cout << "skill entiteName : " << this->skillName << endl;
-	cout << "skill skillDamage : " << this->skillDamage<< endl;
-	cout << "skill skillManaCost : " << this->skillManaCost<< endl;
+	cout << "Nom: " << this->skillName << endl;
+
+	if (this->skillDamage < 0)
+	{
+		cout << "Soins: " << -1 * (this->skillDamage) << endl;
+	}
+	else
+	{
+		cout << "Dégâts: " << this->skillDamage<< endl;
+	}
+
+	if (this->skillManaCost < 0)
+	{
+		cout << "Gain de mana: " << -1 * (this->skillManaCost)<< endl;
+	}
+	else
+	{
+		cout << "Coût en mana: " << this->skillManaCost<< endl;
+	}
 }
 

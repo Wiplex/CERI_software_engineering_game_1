@@ -235,6 +235,11 @@ string Carte :: getDescription()
     return this->description;
 }
 
+int Carte::setTaille(int taille)
+{
+	this -> taille = taille;
+}
+
 void Carte :: setName(string name)
 {
 	nom = name;
@@ -258,6 +263,16 @@ void Carte :: setPlateau(int taille)
 void Carte :: setCase(int i, int j, string value)
 {
     plateau[i][j] = value;
+}
+
+void Carte :: setNbrMonstre(int nbr_monstre)
+{
+	this -> nbr_monstre = nbr_monstre;
+}
+
+void Carte :: setCaseDispo(int case_dispo)
+{
+	this -> case_dispo = case_dispo;
 }
 
 Carte Carte::operator=(const Carte & a_copier)
@@ -289,7 +304,16 @@ Carte Carte::operator=(const Carte & a_copier)
 	return * this;
 }
 
+void Carte::afficher_detail()
+{
+	cout << "Détails de la carte " << nom << endl << endl;
+	cout << "Taille: " << taille << "*" << taille << " = " << taille * taille << " cases au total." << endl;
+	cout << "Nombre total de monstres sur la carte: " << nbr_monstre << endl;
+	cout << "Nombre d'obstacles présents sur la carte: " << case_dispo << endl;
+	cout << "Description: " << description << endl;
 
+	cout << endl;
+}
 
 
 

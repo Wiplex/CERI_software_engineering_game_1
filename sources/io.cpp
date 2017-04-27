@@ -5,7 +5,6 @@
 #include <iostream>
 #include "../headers/carte.h"
 #include "../headers/io.h"
-#include "../headers/personnage.h"
 
 using namespace std;
 
@@ -249,7 +248,7 @@ namespace io
 		cout << couleurDelimiteur << delimiteur << BLANK << std::string(TermWidth-2, ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
 
 		deplacementNecessaire = (TermWidth - 2 - taille_str(erreur_deplacement));
-		
+
 		// Affiche une ligne vide et / ou un message d'erreur.
 		cout << couleurDelimiteur << delimiteur << BLANK << std::string(deplacementNecessaire/2, ' ') << erreur_deplacement << std::string(deplacementNecessaire/2+deplacementNecessaire%2, ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
 
@@ -627,9 +626,12 @@ namespace io
 					if (init == false)
 					{
 						init = true;
+						carte_temporaire.setTaille(t);
 						carte_temporaire.setName(nom);
 						carte_temporaire.setDescription(description);
 						carte_temporaire.setPlateau(t);
+						///carte_temporaire.setNbrMonstre();
+						///carte_temporaire.setCaseDispo();
 
 					}
 

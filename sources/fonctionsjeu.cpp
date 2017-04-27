@@ -35,7 +35,7 @@ int jeu::getNbMonstres()
 	return jeu_nombre_monstres;
 }
 
-void jeu::preparation_partie()
+int jeu::preparation_partie()
 {
 	bienvenue();
 
@@ -51,14 +51,23 @@ void jeu::preparation_partie()
 	nom_file = "fichierCarte.txt";							//Nom fichier source cartes
 	toutes_cartes = loadAllCarteFromFile(nom_file);			//Chargement carte depuis fichier
 	Carte jeu_carte = choix_unique_element(toutes_cartes);	//Choix + assignation carte partie
+    ///int nb_monstres = jeu_carte.getNbrMonstres();		//Récupération du nombre de monstres total
 
 		//Chargement monstres
 	monstre mons;											//Dummy identification type template
 	nom_file = "fichierMonstre.txt";						//Nom fichier source monstres
 	jeu_monstres = loadAllEntiteFromFile(mons, nom_file);	//Chargement monstres depuis fichier
+
+    for (int i = 0; i < jeu_monstres.size(); i++)
+	{
+		jeu_monstres[i].afficher_detail();
+	}
+
+	///return nb_monstres;									//Renvoi du nombre de monstres
+	return 0;
 }
 
-int jeu::combat(string id_monstre)	///mb argument vecteur pour prévoir évolution (plusieurs monstres par case)
+int jeu::combat(string id_monstre)
 {
 	vector<entite> vect_entite;
 	vector<entite>::iterator ite;
@@ -78,9 +87,9 @@ int jeu::combat(string id_monstre)	///mb argument vecteur pour prévoir évoluti
 
 	int nb_players = vect_p.size();						//Nombre personnages
 	int nb_monsters = vect_entite.size() - nb_players;	//Nombre monstres
-	int sortie = 0;
+	int sortie = 2;
 
-	while (sortie == 0)	//Boucle de combat
+	while (sortie == 2)	//Boucle de combat
 	{
 		competence comp_util;
 		entite target;
@@ -94,6 +103,8 @@ int jeu::combat(string id_monstre)	///mb argument vecteur pour prévoir évoluti
 			sortie = appliquer_comp(target, vect_entite, comp_util, nb_players, nb_monsters);	//Effet compétence
 		}
 	}
+
+	return sortie;
 }
 
 vector<monstre>::iterator jeu::cherche_monstre(string id_monstre)
@@ -150,7 +161,7 @@ bool jeu::is_personnage(entite indiv)
 	return false;
 }
 
-vector<int> jeu::orga_entites(vector<entite> vect_entite)
+vector<int> jeu::orga_entites(vector<entite> & vect_entite)
 {
 	sort(vect_entite.begin(), vect_entite.end(), sort_speed);
 
@@ -195,7 +206,7 @@ competence jeu::choix_comp(entite & indiv)
 	return comp_util;
 }
 
-entite jeu::choix_target(competence comp_util, entite indiv, vector<entite> vect_entite, vector<int> vect_p)
+entite jeu::choix_target(competence comp_util, entite & indiv, vector<entite> & vect_entite, vector<int> vect_p)
 {
 	entite target;
 
@@ -219,7 +230,7 @@ entite jeu::choix_target(competence comp_util, entite indiv, vector<entite> vect
 	return target;
 }
 
-int jeu::appliquer_comp(entite & target, vector<entite> & vect_entite, competence comp_util, int & nb_players, int & nb_monsters)
+int jeu::appliquer_comp(entite target, vector<entite> & vect_entite, competence comp_util, int & nb_players, int & nb_monsters)
 {
 	vector<entite>::iterator ite;
 	vector<entite>::iterator death;
@@ -242,22 +253,25 @@ int jeu::appliquer_comp(entite & target, vector<entite> & vect_entite, competenc
 		if (is_personnage(* ite))	//Si personnage
 		{
 			cout << "Le personnage " << (* ite).getName() << " est mort." << endl;
+			nb_players--;
+			cout << "Nombre joueurs" << nb_players;
 		}
 		else	//Si monstre
 		{
 			cout << "Le monstre " << (* ite).getName() << " est mort." << endl;
+			nb_monsters--;
+			cout << "Nombre monstres" << nb_players;
 		}
 	}
 
 	//Check conséquences combat
 	if (nb_players == 0)
 	{
-		return 1;
+		return 0;	//Tous personnages morts, fin partie
 	}
 	else if (nb_monsters == 0)
 	{
-		return 2;
+		return 1;	//Tous monstres morts, retour carte
 	}
-
-	return 0;
+	return 2;
 }

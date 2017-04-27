@@ -204,7 +204,6 @@ namespace io
 		}
 	}
 
-
 	//! Choix d'un élément unique
 	/*!
 		Fonction qui prend un vecteur d'éléments en entrée ainsi qu'un booléen, et affiche puis renvoie l'élément choisi.
@@ -222,28 +221,48 @@ namespace io
 			type_name = type_name.substr(1, type_name.size());			//Conservation des caractères pertinents
 		}
 
-		std::transform(type_name.begin(), type_name.end(), type_name.begin(), ::tolower);
-		std::cout << "Veuillez choisir votre " << type_name << " (1-9): ";
-
-		liste_elements(vect_element);                        			//Affichage des éléments parmi lesquels choisir
-
-		char c_input = de();                                            //Input utilisateur
-		int input = c_input - '0';                                      //Transcription en chiffres
-
-		while (input < 0 || input > vect_element.size())                //Input incorrect
+		while (1)
 		{
-			std::puts("Input incorrect. Réessayez!");
-			c_input = de();                                             //Input utilisateur
-			input = c_input - '0';                                      //Trancription en chiffres
-		}
+			std::transform(type_name.begin(), type_name.end(), type_name.begin(), ::tolower);
+			std::cout << "Veuillez choisir votre " << type_name << " (1-9): ";
 
-		T choix = vect_element[input - 1];                              //Sélection de l'objet dans son vecteur
+			liste_elements(vect_element);                        			//Affichage des éléments parmi lesquels choisir
 
-		std::cout << std::endl << "Vous avez choisi: ";
+			char c_input = de();                                            //Input utilisateur
+			int input = c_input - '0';                                      //Transcription en chiffres
+
+			while (input < 0 || input > vect_element.size())                //Input incorrect
+			{
+				std::puts("Input incorrect. Réessayez!");
+				c_input = de();                                             //Input utilisateur
+				input = c_input - '0';                                      //Trancription en chiffres
+			}
+
+			T choix = vect_element[input - 1];                              //Sélection de l'objet dans son vecteur
+
+				//Fiche détaillée
+			if (type_name == "competence")	//crade
+			{
+						std::cout << std::endl << "Vous avez choisi: ";
 		afficher(choix);												//Affichage de l'objet choisi
 		std::puts("\n");
+				return choix;													//Renvoi de l'objet choisi
+			}
+			else
+			{
+				choix.afficher_detail();
+				puts("Appuyez sur \"v\" pour valider votre choix, ou sur une autre touche pour revenir au menu de sélection");
+				c_input = de();
 
-		return choix;													//Renvoi de l'objet choisi
+				if (c_input == 'v')
+				{
+							std::cout << std::endl << "Vous avez choisi: ";
+		afficher(choix);												//Affichage de l'objet choisi
+		std::puts("\n");
+					return choix;													//Renvoi de l'objet choisi
+				}
+			}
+		}
     }
 
     template<typename T> std::vector<T> loadAllEntiteFromFile(T temp, std::string nomFichier)
