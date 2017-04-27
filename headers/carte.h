@@ -29,16 +29,20 @@ class Carte
 		void sauvegarde() ;
 		std::string getName() ;
 		std::string getDescription() ;
+		int setTaille(int taille);
 		void setName(std::string name);
 		void setDescription(std::string desc);
 		void setPlateau(int taille);
 		void setCase(int i, int j, std::string value);
+		void setNbrMonstre(int nbr_monstre);
+		void setCaseDispo(int case_dispo);
 		//bool carte_existe(std::string nom) ;
 		//int quel_taille(std::string nom);
 		//void suppression(std::string nom);
 		Carte operator=(const Carte & a_copier);
 		int getTaille(){return taille;}
 		std::string** getPlateau(){return plateau;}
+		void afficher_detail();
 		bool caseAccessible(int i, int j);
 };
 

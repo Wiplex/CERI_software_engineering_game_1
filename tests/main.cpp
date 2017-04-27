@@ -11,18 +11,37 @@ using namespace std;
 
 int main()
 {
-
-
 	jeu a;
 
 	a.preparation_partie();
 	a.afficherJeu();
 	a.deplacement();
-
-//	string monster = "m1";
-
-//	a.combat(monster);
+	int persos_vivants = 1;
+	int nbMonstres = a.getNbMonstres();
 
 
-	return 0;
+	while (persos_vivants != 0 && nbMonstres > 0)
+	{
+		//	a.deplacement();
+
+		string monster = "m1";	//test
+
+		//Si case monstre
+		int result = a.combat(monster);	//Combat
+		persos_vivants = result;
+		nbMonstres -= result;
+	}
+
+	if (persos_vivants == 0)
+	{
+		cout << "Tous les joueurs sont morts! Partie perdue!" << endl;
+		cout << "Game Over";
+		return 0;
+	}
+	else if (nbMonstres == 0)
+	{
+		cout << "Tous les monstres sont morts! Partie gagnée!" << endl;
+		cout << "Here. Have a cookie";
+		return 1;
+	}
 }

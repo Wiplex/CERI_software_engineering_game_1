@@ -222,24 +222,25 @@ bool entite::enleverMana(int skillManaCost)
 // TESTS
 
 
-void entite::printEntite()
+void entite::afficher_detail()
 {
-	cout << "Nom: " << this->entiteName<< endl;
-	cout << "HP: " << this->entiteHpCurrent << "/" << this->entiteHpMax << endl;
-	cout << "MP: " << this->entiteManaCurrent << "/" << this->entiteManaMax << endl;
-	cout << "Vitesse: " << this->entiteSpeed<< endl;
+	cout << endl << endl << "Détails de l'entité " << this->entiteName << endl << endl;
+
+	cout << "HP: " << this->entiteHpMax << endl;
+	cout << "MP: " << this->entiteManaMax << endl;
 
 	if (this->entiteDescription != "")
 	{
-		cout << "Description: " <<this->entiteDescription<<endl;
+		cout << endl << "Description: " << this->entiteDescription << endl;
 	}
 
-	cout << endl << "Compétences: " << endl;
+	cout << endl << "Compétences: " << endl << endl;
 
 	for (int i=0 ; i<3 ; i++)
 	{
-		this->entiteSkillVect[i].printCompetence();
+		this->entiteSkillVect[i].afficher_detail();
+		cout << endl;
 	}
 
-	cout << endl;
+	cout << endl << endl;
 }

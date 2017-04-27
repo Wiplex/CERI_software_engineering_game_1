@@ -20,7 +20,7 @@ void personnage::printPersonnage()
 
 	for (int i=0 ; i<3 ; i++)
 	{
-		this->entiteSkillVect[i].printCompetence();
+		this->entiteSkillVect[i].afficher_detail();
 	}
 
 	cout << endl;
