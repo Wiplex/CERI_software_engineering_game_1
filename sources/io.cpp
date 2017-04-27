@@ -5,7 +5,6 @@
 #include <iostream>
 #include "../headers/carte.h"
 #include "../headers/io.h"
-#include "../headers/personnage.h"
 
 using namespace std;
 
@@ -479,8 +478,35 @@ namespace io
 		return creation;
 	}
 */
+	bool checkSeparatorEntite(string uneLigne) //Retourne false si le nb de séparateurs dans une ligne n'est pas le nombre définit
+	{
+		int cptBarre=0;
+		int cptSlash=0;
+		char parcours;
 
-	vector<competence> loadCompetenceFromFile(string nomFichier,int numLigne)
+		for (int i=0; i<uneLigne.length(); i++)
+		{
+			parcours = uneLigne[i];
+			if(parcours=='/')
+			{
+				cptSlash++;
+			}
+
+			if(parcours=='|')
+			{
+				cptBarre++;
+			}
+		}
+
+		if((cptSlash == 4) && (cptBarre == 3))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	vector<competence> loadCompetenceFromFile(std::string nomFichier,int numLigne)
 	{
 		int nbSeparateur = 0;
 		string sskillName;
@@ -689,9 +715,12 @@ namespace io
 					if (init == false)
 					{
 						init = true;
+						carte_temporaire.setTaille(t);
 						carte_temporaire.setName(nom);
 						carte_temporaire.setDescription(description);
 						carte_temporaire.setPlateau(t);
+						///carte_temporaire.setNbrMonstre();
+						///carte_temporaire.setCaseDispo();
 
 					}
 

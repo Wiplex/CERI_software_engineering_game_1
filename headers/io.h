@@ -131,6 +131,19 @@ namespace io
 	*/
 	bool checkInput(int x); //Vérifie que l'user entre des entier
 
+	//!Verifie qu'une ligne est correcte dans un fichier texte d'entités (bon nombre de séparateurs)
+	/*!
+		Cette fonction permet de vérifier qu'une ligne contient bien le bon nombre de séparateurs pour éviter les erreurs dans le chargement d'une entité
+
+		Mode opératoire:
+		- Parcours de toute la string passée en paramétre
+		- A chaque séparateur trouvé, on ajoute 1 aux compteurs
+		- Si le nombre de séparateurs correspond au nombre défini, on retourne true
+		\param uneLigne Ligne à vérifier
+	*/
+	bool checkSeparatorEntite(std::string uneLigne);
+
+
 	//! Creer une competence
 	/*!
 		Cette fonction permet de créer rapidement une compétence pour pouvoir l'utiliser facilement après.
@@ -228,7 +241,6 @@ namespace io
 		}
 	}
 
-
 	//! Choix d'un élément unique
 	/*!
 		Fonction qui prend un vecteur d'éléments en entrée ainsi qu'un booléen, et affiche puis renvoie l'élément choisi.
@@ -246,28 +258,48 @@ namespace io
 			type_name = type_name.substr(1, type_name.size());			//Conservation des caractères pertinents
 		}
 
-		std::transform(type_name.begin(), type_name.end(), type_name.begin(), ::tolower);
-		std::cout << "Veuillez choisir votre " << type_name << " (1-9): ";
-
-		liste_elements(vect_element);                        			//Affichage des éléments parmi lesquels choisir
-
-		char c_input = de();                                            //Input utilisateur
-		int input = c_input - '0';                                      //Transcription en chiffres
-
-		while (input < 0 || input > vect_element.size())                //Input incorrect
+		while (1)
 		{
-			std::puts("Input incorrect. Réessayez!");
-			c_input = de();                                             //Input utilisateur
-			input = c_input - '0';                                      //Trancription en chiffres
-		}
+			std::transform(type_name.begin(), type_name.end(), type_name.begin(), ::tolower);
+			std::cout << "Veuillez choisir votre " << type_name << " (1-9): ";
 
-		T choix = vect_element[input - 1];                              //Sélection de l'objet dans son vecteur
+			liste_elements(vect_element);                        			//Affichage des éléments parmi lesquels choisir
 
-		std::cout << std::endl << "Vous avez choisi: ";
+			char c_input = de();                                            //Input utilisateur
+			int input = c_input - '0';                                      //Transcription en chiffres
+
+			while (input < 0 || input > vect_element.size())                //Input incorrect
+			{
+				std::puts("Input incorrect. Réessayez!");
+				c_input = de();                                             //Input utilisateur
+				input = c_input - '0';                                      //Trancription en chiffres
+			}
+
+			T choix = vect_element[input - 1];                              //Sélection de l'objet dans son vecteur
+
+				//Fiche détaillée
+			if (type_name == "competence")	//crade
+			{
+						std::cout << std::endl << "Vous avez choisi: ";
 		afficher(choix);												//Affichage de l'objet choisi
 		std::puts("\n");
+				return choix;													//Renvoi de l'objet choisi
+			}
+			else
+			{
+				choix.afficher_detail();
+				puts("Appuyez sur \"v\" pour valider votre choix, ou sur une autre touche pour revenir au menu de sélection");
+				c_input = de();
 
-		return choix;													//Renvoi de l'objet choisi
+				if (c_input == 'v')
+				{
+							std::cout << std::endl << "Vous avez choisi: ";
+		afficher(choix);												//Affichage de l'objet choisi
+		std::puts("\n");
+					return choix;													//Renvoi de l'objet choisi
+				}
+			}
+		}
     }
 
     template<typename T> std::vector<T> loadAllEntiteFromFile(T temp, std::string nomFichier)
@@ -298,103 +330,105 @@ namespace io
 		{
 			while (getline(fichierEntite, uneLigne)) //Parcours de tout le fichier et stockage d'une ligne
 			{
-				cptLigne++; //Reset de toutes les variables afin de stocker une nouvelle ligne
-				sentiteName="";
-				sentiteId="";
-				sentiteHpMax="";
-				entiteHpMax=0;
-				sentiteSpeed="";
-				entiteSpeed=0;
-				sentiteManaMax="";
-				entiteManaMax=0;
-				nbSeparateur=0;
-				nbBarre=0;
-				entiteDescription="";
-				allSkills.clear();
-
-
-				for(int i=0; i<uneLigne.length(); i++) //Analyse de la ligne
+				if(checkSeparatorEntite(uneLigne) == true) //Vérification que la ligne est correcte
 				{
-					parcoursCarac = uneLigne[i];
-				 //   if(nbSeparateur <4) // Récupération des carac. d'un monstre
-				   // {
-					if ((parcoursCarac == '/') || (parcoursCarac == '|'))
-					{
-						nbSeparateur++;
-					}
+					cptLigne++; //Reset de toutes les variables afin de stocker une nouvelle ligne
+					sentiteName="";
+					sentiteId="";
+					sentiteHpMax="";
+					entiteHpMax=0;
+					sentiteSpeed="";
+					entiteSpeed=0;
+					sentiteManaMax="";
+					entiteManaMax=0;
+					nbSeparateur=0;
+					nbBarre=0;
+					entiteDescription="";
+					allSkills.clear();
 
-					if (nbSeparateur == 0) // Champ entiteId
-					{
-						sentiteId+=parcoursCarac;
-					}
 
-					if (nbSeparateur == 1) //Champ Nom
+					for(int i=0; i<uneLigne.length(); i++) //Analyse de la ligne
 					{
-						if (parcoursCarac == '/')
+						parcoursCarac = uneLigne[i];
+					 //   if(nbSeparateur <4) // Récupération des carac. d'un monstre
+					   // {
+						if ((parcoursCarac == '/') || (parcoursCarac == '|'))
+						{
+							nbSeparateur++;
+						}
+
+						if (nbSeparateur == 0) // Champ entiteId
+						{
+							sentiteId+=parcoursCarac;
+						}
+
+						if (nbSeparateur == 1) //Champ Nom
+						{
+							if (parcoursCarac == '/')
+							{
+								continue;
+							}
+							sentiteName+=parcoursCarac;
+						}
+
+						if (nbSeparateur == 2) //Champ entiteHpMax
+						{
+							if (parcoursCarac == '/')  continue;
+							sentiteHpMax+=parcoursCarac;
+						}
+
+						if (nbSeparateur == 3) //Champ vitesse
+						{
+							if (parcoursCarac == '/')  continue;
+							sentiteSpeed+=parcoursCarac;
+						}
+
+						if(nbSeparateur == 4)
 						{
 							continue;
 						}
-						sentiteName+=parcoursCarac;
-					}
 
-					if (nbSeparateur == 2) //Champ entiteHpMax
-					{
-						if (parcoursCarac == '/')  continue;
-						sentiteHpMax+=parcoursCarac;
-					}
-
-					if (nbSeparateur == 3) //Champ vitesse
-					{
-						if (parcoursCarac == '/')  continue;
-						sentiteSpeed+=parcoursCarac;
-					}
-
-					if(nbSeparateur == 4)
-					{
-						continue;
-					}
-
-					if(nbSeparateur >= 5) //Champ compétence + entiteManaMax + entiteDescription
-					{
-						if(parcoursCarac == '|')
+						if(nbSeparateur >= 5) //Champ compétence + entiteManaMax + entiteDescription
 						{
-							nbBarre++;
-						}
+							if(parcoursCarac == '|')
+							{
+								nbBarre++;
+							}
 
-						if(nbBarre == 0) continue;
+							if(nbBarre == 0) continue;
 
-						if (nbBarre == 1) //Champ entiteManaMax
-						{
-							if(parcoursCarac=='|') continue;
-							sentiteManaMax+=parcoursCarac;
-						}
+							if (nbBarre == 1) //Champ entiteManaMax
+							{
+								if(parcoursCarac=='|') continue;
+								sentiteManaMax+=parcoursCarac;
+							}
 
-						if (nbBarre == 2) //Champ entiteDescription
-						{
-							if(parcoursCarac=='|') continue;
-							entiteDescription+=parcoursCarac;
-						}
+							if (nbBarre == 2) //Champ entiteDescription
+							{
+								if(parcoursCarac=='|') continue;
+								entiteDescription+=parcoursCarac;
+							}
 
-						if (nbBarre==3)
-						{
-							break;
+							if (nbBarre==3)
+							{
+								break;
+							}
 						}
 					}
+
+
+					std::istringstream (sentiteHpMax) >> entiteHpMax; //Conversion string to int
+
+					std::istringstream (sentiteSpeed) >> entiteSpeed; //Conversion string to int
+
+					std::istringstream (sentiteManaMax) >> entiteManaMax; //Conversion string to int
+
+					allSkills = loadCompetenceFromFile(nomFichier, cptLigne); //Récupération des compétences
+
+					T creation(sentiteId, sentiteName, entiteHpMax, entiteSpeed, entiteManaMax, entiteDescription, allSkills); //Création de l'entite
+
+					allEntite.push_back(creation); //Stockage du perso dans le vecteur de retour
 				}
-
-
-				std::istringstream (sentiteHpMax) >> entiteHpMax; //Conversion string to int
-
-				std::istringstream (sentiteSpeed) >> entiteSpeed; //Conversion string to int
-
-				std::istringstream (sentiteManaMax) >> entiteManaMax; //Conversion string to int
-
-				allSkills = loadCompetenceFromFile(nomFichier, cptLigne); //Récupération des compétences
-
-				T creation(sentiteId, sentiteName, entiteHpMax, entiteSpeed, entiteManaMax, entiteDescription, allSkills); //Création de l'entite
-
-				allEntite.push_back(creation); //Stockage du perso dans le vecteur de retour
-
 			}
 
 			return allEntite;

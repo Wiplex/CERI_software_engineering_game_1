@@ -104,7 +104,7 @@ public:
 	void saveInFile(std::string lettreEntite, std::string nomFichier);
 
 	//! Pour tester
-	void printEntite();
+	void afficher_detail();
 
 	//! Enlève x points de vie a l'entite.
 	/*!

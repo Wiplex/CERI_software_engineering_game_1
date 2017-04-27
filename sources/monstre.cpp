@@ -26,7 +26,7 @@ void monstre::printMonstre()
 
 	for (int i=0 ; i<this->entiteSkillVect.size() ; i++)
 	{
-		this->entiteSkillVect[i].printCompetence();
+		this->entiteSkillVect[i].afficher_detail();
 	}
 
 	cout << endl;
