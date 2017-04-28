@@ -23,8 +23,8 @@ protected:
 public:
 	//! Constructeur vide
 	/*
-		Crée un entite vide.
-		\warning L'entite sera vide. Cela signifie qu'il ne sera pas utilisable pour le jeu, sa vie étant égale à 0
+		Crée une entité vide.
+		\warning L'entité sera vide. Cela signifie qu'elle ne sera pas utilisable pour le jeu, sa vie étant égale à 0
 		\post L'entite crée aura les paramètres suivants:
 		- entiteName = "Inconnu"
 		- entiteHpMax = 0
@@ -103,8 +103,17 @@ public:
 	//! Permet d'écrire l'entite dans un fichier de sauvegarde
 	void saveInFile(std::string lettreEntite, std::string nomFichier);
 
-	//! Pour tester
+	//! Identification personnage
+	bool is_personnage();
+
+	//! Affichage en détail
 	void afficher_detail();
+
+	//! Affichage en combat
+	/*!
+		Permet de limiter l'affichage d'une entité à ses caractéristiques utiles en combat
+	*/
+	void afficher_combat();
 
 	//! Enlève x points de vie a l'entite.
 	/*!

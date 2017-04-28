@@ -83,26 +83,25 @@ string competence::competenceString() //Convertit une compétence en une ligne d
 }
 
 
-void competence::afficher_detail() //Affichage pour test
+void competence::afficher_detail()
 {
-	cout << "Nom: " << this->skillName << endl;
+	cout << this->skillName;
 
 	if (this->skillDamage < 0)
 	{
-		cout << "Soins: " << -1 * (this->skillDamage) << endl;
+		cout << ", soins: " << -1 * (this->skillDamage);
 	}
 	else
 	{
-		cout << "Dégâts: " << this->skillDamage<< endl;
+		cout << ", dégâts: " << this->skillDamage;
 	}
 
 	if (this->skillManaCost < 0)
 	{
-		cout << "Gain de mana: " << -1 * (this->skillManaCost)<< endl;
+		cout << ", gain de mana: " << -1 * (this->skillManaCost) << endl;
 	}
 	else
 	{
-		cout << "Coût en mana: " << this->skillManaCost<< endl;
+		cout << ", coût en mana: " << this->skillManaCost << endl;
 	}
 }
-

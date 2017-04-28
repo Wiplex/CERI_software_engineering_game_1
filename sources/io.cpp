@@ -356,11 +356,11 @@ namespace io
 		return j;
 	}
 
-	void setPlayerPosition(int i, int j)
-	{
-		currentPlayerPosition = std::make_pair(i,j);
-	}
-
+	void setPlayerPosition(int i, int j)		
+ 	{		
+ 		currentPlayerPosition = std::make_pair(i,j);		
+ 	}
+	
 	void bienvenue()
 	{
 		std::puts("\n");
@@ -398,25 +398,44 @@ namespace io
 		cout << "Entrez le nom de la compétence : ";
 		cin >> skillName;
 
-		cout << "Entrez le nombre de dommage de la compétence (chiffre négatif pour du soin) : ";
+		cout << "Entrez le nombre de dégâts de la compétence (chiffre négatif pour du soin) : ";
 		cin >> skillDamage;
 		while(!checkInput(skillDamage))
 		{
-			cout << "Entrez le nombre de dommage de la compétence (chiffre négatif pour du soin) : ";
+			cout << "Entrez le nombre de dégâts de la compétence (chiffre négatif pour du soin) : ";
 			cin >> skillDamage;
 		}
 
-		cout << "Entrez le cout en mana de la competence : ";
+		cout << "Entrez le coût en mana de la compétence : ";
 		cin >> skillManaCost;
 		while(!checkInput(skillManaCost))
 		{
-			cout << "Entrez le cout en mana de la competence : ";
+			cout << "Entrez le coût en mana de la compétence : ";
 			cin >> skillManaCost;
 		}
 
 		competence creation(skillName, skillDamage, skillManaCost);
 
 		return creation;
+	}
+
+	void aff_combat(vector<entite> vect_entite)
+	{
+		for (int i = 0; i < vect_entite.size(); i++)
+		{
+			if (vect_entite[i].is_personnage())
+			{
+				vect_entite[i].afficher_combat();
+			}
+		}
+
+		for (int i = 0; i < vect_entite.size(); i++)
+		{
+			if (!vect_entite[i].is_personnage())
+			{
+				vect_entite[i].afficher_combat();
+			}
+		}
 	}
 
 /*	competence createCompetenceMonstre() //Permet à l'utilisateur de créer une compétence pour monstre
@@ -486,6 +505,7 @@ namespace io
 		return creation;
 	}
 */
+
 	bool checkSeparatorEntite(string uneLigne) //Retourne false si le nb de séparateurs dans une ligne n'est pas le nombre définit
 	{
 		int cptBarre=0;
@@ -514,7 +534,7 @@ namespace io
 		return false;
 	}
 
-	vector<competence> loadCompetenceFromFile(std::string nomFichier,int numLigne)
+	vector<competence> loadCompetenceFromFile(string nomFichier,int numLigne)
 	{
 		int nbSeparateur = 0;
 		string sskillName;

@@ -11,7 +11,7 @@ public:
 
 	//! Constructeur vide
 	/*!
-		Le personnage créé aura 0 de mana, et n'aura aucune description. Mais il sera crée.
+		Le personnage créé aura 0 de mana, et n'aura aucune description. Mais il sera créé.
 	*/
 	personnage():entite()
 	{

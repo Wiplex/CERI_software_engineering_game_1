@@ -1,17 +1,32 @@
 #include <iostream>	// à remplacer avec notre librairie I/O plus tard
 #include <vector>
-#include "../headers/io.h"
 #include "../headers/carte.h"
 #include "../headers/fonctionsjeu.h"
 
-using namespace io;
 using namespace std;
 
 jeu::jeu()
 {
-//	jeu_perso = new personnage();		// À COMPLÉTER UNE FOIS QUE CLASSE PERSO FINIE
-//	jeu_carte = new Carte();			// À COMPLÉTER UNE FOIS QUE CLASSE CARTE FINIE
-//	jeu_nombre_monstre = 0;				// À COMPLÉTER UNE FOIS QUE CLASSE CARTE FINIE
+	bienvenue();
+
+		//Choix personnage
+	vector<personnage> tous_persos;							//Vecteur personnages
+	personnage pers;										//Dummy identification type template
+	string nom_file = "fichierPersonnage.txt";				//Nom fichier source personnages
+	tous_persos = loadAllEntiteFromFile(pers, nom_file);	//Remplissage vecteur personnages depuis fichier
+	jeu_perso = choix_unique_element(tous_persos, 0);		//Choix + assignation personnage partie
+
+		//Choix carte
+	vector<Carte> toutes_cartes;							//Vecteur cartes
+	nom_file = "fichierCarte.txt";							//Nom fichier source cartes
+	toutes_cartes = loadAllCarteFromFile(nom_file);			//Chargement carte depuis fichier
+	Carte jeu_carte = choix_unique_element(toutes_cartes, 0);//Choix + assignation carte partie
+    ///jeu_nombre_monstres = jeu_carte.getNbrMonstres();		//Récupération du nombre de monstres total
+
+		//Chargement monstres
+	monstre mons;											//Dummy identification type template
+	nom_file = "fichierMonstre.txt";						//Nom fichier source monstres
+	jeu_monstres = loadAllEntiteFromFile(mons, nom_file);	//Chargement monstres depuis fichier
 }
 
 jeu::~jeu()
@@ -35,38 +50,6 @@ vector<monstre> jeu::getMonstres()
 int jeu::getNbMonstres()
 {
 	return jeu_nombre_monstres;
-}
-
-int jeu::preparation_partie()
-{
-	bienvenue();
-
-		//Choix personnage
-	vector<personnage> tous_persos;							//Vecteur personnages
-	personnage pers;										//Dummy identification type template
-	string nom_file = "sources/fichierPersonnage.txt";				//Nom fichier source personnages
-	tous_persos = loadAllEntiteFromFile(pers, nom_file);	//Remplissage vecteur personnages depuis fichier
-	jeu_perso = choix_unique_element(tous_persos);			//Choix + assignation personnage partie
-
-		//Choix carte
-	vector<Carte> toutes_cartes;							//Vecteur cartes
-	nom_file = "sources/fichierCarte.txt";							//Nom fichier source cartes
-	toutes_cartes = loadAllCarteFromFile(nom_file);			//Chargement carte depuis fichier
-	jeu_carte = choix_unique_element(toutes_cartes);	//Choix + assignation carte partie
-	///int nb_monstres = jeu_carte.getNbrMonstres();		//Récupération du nombre de monstres total
-
-	//Chargement monstres
-	monstre mons;											//Dummy identification type template
-	nom_file = "sources/fichierMonstre.txt";						//Nom fichier source monstres
-	jeu_monstres = loadAllEntiteFromFile(mons, nom_file);	//Chargement monstres depuis fichier
-
-	for (int i = 0; i < jeu_monstres.size(); i++)
-	{
-		jeu_monstres[i].afficher_detail();
-	}
-
-	///return nb_monstres;									//Renvoi du nombre de monstres
-	return 0;
 }
 
 void jeu::afficherJeu()
@@ -123,12 +106,13 @@ void jeu::deplacement()
 	return;
 }
 
+
 int jeu::combat(string id_monstre)
 {
+	puts("** Combat **");
+
 	vector<entite> vect_entite;
 	vector<entite>::iterator ite;
-
-	cout << vect_entite.size();
 
 	bool loading = chargement_entite(vect_entite, id_monstre);
 
@@ -150,8 +134,10 @@ int jeu::combat(string id_monstre)
 		competence comp_util;
 		entite target;
 
-		for (ite = vect_entite.begin(); ite != vect_entite.end(); ite++)
+		for (ite = vect_entite.begin(); ite != vect_entite.end(); ite++)	//Pour chaque acteur
 		{
+			aff_combat(vect_entite);	//Affichage infos utiles acteurs
+
 			comp_util = choix_comp(* ite);	//Choix compétence
 
 			target = choix_target(comp_util, (* ite), vect_entite, vect_p);	//Choix cible
@@ -203,30 +189,15 @@ bool jeu::chargement_entite(vector<entite> & vect_entite, string id_monstre)
 	return 1;
 }
 
-bool sort_speed(entite a, entite b)
-{
-	return a.getSpeed() > b.getSpeed();
-}
-
-bool jeu::is_personnage(entite indiv)
-{
-	if (indiv.getID().substr(0, 1) == "p")
-	{
-		return true;
-	}
-	return false;
-}
-
 vector<int> jeu::orga_entites(vector<entite> & vect_entite)
 {
 	sort(vect_entite.begin(), vect_entite.end(), sort_speed);
 
 	vector<int> vect_p;
-	cout << vect_entite.size() << endl;
 
 	for (int i = 0; i < vect_entite.size(); i++)		//Identification acteurs personnages
 	{
-		if (is_personnage(vect_entite[i]))	//Si personnage
+		if (vect_entite[i].is_personnage())				//Si personnage
 		{
 			vect_p.push_back(i);						//Rajout indice personnage
 		}
@@ -239,25 +210,25 @@ competence jeu::choix_comp(entite & indiv)
 {
 	competence comp_util;
 
-	if (is_personnage(indiv))	//Personnage
+	if (indiv.is_personnage())	//Personnage
 	{
 		puts("\n- Choix de compétence -");
-		comp_util = choix_unique_element(indiv.getSkillVect());	//Choix manuel
+		comp_util = choix_unique_element(indiv.getSkillVect(), 0);	//Choix manuel
 
 		while (indiv.enleverMana(comp_util.getManaCost()) == false)
 		{
 			puts("Vous n'avez pas assez de mana pour utiliser cette compétence!");
 			puts("- Choix de compétence -");
-			comp_util = choix_unique_element(indiv.getSkillVect());	//Choix manuel
+			comp_util = choix_unique_element(indiv.getSkillVect(), 0);	//Choix manuel
 		}
 	}
 	else	//Monstre
 	{
 		comp_util = indiv.getSkillVect()[rand() % indiv.getSkillVect().size()];	//Choix aléatoire
 	}
-
-	cout << endl << "La compétence choisie par " << indiv.getName() << " est la compétence ";
-	cout << comp_util.getName() << "." << endl;
+//
+//	cout << endl << "La compétence choisie par " << indiv.getName() << " est la compétence ";
+//	cout << comp_util.getName() << "." << endl;
 
 	return comp_util;
 }
@@ -266,20 +237,18 @@ entite jeu::choix_target(competence comp_util, entite & indiv, vector<entite> & 
 {
 	entite target;
 
-	if (is_personnage(indiv))	//Personnage
+	if (indiv.is_personnage())	//Personnage
 	{
 		cout << "- Choix de la cible pour la compétence " << comp_util.getName() << " -" << endl;
-		target = choix_unique_element(vect_entite);
-		cout << "Le personnage ";
+		target = choix_unique_element(vect_entite, 1);
 	}
 	else	//Monstre
 	{
 		int cible = rand() % vect_p.size();	//Choix aléatoire
 		target = vect_entite[cible];
-		cout << "Le monstre ";
 	}
 
-	cout << indiv.getName() << " utilise la compétence ";
+	cout << endl << endl << indiv.getName() << " utilise la compétence ";
 	cout << comp_util.getName();
 	cout << " sur " << target.getName() << " (" << comp_util.getDamage() << " dégâts)." << endl;
 
@@ -289,7 +258,6 @@ entite jeu::choix_target(competence comp_util, entite & indiv, vector<entite> & 
 int jeu::appliquer_comp(entite target, vector<entite> & vect_entite, competence comp_util, int & nb_players, int & nb_monsters)
 {
 	vector<entite>::iterator ite;
-	vector<entite>::iterator death;
 
 	for(ite = vect_entite.begin(); ite != vect_entite.end(); ite++)
 	{
@@ -300,24 +268,19 @@ int jeu::appliquer_comp(entite target, vector<entite> & vect_entite, competence 
 		}
 	}
 
-	cout << "La cible " << (* ite).getName() << " est touchée par ";
-	cout << comp_util.getName();
-	cout << ". Son total de points de vie s'élève désormais à " << (* ite).getHpCurrent() << "." << endl;
-
 	if ((* ite).getAlive() == false)	//Si cible morte
 	{
-		if (is_personnage(* ite))	//Si personnage
+		if ((* ite).is_personnage())	//Si personnage
 		{
 			cout << "Le personnage " << (* ite).getName() << " est mort." << endl;
 			nb_players--;
-			cout << "Nombre joueurs" << nb_players;
 		}
 		else	//Si monstre
 		{
 			cout << "Le monstre " << (* ite).getName() << " est mort." << endl;
 			nb_monsters--;
-			cout << "Nombre monstres" << nb_players;
 		}
+		vect_entite.erase(ite);
 	}
 
 	//Check conséquences combat
@@ -330,4 +293,9 @@ int jeu::appliquer_comp(entite target, vector<entite> & vect_entite, competence 
 		return 1;	//Tous monstres morts, retour carte
 	}
 	return 2;
+}
+
+bool sort_speed(entite a, entite b)
+{
+	return a.getSpeed() > b.getSpeed();
 }

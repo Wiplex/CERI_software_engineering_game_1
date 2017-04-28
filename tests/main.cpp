@@ -13,9 +13,6 @@ int main()
 {
 	jeu a;
 
-	a.preparation_partie();
-	a.afficherJeu();
-	a.deplacement();
 	int persos_vivants = 1;
 	int nbMonstres = a.getNbMonstres();
 
@@ -35,13 +32,13 @@ int main()
 	if (persos_vivants == 0)
 	{
 		cout << "Tous les joueurs sont morts! Partie perdue!" << endl;
-		cout << "Game Over";
+		cout << endl << "Game Over" << endl << endl;
 		return 0;
 	}
 	else if (nbMonstres == 0)
 	{
 		cout << "Tous les monstres sont morts! Partie gagnée!" << endl;
-		cout << "Here. Have a cookie";
+		cout << endl << "Here. Have a cookie" << endl << endl;
 		return 1;
 	}
 }
