@@ -1,28 +1,31 @@
 # Variables :
 
-IO="archives/io.a"
-CARTE="archives/carte.a"
-ENTITE="archives/entite.a"
-MONSTRE="archives/monstre.a"
-COMPETENCE="archives/competence.a"
-PERSONNAGE="archives/personnage.a"
-OIO="objects/io.o"
-OCARTE="objects/carte.o"
-OENTITE="objects/entite.o"
-OMONSTRE="objects/monstre.o"
-OCOMPETENCE="objects/competence.o"
-OPERSONNAGE="objects/personnage.o"
-ALL="$(IO) $(CARTE) $(ENTITE) $(MONSTRE) $(COMPETENCE) $(PERSONNAGE)"
-OALL="$(OIO) $(OCARTE) $(OENTITE) $(OMONSTRE) $(OCOMPETENCE) $(OPERSONNAGE)"
+IO=archives/io.a
+CARTE=archives/carte.a
+ENTITE=archives/entite.a
+MONSTRE=archives/monstre.a
+FONCTIONS=archives/fonctionsjeu.a
+COMPETENCE=archives/competence.a
+PERSONNAGE=archives/personnage.a
+OIO=objects/io.o
+OCARTE=objects/carte.o
+OENTITE=objects/entite.o
+OMONSTRE=objects/monstre.o
+OFONCTIONS=objects/fonctionsjeu.o
+OCOMPETENCE=objects/competence.o
+OPERSONNAGE=objects/personnage.o
+ALL=$(IO) $(CARTE) $(ENTITE) $(MONSTRE) $(FONCTIONS) $(COMPETENCE) $(PERSONNAGE)
+OALL=$(OIO) $(OCARTE) $(OENTITE) $(OMONSTRE) $(OFONCTIONS) $(OCOMPETENCE) $(OPERSONNAGE)
 
 # Cibles que l'on peut compiler directement :
 all:
-	@make -s io	# IO
-	@make -s ca	# Carte
-	@make -s co	# Compétences
-	@make -s mo	# Monstre
-	@make -s pe	# Personnage
-	@make -s fj	# Fonctions jeu
+	#@make -s ca	# Carte
+	#@make -s co	# Compétences
+	#@make -s mo	# Monstre
+	#@make -s pe	# Personnage
+	#@make -s en	# Entite
+	#@make -s fj	# Fonctions jeu
+	#@make -s io	# IO
 	@make -s main.exe
 ca:
 	@make objects/carte.o
@@ -44,13 +47,13 @@ fj:
 	@make archives/fonctionsjeu.a
 io:
 	@make objects/io.o
-	@make objects/io_main.o
+	# @make objects/io_main.o
 	@make archives/io.a
-	@make io_main.exe
+	# @make io_main.exe
 doc:
 	@cd documentation; doxygen documentation > doxygen_output.txt; cd latex; make;
-main.exe: tests/main.cpp
-	@g++ $< -o $@ -std=c++11
+main.exe: tests/main.cpp ca mo pe en co fj io
+	@g++ $< $(OALL) -o $@ -std=c++11
 
 # Archives des classes :
 

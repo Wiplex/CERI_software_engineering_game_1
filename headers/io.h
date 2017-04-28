@@ -11,6 +11,7 @@
 #include "../headers/carte.h"
 #include "../headers/monstre.h"
 #include "../headers/personnage.h"
+#include "../headers/entite.h"
 
 #ifndef IO_H
 #define IO_H
@@ -132,17 +133,17 @@ namespace io
 	extern bool checkInput(int x); //Vérifie que l'user entre des entier
 
 	//!Verifie qu'une ligne est correcte dans un fichier texte d'entités (bon nombre de séparateurs)		 +	//! Créer une competence
- -	/*!		
- -		Cette fonction permet de vérifier qu'une ligne contient bien le bon nombre de séparateurs pour éviter les erreurs dans le chargement d'une entité		
- -		
- -		Mode opératoire:		
- -		- Parcours de toute la string passée en paramétre		
- -		- A chaque séparateur trouvé, on ajoute 1 aux compteurs		
- -		- Si le nombre de séparateurs correspond au nombre défini, on retourne true		
- -		\param uneLigne Ligne à vérifier		
- -	*/		
- -	bool checkSeparatorEntite(std::string uneLigne);
-	
+ 	/*!
+ 		Cette fonction permet de vérifier qu'une ligne contient bien le bon nombre de séparateurs pour éviter les erreurs dans le chargement d'une entité
+
+ 		Mode opératoire:
+ 		- Parcours de toute la string passée en paramétre
+ 		- A chaque séparateur trouvé, on ajoute 1 aux compteurs
+ 		- Si le nombre de séparateurs correspond au nombre défini, on retourne true
+ 		\param uneLigne Ligne à vérifier
+ 	*/
+ 	extern bool checkSeparatorEntite(std::string uneLigne);
+
 	//! Créer une competence
 	/*!
 		Cette fonction permet de créer rapidement une compétence pour pouvoir l'utiliser facilement après.
@@ -459,8 +460,6 @@ namespace io
 
 			}
 
-			return allEntite;
-
 			fichierEntite.close();
 		}
 
@@ -468,6 +467,8 @@ namespace io
 		{
 			std::cerr << "Impossible d'ouvrir le fichier." << std::endl;
 		}
+
+		return allEntite;
 	}
 }
 
