@@ -29,7 +29,7 @@ class Carte
 		void sauvegarde() ;
 		std::string getName() ;
 		std::string getDescription() ;
-		int setTaille(int taille);
+		void setTaille(int taille);
 		void setName(std::string name);
 		void setDescription(std::string desc);
 		void setPlateau(int taille);

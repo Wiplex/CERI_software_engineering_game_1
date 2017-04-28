@@ -218,11 +218,7 @@ bool entite::enleverMana(int skillManaCost)
 		this->entiteManaCurrent -= skillManaCost;
 		return true;
 	}
-
-	if(this->entiteManaCurrent < skillManaCost)
-	{
-		return false;
-	}
+	return false;
 }
 
 

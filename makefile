@@ -28,28 +28,19 @@ all:
 	#@make -s io	# IO
 	@make -s main.exe
 ca:
-	@make objects/carte.o
 	@make archives/carte.a
 en:
-	@make objects/entite.o
 	@make archives/entite.a
 mo:
-	@make objects/monstre.o
 	@make archives/monstre.a
 co:
-	@make objects/competence.o
 	@make archives/competence.a
 pe:
-	@make objects/personnage.o
 	@make archives/personnage.a
 fj:
-	@make objects/fonctionsjeu.o
 	@make archives/fonctionsjeu.a
 io:
-	@make objects/io.o
-	# @make objects/io_main.o
 	@make archives/io.a
-	# @make io_main.exe
 doc:
 	@cd documentation; doxygen documentation > doxygen_output.txt; cd latex; make;
 main.exe: tests/main.cpp ca mo pe en co fj io

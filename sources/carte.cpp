@@ -177,7 +177,7 @@ int Carte::nbLigneFichier(string nomFichier) //Compte le nb de ligne du fichier 
 }
 
 
-void Carte :: sauvegarde()
+void Carte::sauvegarde()
 {
 	// Nom de la carte
 	string carte = "fichierCarte.txt" ;
@@ -235,7 +235,7 @@ string Carte :: getDescription()
     return this->description;
 }
 
-int Carte::setTaille(int taille)
+void Carte::setTaille(int taille)
 {
 	this -> taille = taille;
 }
@@ -321,6 +321,3 @@ void Carte::afficher_detail()
 
 	cout << endl;
 }
-
-
-
