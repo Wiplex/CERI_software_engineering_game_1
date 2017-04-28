@@ -356,6 +356,11 @@ namespace io
 		return j;
 	}
 
+	void setPlayerPosition(int i, int j)		
+ 	{		
+ 		currentPlayerPosition = std::make_pair(i,j);		
+ 	}
+	
 	void bienvenue()
 	{
 		std::puts("\n");
