@@ -30,16 +30,15 @@ class jeu
 	std::vector<monstre> jeu_monstres;
 
 	//! Compte le nombre de monstres restant sur la carte.
-	int jeu_nombre_monstres;
+	int jeu_nombre_monstres = 1;							///Temporaire!!
 
 public:
 	//! Constructeur par défaut sans argument.
 	/*!
-		Avec ce constructeur, on peut créer toutes les entités du jeu.
-
-		- Chargement de la carte,
-		- Création d'un personnage,
-		- Création de tous les monstres.
+		Affichage d'un message de bienvenue.
+		Choix du personnage.
+		Choix de la carte.
+		Chargement des monstres.
 
 		\sa perso(), carte(), monstre()
 	*/
@@ -60,26 +59,16 @@ public:
 	//! Getter de nombre de monstres
 	int getNbMonstres();
 
-	//! Fonction permettant de déterminer comment va démarrer la partie.
-	/*!
-		Affichage d'un message de bienvenue.
-		Choix du personnage.
-		Choix de la carte.
-		Chargement des monstres.
-	*/
-	int preparation_partie();
-
-	void deplacement();
-
-	void afficherJeu();
-
-	std::string genererDeplacement(std::vector<bool>& v);
-
 	//! Module de combat
 	/*!
 		Permet de gérer le combat.
+		- Charge les entités (personnages et monstres) contenus dans la case.
+		- Identifie les personnages et leur nombre.
+		- Identifie les monstres et leur nombre.
+		- Pour chaque acteur, choix d'une compétence, puis d'une cible, puis application des effets.
 		\param id_monstre Identifiant du monstre à combattre.
 		\return Un entier: 1 si la partie continue, 0 si elle se termine.
+		\sa chargement_entite(), orga_entites(), aff_combat(), choix_comp(), choix_target(), appliquer_comp()
 	*/
 	int combat(std::string id_monstre);
 
@@ -107,23 +96,57 @@ public:
 		Permet de trier les entités (selon leur vitesse).
 		Identifie également les indices de vecteur correspondant à des personnages et les stocke dans un vecteur (pour ciblage par monstres).
 		\param vect_entite Vecteur de personnages à trier.
-		\return
+		\return Un vecteur d'entités utilisées pour le combat.
 	*/
 	std::vector<int> orga_entites(std::vector<entite> & vect_entite);
 
-	//! Identification personnage
-	bool is_personnage(entite indiv);
-
 	//! Choix compétence
+	/*!
+		Permet de sélectionner une compétence par input parmi une liste tirée d'un vecteur (spécifique à chaque entité)
+		Vérifie la possibilité du lancer (niveau de mana).
+		Si l'entité est un monstre, le choix est aléatoire.
+		\param indiv L'entité qui joue actuellement.
+		\return Une compétence parmi les compétences utilisables.
+		\sa choix_unique_element()
+	*/
 	competence choix_comp(entite & indiv);
 
 	//! Choix cible
+	/*!
+        Permet de choisir une cible parmi une liste tirée d'un vecteur de cibles disponibles.
+        Si l'entité est un monstre, le choix est aléatoire (uniquement parmi les cibles personnages).
+        \param comp_util La compétence à utiliser.
+        \param indiv L'entité qui joue actuellement.
+        \param vect_entite Le vecteur duquel on tire la cible de la compétence.
+        \param vect_p Vecteur permettant d'identifier les personnages parmi toutes les entités.
+        \return Une entité, cible de la compétence.
+        \sa choix_unique_element()
+	*/
 	entite choix_target(competence comp_util, entite & indiv, std::vector<entite> & vect_entite, std::vector<int> vect_p);
 
 	//! Appliquer compétence
+	/*!
+        Permet d'appliquer les effets de la compétence choisie sur la cible choisie.
+        Si la cible meurt, décrémente le compteur de personnages/monstres vivants.
+        Supprime les cibles mortes du vecteur d'entités.
+        \param target Cible de la compétence.
+        \param vect_entite Le vecteur duquel on tire la cible de la compétence.
+        \param comp_util La compétence à utiliser.
+        \param nb_players Le nombre total de joueurs de la partie.
+        \param nb_monsters Le nombre de monstres du combat en cours.
+		\return Un entier: 1 si tous les monstres sont morts, 0 si tous les joueurs sont morts, 2 sinon.
+		\sa enleverVie()
+	*/
     int appliquer_comp(entite target, std::vector<entite> & vect_entite, competence comp_util, int & nb_players, int & nb_monsters);
 };
 
+//! Tri d'entités
+/*!
+	Trie des entités selon la valeur de leur attribut de vitesse.
+	\param a Entité par rapport à laquelle on trie.
+	\param b Entité à trier.
+	\return Un booléen: true si la vitesse de a est supérieure à la vitesse de b.
+*/
 bool sort_speed(entite a, entite b);
 
 #endif

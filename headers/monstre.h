@@ -39,8 +39,6 @@ public:
 	//! Pour tester
 	void printMonstre();
 
-
 };
-
 
 #endif // MONSTRE_H

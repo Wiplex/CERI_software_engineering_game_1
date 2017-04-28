@@ -168,7 +168,6 @@ string entite::entiteString(string lettreEntite, string nomFichier) //Convertit 
 	return ligneFichier;
 }
 
-
 void entite::saveInFile(string lettreEntite,string nomFichier) //Ecrit les carac d'un entite dans un fichier
 {
 	ofstream fichierentite(nomFichier.c_str(), ios::out | ios::app); // Ouverture du fichier en écriture, avec curseur en fin de fichier.
@@ -190,6 +189,14 @@ void entite::saveInFile(string lettreEntite,string nomFichier) //Ecrit les carac
 
 // FONCTIONS
 
+bool entite::is_personnage()
+{
+	if (getID().substr(0, 1) == "p")
+	{
+		return true;
+	}
+	return false;
+}
 
 entite entite::enleverVie(int degats)
 {
@@ -236,11 +243,34 @@ void entite::afficher_detail()
 
 	cout << endl << "Compétences: " << endl << endl;
 
-	for (int i=0 ; i<3 ; i++)
+	for (int i = 0; i < entiteSkillVect.size(); i++)
 	{
 		this->entiteSkillVect[i].afficher_detail();
 		cout << endl;
 	}
 
 	cout << endl << endl;
+}
+
+void entite::afficher_combat()
+{
+	string vie;
+	vie.append("HP: ");
+	vie.append(toString(entiteHpCurrent));
+	vie.append("/");
+	vie.append(toString(entiteHpMax));
+
+	cout << endl << " " << entiteName << endl;
+	cout << "" << vie << endl;
+
+	if (this -> getID().substr(0, 1) != "m")
+	{
+		cout << "MP: " << entiteManaCurrent << "/" << entiteManaMax << endl;
+
+        for (int i = 0; i < getSkillVect().size(); i++)
+		{
+			getSkillVect()[i].afficher_detail();
+		}
+	}
+	cout << endl;
 }

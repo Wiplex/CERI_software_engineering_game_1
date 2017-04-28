@@ -105,16 +105,16 @@ namespace io
 	extern std::string long_input();
 
 	//! Retourne la largeur du terminal
-	extern int getTerminalWidth();
+	int getTerminalWidth();
 
 	//! Retourne la hauteur du terminal
-	extern int getTerminalHeight();
+	int getTerminalHeight();
 
 	//! Message d'accueil
 	/*!
 		Affiche un message de bienvenue.
 	*/
-	extern void bienvenue();
+	void bienvenue();
 
 	//! Vérifie que l'user entre des entier
 	/*!
@@ -129,22 +129,9 @@ namespace io
 		- Sinon retourne vrai
 		\param x on sait pas ce qu'il fait là, mais il est là.
 	*/
-	extern bool checkInput(int x); //Vérifie que l'user entre des entier
+	bool checkInput(int x); //Vérifie que l'user entre des entier
 
-	//!Verifie qu'une ligne est correcte dans un fichier texte d'entités (bon nombre de séparateurs)
-	/*!
-		Cette fonction permet de vérifier qu'une ligne contient bien le bon nombre de séparateurs pour éviter les erreurs dans le chargement d'une entité
-
-		Mode opératoire:
-		- Parcours de toute la string passée en paramétre
-		- A chaque séparateur trouvé, on ajoute 1 aux compteurs
-		- Si le nombre de séparateurs correspond au nombre défini, on retourne true
-		\param uneLigne Ligne à vérifier
-	*/
-	bool checkSeparatorEntite(std::string uneLigne);
-
-
-	//! Creer une competence
+	//! Créer une competence
 	/*!
 		Cette fonction permet de créer rapidement une compétence pour pouvoir l'utiliser facilement après.
 
@@ -152,22 +139,19 @@ namespace io
 		- On crée les variables qui vont tenir les infos rentrées (skillName, skillDamage, skillManaCost)
 		- On rentre
 	*/
-	extern competence createCompetence(); //Creer une competence
+	competence createCompetence(); //Creer une competence
 
 	//! Créer une compétence pour monstre (sans mana)
-	extern competence createCompetenceMonstre();
+	competence createCompetenceMonstre();
 
 	//! Créer un monstre
-	extern monstre createMonstre();
-
-	//! Récupérer les compétences d'un monstre dans le .txt
-	extern std::vector<competence> loadCompetenceFromFile(std::string nomFichier,int numLigne);
+	monstre createMonstre();
 
 	//! Efface l'écran.
 	extern void clearScreen();
 
 	//! Affichage de la carte
-	extern void afficherCarte(Carte&, int);
+	extern void afficherCarte(Carte&, personnage&, int);
 
 	//! Met à jour l'affichage de la carte.
 	extern void updateMap(std::pair<int,int> newPlayerPos);
@@ -200,12 +184,9 @@ namespace io
 	//! Compte la taille d'une string mieux que la fonction std::string::size(), car elle ne compte pas les accents comme deux caractères.
 	extern int taille_str(std::string);
 
+	//! Vérifie la taille du terminal
 	extern void checkTerminalSize();
 
-	extern void setPlayerPosition(int, int);
-
-	//! Récupérer les cartes dans le .txt
-	std::vector<Carte> loadAllCarteFromFile(std::string nomFichier);
 
 	//! Affichage d'objet.
 	/*!
@@ -214,11 +195,11 @@ namespace io
 	*/
 	template<typename T> void afficher(T object)
 	{
-		std::cout << (object).getName();                            //Affiche le nom
+		std::cout << (object).getName();								//Affiche le nom
 
 		if ((object).getDescription() != "")
 		{
-			std::cout << ", \"" << (object).getDescription() << "\"";  //Affiche la description
+			std::cout << ", \"" << (object).getDescription() << "\"";	//Affiche la description
 		}
 	}
 
@@ -237,7 +218,7 @@ namespace io
 		for (itv = vect_element.begin(); itv != vect_element.end(); itv++)  //Parcours vecteur
 		{
 			cpt++;                                                          //Incrémentation compteur
-			std::cout << cpt%10 << "- ";                                    //Numéro de l'élément (0 - 9)
+			std::cout << cpt%10 << "- ";                                    //Numéro de l'élément (1 - 9)
 			afficher((* itv));												//Affichage de l'élément
 			std::cout << "   ";
 		}
@@ -247,11 +228,11 @@ namespace io
 	/*!
 		Fonction qui prend un vecteur d'éléments en entrée ainsi qu'un booléen, et affiche puis renvoie l'élément choisi.
 		\param vect_element Vecteur de l'élément à choisir.
-		\param need_desc Nécessité de description ou non.
+		\param combat Situation de combat ou non.
 		\return L'élement choisi.
-		\sa liste_elements(), afficher()
+		\sa liste_elements(), afficher(), afficher_detail()
 	*/
-	template<typename T> T choix_unique_element(std::vector<T> vect_element)
+	template<typename T> T choix_unique_element(std::vector<T> vect_element, bool combat)
 	{
 		std::string type_name = typeid(T).name();						//String à partir du type appelant
 
@@ -270,7 +251,7 @@ namespace io
 			char c_input = de();                                            //Input utilisateur
 			int input = c_input - '0';                                      //Transcription en chiffres
 
-			while (input < 0 || input > vect_element.size())                //Input incorrect
+			while (input <= 0 || input > vect_element.size())                //Input incorrect
 			{
 				std::puts("Input incorrect. Réessayez!");
 				c_input = de();                                             //Input utilisateur
@@ -279,31 +260,63 @@ namespace io
 
 			T choix = vect_element[input - 1];                              //Sélection de l'objet dans son vecteur
 
-				//Fiche détaillée
-			if (type_name == "competence")	//crade
-			{
-						std::cout << std::endl << "Vous avez choisi: ";
-		afficher(choix);												//Affichage de l'objet choisi
-		std::puts("\n");
-				return choix;													//Renvoi de l'objet choisi
-			}
-			else
+			if (combat == false)
 			{
 				choix.afficher_detail();
 				puts("Appuyez sur \"v\" pour valider votre choix, ou sur une autre touche pour revenir au menu de sélection");
 				c_input = de();
-				if (c_input == 'v')
+
+				if (c_input == 'v' || c_input == 'V')
 				{
 					std::cout << std::endl << "Vous avez choisi: ";
 					afficher(choix);												//Affichage de l'objet choisi
 					std::puts("\n");
 					return choix;													//Renvoi de l'objet choisi
 				}
+				else
+				{
+					continue;
+				}
 			}
+			return choix;
 		}
 	}
 
-	template<typename T> std::vector<T> loadAllEntiteFromFile(T temp, std::string nomFichier)
+	//! Affichage des entités du combat
+	/*!
+        Parcourt le vecteur d'entités, affiche les personnages.
+        Parcourt de nouveau le vecteur, affiche les monstres.
+        \param vect_entité Le vecteur d'entités à afficher.
+        \sa afficher_combat()
+	*/
+    void aff_combat(std::vector<entite> vect_entite);
+
+	//! Chargement des compétences
+	/*!
+		Lit une ligne d'un fichier, et remplit un vecteur avec des objets construits à partir des informations récupérées.
+        \param nomFichier Le nom du fichier à partir duquel on lit les informations.
+        \param numLigne La ligne sur laquelle on recherche les informations.
+        \return Un vecteur contenant les compétences créées.
+	*/
+	std::vector<competence> loadCompetenceFromFile(std::string nomFichier,int numLigne);
+
+	//! Chargement des cartes
+	/*!
+		Lit toutes les lignes d'un fichier, et remplit un vecteur avec des objets construits à partir des informations récupérées.
+        \param nomFichier Le nom du fichier à partir duquel on lit les informations.
+        \return Un vecteur contenant les cartes créées.
+	*/
+	std::vector<Carte> loadAllCarteFromFile(std::string nomFichier);
+
+    //! Chargement des entités
+	/*!
+        Lit toutes les lignes d'un fichier, et remplit un vecteur avec des objets construits à partir des informations récupérées.
+        \param temp Objet dummy permettant au compilateur de comprendre de quel type d'objet il s'agit.
+        \param nomFichier Le nom du fichier à partir duquel on lit les informations.
+        \return Un vecteur contenant les entités créées.
+        \sa loadCompetenceFromFile()
+	*/
+    template<typename T> std::vector<T> loadAllEntiteFromFile(T temp, std::string nomFichier)
 	{
 		std::vector<T> allEntite; //Vecteur de retour
 
@@ -331,105 +344,103 @@ namespace io
 		{
 			while (getline(fichierEntite, uneLigne)) //Parcours de tout le fichier et stockage d'une ligne
 			{
-				if(checkSeparatorEntite(uneLigne) == true) //Vérification que la ligne est correcte
+				cptLigne++; //Reset de toutes les variables afin de stocker une nouvelle ligne
+				sentiteName="";
+				sentiteId="";
+				sentiteHpMax="";
+				entiteHpMax=0;
+				sentiteSpeed="";
+				entiteSpeed=0;
+				sentiteManaMax="";
+				entiteManaMax=0;
+				nbSeparateur=0;
+				nbBarre=0;
+				entiteDescription="";
+				allSkills.clear();
+
+
+				for(int i=0; i<uneLigne.length(); i++) //Analyse de la ligne
 				{
-					cptLigne++; //Reset de toutes les variables afin de stocker une nouvelle ligne
-					sentiteName="";
-					sentiteId="";
-					sentiteHpMax="";
-					entiteHpMax=0;
-					sentiteSpeed="";
-					entiteSpeed=0;
-					sentiteManaMax="";
-					entiteManaMax=0;
-					nbSeparateur=0;
-					nbBarre=0;
-					entiteDescription="";
-					allSkills.clear();
-
-
-					for(int i=0; i<uneLigne.length(); i++) //Analyse de la ligne
+					parcoursCarac = uneLigne[i];
+				 //   if(nbSeparateur <4) // Récupération des carac. d'un monstre
+				   // {
+					if ((parcoursCarac == '/') || (parcoursCarac == '|'))
 					{
-						parcoursCarac = uneLigne[i];
-					 //   if(nbSeparateur <4) // Récupération des carac. d'un monstre
-					   // {
-						if ((parcoursCarac == '/') || (parcoursCarac == '|'))
-						{
-							nbSeparateur++;
-						}
+						nbSeparateur++;
+					}
 
-						if (nbSeparateur == 0) // Champ entiteId
-						{
-							sentiteId+=parcoursCarac;
-						}
+					if (nbSeparateur == 0) // Champ entiteId
+					{
+						sentiteId+=parcoursCarac;
+					}
 
-						if (nbSeparateur == 1) //Champ Nom
-						{
-							if (parcoursCarac == '/')
-							{
-								continue;
-							}
-							sentiteName+=parcoursCarac;
-						}
-
-						if (nbSeparateur == 2) //Champ entiteHpMax
-						{
-							if (parcoursCarac == '/')  continue;
-							sentiteHpMax+=parcoursCarac;
-						}
-
-						if (nbSeparateur == 3) //Champ vitesse
-						{
-							if (parcoursCarac == '/')  continue;
-							sentiteSpeed+=parcoursCarac;
-						}
-
-						if(nbSeparateur == 4)
+					if (nbSeparateur == 1) //Champ Nom
+					{
+						if (parcoursCarac == '/')
 						{
 							continue;
 						}
-
-						if(nbSeparateur >= 5) //Champ compétence + entiteManaMax + entiteDescription
-						{
-							if(parcoursCarac == '|')
-							{
-								nbBarre++;
-							}
-
-							if(nbBarre == 0) continue;
-
-							if (nbBarre == 1) //Champ entiteManaMax
-							{
-								if(parcoursCarac=='|') continue;
-								sentiteManaMax+=parcoursCarac;
-							}
-
-							if (nbBarre == 2) //Champ entiteDescription
-							{
-								if(parcoursCarac=='|') continue;
-								entiteDescription+=parcoursCarac;
-							}
-
-							if (nbBarre==3)
-							{
-								break;
-							}
-						}
+						sentiteName+=parcoursCarac;
 					}
 
+					if (nbSeparateur == 2) //Champ entiteHpMax
+					{
+						if (parcoursCarac == '/')  continue;
+						sentiteHpMax+=parcoursCarac;
+					}
 
-					std::istringstream (sentiteHpMax) >> entiteHpMax; //Conversion string to int
+					if (nbSeparateur == 3) //Champ vitesse
+					{
+						if (parcoursCarac == '/')  continue;
+						sentiteSpeed+=parcoursCarac;
+					}
 
-					std::istringstream (sentiteSpeed) >> entiteSpeed; //Conversion string to int
+					if(nbSeparateur == 4)
+					{
+						continue;
+					}
 
-					std::istringstream (sentiteManaMax) >> entiteManaMax; //Conversion string to int
+					if(nbSeparateur >= 5) //Champ compétence + entiteManaMax + entiteDescription
+					{
+						if(parcoursCarac == '|')
+						{
+							nbBarre++;
+						}
 
-					allSkills = loadCompetenceFromFile(nomFichier, cptLigne); //Récupération des compétences
+						if(nbBarre == 0) continue;
 
-					T creation(sentiteId, sentiteName, entiteHpMax, entiteSpeed, entiteManaMax, entiteDescription, allSkills); //Création de l'entite
+						if (nbBarre == 1) //Champ entiteManaMax
+						{
+							if(parcoursCarac=='|') continue;
+							sentiteManaMax+=parcoursCarac;
+						}
 
-					allEntite.push_back(creation); //Stockage du perso dans le vecteur de retour
+						if (nbBarre == 2) //Champ entiteDescription
+						{
+							if(parcoursCarac=='|') continue;
+							entiteDescription+=parcoursCarac;
+						}
+
+						if (nbBarre==3)
+						{
+							break;
+						}
+					}
 				}
+
+
+				std::istringstream (sentiteHpMax) >> entiteHpMax; //Conversion string to int
+
+				std::istringstream (sentiteSpeed) >> entiteSpeed; //Conversion string to int
+
+				std::istringstream (sentiteManaMax) >> entiteManaMax; //Conversion string to int
+
+				allSkills = loadCompetenceFromFile(nomFichier, cptLigne); //Récupération des compétences
+
+				T creation(sentiteId, sentiteName, entiteHpMax, entiteSpeed, entiteManaMax, entiteDescription, allSkills); //Création de l'entite
+
+				allEntite.push_back(creation); //Stockage du perso dans le vecteur de retour
+
 			}
 
 			return allEntite;

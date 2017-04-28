@@ -30,5 +30,4 @@ public:
 	std::string competenceString(); //Convertit les carac. d'une comp�tence en une string format�e
 };
 
-
 #endif
