@@ -14,7 +14,8 @@ int main()
 	jeu a;
 
 	a.preparation_partie();
-
+	a.afficherJeu();
+	a.deplacement();
 	int persos_vivants = 1;
 	int nbMonstres = a.getNbMonstres();
 

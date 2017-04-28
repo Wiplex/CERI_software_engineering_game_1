@@ -304,6 +304,13 @@ Carte Carte::operator=(const Carte & a_copier)
 	return * this;
 }
 
+bool Carte::caseAccessible(int i, int j)
+{
+	if (i < 0 || i > taille || j < 0 || j > taille)
+		return false;
+	return plateau[i][j] == "v";
+}
+
 void Carte::afficher_detail()
 {
 	cout << "Détails de la carte " << nom << endl << endl;
@@ -314,6 +321,3 @@ void Carte::afficher_detail()
 
 	cout << endl;
 }
-
-
-

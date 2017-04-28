@@ -159,10 +159,10 @@ namespace io
 		std::cout << '\n'*TermHeight;
 	}
 
-/*	void afficherCarte(Carte& c, int t)
+	void afficherCarte(Carte& c, int t)
 	{
 		// On prends le plateau en copie
-		std::string ** map = c.plateau;					// ATTENTE D'UN PARTAGE DU PLATEAU
+		std::string ** map = c.getPlateau();					// ATTENTE D'UN PARTAGE DU PLATEAU
 
 		// On (re)vérifie la taille du terminal
 		checkTerminalSize();
@@ -203,14 +203,31 @@ namespace io
 			displayX=0;
 		}
 	}
-*/
-	void afficherMouvements()
-	{													///////////////////////////////////
-		afficherMouvements("");
+
+	void updateMap(std::pair<int,int> newPlayerPos)
+	{
+		printf("\033[%i;%iH", currentPlayerPosition.first, currentPlayerPosition.second);
+		cout << BLANK << ' ' << BLANK;
+		printf("\033[%i;%iH", newPlayerPos.first, newPlayerPos.second);
+		cout << BLUE << 'X' << BLANK;
 	}
 
-	void afficherMouvements(std::string erreur_deplacement)
+	void afficherMouvements()
 	{													///////////////////////////////////
+		afficherMouvements("Z - Haut | Q - Gauche | S - Bas | D - Droite","");
+	}
+
+	void afficherMouvements(std::string s)
+	{													///////////////////////////////////
+		afficherMouvements("Z - Haut | Q - Gauche | S - Bas | D - Droite",s);
+	}
+
+	void afficherMouvements(std::string deplacements_possibles, std::string erreur_deplacement)
+	{													///////////////////////////////////
+		// Dans cette fonction, les sorties utilisées avec std::cout sont
+		// mises à la ligne après chaque élément pour pouvoir faciliter
+		// la lecture du code.
+
 		// Si vous voulez changer le caractère délimiteur,
 		// ainsi que la couleur de ces délimiteurs, faites
 		// le ici.
@@ -224,12 +241,13 @@ namespace io
 		else
 			interactionsOverlayX = (TermHeight - 5);
 
-		if (erreur_deplacement.size() >= TermWidth-2)
-			erreur_deplacement = "";
+		//
+		if (erreur_deplacement.size() > TermWidth-2)
+			erreur_deplacement = erreur_deplacement.substr(0,TermWidth-2-3)+"...";
 
 		std::string message_affiche = "Voici les déplacements possibles à ce point dans le jeu :";
 
-		int deplacementNecessaire = (TermWidth - 2 - taille_str(message_affiche));
+		int deplacementNecessaire;
 
 		// Pour une raison X ou Y, cet appel printf(positionDansTerminal) ne marchait pas.
 		// ¯\_(ツ)_/¯
@@ -237,26 +255,73 @@ namespace io
 		system(s.c_str());
 
 		// Affiche une ligne entière de délimiteurs, à la couleur demandée.
-		cout << couleurDelimiteur << std::string(TermWidth, delimiteur) << BLANK;
+		cout << couleurDelimiteur;
+		cout << std::string(TermWidth, delimiteur);
+		cout << BLANK;
+
+		// Calcule la place à allouer sur chaque côté
+		deplacementNecessaire = (TermWidth - 2 - taille_str(message_affiche));
 
 		// Affiche la deuxième ligne de l'overlay, qui demande le mouvement au joueur.
-		cout << couleurDelimiteur << delimiteur << BLANK << std::string(deplacementNecessaire/2, ' ') << message_affiche << std::string(deplacementNecessaire/2+deplacementNecessaire%2, ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
+		cout << couleurDelimiteur;
+		cout << delimiteur;
+		cout << BLANK;
+		cout << std::string(deplacementNecessaire/2, ' ');
+		cout << message_affiche;
+		cout << std::string(deplacementNecessaire/2 + deplacementNecessaire%2, ' ');
+		cout << couleurDelimiteur;
+		cout << delimiteur;
+		cout << BLANK;
+		cout << std::endl;
+
+		// Calcule la place à allouer sur châque côté du message
+		deplacementNecessaire = (TermWidth - 2 - taille_str(deplacements_possibles));
 
 		// Affiche la troisième ligne de l'overlay, qui affiche les choix possibles aux joueurs.
-		cout << couleurDelimiteur << delimiteur << BLANK << std::string(((TermWidth-46-2)/2), ' ') << " Z - Haut | Q - Gauche | S - Bas | D - Droite " << std::string(((TermWidth-46-2)/2)+(TermWidth%2), ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
+		cout << couleurDelimiteur;
+		cout << delimiteur;
+		cout << BLANK;
+		cout << std::string(deplacementNecessaire/2, ' ');
+		cout << deplacements_possibles;
+		cout << std::string(deplacementNecessaire/2 + deplacementNecessaire%2, ' ');
+		cout << couleurDelimiteur;
+		cout << delimiteur;
+		cout << BLANK;
+		cout << std::endl;
 
-		cout << couleurDelimiteur << delimiteur << BLANK << std::string(TermWidth-2, ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
+		cout << couleurDelimiteur;
+		cout << delimiteur;
+		cout << BLANK;
+		cout << std::string(TermWidth-2, ' ');
+		cout << couleurDelimiteur;
+		cout << delimiteur;
+		cout << BLANK;
+		cout << std::endl;
 
+		// Calcule la place à allouer sur châque côté du message
 		deplacementNecessaire = (TermWidth - 2 - taille_str(erreur_deplacement));
 
 		// Affiche une ligne vide et / ou un message d'erreur.
-		cout << couleurDelimiteur << delimiteur << BLANK << std::string(deplacementNecessaire/2, ' ') << erreur_deplacement << std::string(deplacementNecessaire/2+deplacementNecessaire%2, ' ') << couleurDelimiteur << delimiteur << BLANK << std::endl;
+		cout << couleurDelimiteur;
+		cout << delimiteur;
+		cout << BLANK;
+		cout << std::string(deplacementNecessaire/2, ' ');
+		cout << erreur_deplacement;
+		cout << std::string(deplacementNecessaire/2 + deplacementNecessaire%2, ' ');
+		cout << couleurDelimiteur;
+		cout << delimiteur;
+		cout << BLANK;
+		cout << std::endl;
 
 		// Affiche la ligne de fin.
-		cout << couleurDelimiteur << std::string(TermWidth, delimiteur) << BLANK << '\r' << flush;
+		cout << couleurDelimiteur;
+		cout << std::string(TermWidth, delimiteur);
+		cout << BLANK;
+		cout << '\r';
+		cout << flush;
 
 		// Remet le curseur dans l'overlay
-		printf("\033[6A");			// Haut de deux lignes
+		printf("\033[15A");			// Haut de deux lignes
 		printf("\033[%dD", TermWidth - 2);	// Gauche de TermWidth-2 cases
 	}
 
@@ -277,18 +342,23 @@ namespace io
 
 	int taille_str(std::string s)
 	{
-		int j = 0;
-		for (int i = 0; i < s.size(); i++)
+		int j = 0;				// Initialise la taille à 0
+		for (int i = 0; i < s.size(); i++)	// Boucle dans la chaîne
 		{
-			if (int(s[i] < 0))
+			if (int(s[i] < 0))		// Si le caractère n'est pas en ASCII
 			{
-				j++;
-				i++;
+				j++;			// On le compte un caractère
+				i++;			// On saute le prochain caractère
 			}
 			else
-				j++;
+				j++;			// On compte un caractère
 		}
 		return j;
+	}
+
+	void setPlayerPosition(int i, int j)
+	{
+		currentPlayerPosition = std::make_pair(i,j);
 	}
 
 	void bienvenue()
@@ -567,184 +637,59 @@ namespace io
 		if (fichier)
 		{
 			string current_line;
-
-	//cerr << "1" << endl ;
-	//cerr << "current_line : " << current_line << endl ;
 			while (getline(fichier, current_line))
 			{
-	//cerr << "2" << endl ;
 				bool init = false;
-				bool fait = false ;
 				Carte carte_temporaire ;
-				string id = "" ;
-				string nom = "" ;
-				string description = "" ;
-				string taille= "";
-				string coordonnee1 = "" ;
-				string coordonnee2 = "" ;
-				string type = "" ;
-				int count_c = 0 ;
-				int count_coordonnee = 0 ;
+				string id, nom, description, taille, coordonnee1, coordonnee2, type = "" ;
 				int i = 0 ;
-	//cerr << "id : " << id << endl ;
-	//cerr << "nom : " << nom << endl ;
-	//cerr << "description : " << description << endl ;
-	//cerr << "taille : " << taille << endl ;
-	//cerr << "coordonnée 1 : " << coordonnee1 << endl ;
-	//cerr << "coordonnée 2 : " << coordonnee2 << endl ;
-	//cerr << "type : " << type << endl ;
-	//cerr << "count_c : " << count_c << endl ;
-	//cerr << "count_coordonnee : " << count_coordonnee << endl ;
-	//cerr << "i : " << i << endl ;
-				while (current_line[i+1] != '\0')
+				std::stringstream entree;
+				// Prise ID
+				while (current_line[i] != '|')
+					entree << current_line[i++];
+				i++;
+				id = entree.str();
+				entree.str("");
+				// Prise NOM
+				while (current_line[i] != '|')
+					entree << current_line[i++];
+				i++;
+				nom = entree.str();
+				entree.str("");
+				// Prise DESCRIPTION
+				while (current_line[i] != '|')
+					entree << current_line[i++];
+				i++;
+				description = entree.str();
+				entree.str("");
+				// Prise TAILLE
+				while (current_line[i] != '|')
+					entree << current_line[i++];
+				i++;
+				taille = entree.str();
+				entree.str("");
+				int t = atoi(taille.c_str());
+				carte_temporaire.setName(nom);
+				carte_temporaire.setDescription(description);
+				carte_temporaire.setPlateau(t);
+				// Prise obstacles
+				while (i < current_line.size() && current_line[i+1] != '\0')
 				{
-					char tmp = current_line[i] ;
-	//cerr << "3" << endl ;
-	//cerr << "tmp : " << tmp << endl ;
-					if (tmp == '|')
-					{
-						count_c++ ;
-						i++ ;
-	//cerr << "4_1 : " << endl ;
-	//cerr << "count_c : " << count_c << endl ;
-	//cerr << "i : " << i << endl ;
-					}
-					else if (count_c == 0)
-					{
-						id = id + tmp ;
-						i++ ;
-	//cerr << "4_2 : " << endl ;
-	//cerr << "id : " << id << endl ;
-	//cerr << "i : " << i << endl ;
-					}
-					else if (count_c == 1)
-					{
-						nom = nom + tmp ;
-						i++ ;
-	//cerr << "4_3 : " << endl ;
-	//cerr << "nom : " << nom << endl ;
-	//cerr << "i : " << i << endl ;
-					}
-					else if (count_c == 2)
-					{
-						description = description + tmp ;
-						i++ ;
-	//cerr << "4_4 : " << endl ;
-	//cerr << "description : " << description << endl ;
-	//cerr << "i : " << i << endl ;
-					}
-					else if (count_c == 3)
-					{
-						taille = taille + tmp ;
-						i++ ;
-	//cerr << "4_5 : " << endl ;
-	//cerr << "taille : " << taille << endl ;
-	//cerr << "i : " << i << endl ;
-					}
-	//cerr << "5 : " << endl ;
-	//cerr << "t : " << t << endl ;
-	//cerr << "taille : " << carte_temporaire.taille << endl ;
-	//cerr << "nom : " << carte_temporaire.nom << endl ;
-	//cerr << "description : " << carte_temporaire.description << endl ;
-					if (count_c == 4)
-					{
-					int t = atoi(taille.c_str());
-
-					if (init == false)
-					{
-						init = true;
-						carte_temporaire.setTaille(t);
-						carte_temporaire.setName(nom);
-						carte_temporaire.setDescription(description);
-						carte_temporaire.setPlateau(t);
-						///carte_temporaire.setNbrMonstre();
-						///carte_temporaire.setCaseDispo();
-
-					}
-
-	//cerr << "6 : " << endl ;
-	//cerr << "count_c : " << count_c << endl ;
-						if (fait)
-						{
-							type = "";
-							coordonnee1 = "" ;
-							coordonnee2 = "" ;
-							if (current_line[i+1] != '\0') fait = false ;
-						}
-						else if (tmp == ')')
-						{
-							fait = true ;
-							count_coordonnee = 0 ;
-							i++ ;
-							int coor1 = atoi(coordonnee1.c_str()) ;
-							int coor2 = atoi(coordonnee2.c_str()) ;
-							carte_temporaire.setCase(coor1, coor2, type);
-
-	//cerr << "7_1 : " << endl ;
-	//cerr << "count_c_coordonnee : " << count_c_coordonnee << endl ;
-	//cerr << "i : " << i << endl ;
-	//cerr << "coor1 : " << coor1 << endl ;
-	//cerr << "coor2 : " << coor2 << endl ;
-	//cerr << "plateau : " << carte_temporaire.plateau[coor1][coor2] << endl ;
-
-						}
-						else if (tmp == ',')
-						{
-							count_coordonnee ++ ;
-							i++ ;
-	//cerr << "7_2 : " << endl ;for (int i = 0; i < taille; i++)
-	//cerr << "count_coordonnee : " << count_coordonnee << endl ;
-	//cerr << "i : " << i << endl ;
-						}
-						else if (tmp == '(')
-						{
-							i ++ ;
-	//cerr << "7_3 : " << endl ;
-	//cerr << "i : " << i << endl ;
-						}
-						else if ((tmp != '(') && (tmp != ')') && (tmp != ','))
-						{
-	//cerr << "7_4 : " << endl ;
-							if (count_coordonnee == 0)
-							{
-								coordonnee1 = coordonnee1 + tmp ;
-								i ++ ;
-	//cerr << "7_4_1 : " << endl ;
-	//cerr << "coordonnée 1 : " << coordonnee1 << endl ;
-	//cerr << "i : " << i << endl ;
-							}
-							else if (count_coordonnee == 1)
-							{
-								coordonnee2 = coordonnee2 + tmp ;
-								i++ ;
-	//cerr << "7_4_2 : " << endl ;
-	//cerr << "coordonnée 2 : " << coordonnee2 << endl ;
-	//cerr << "i : " << i << endl ;
-							}
-							else if (count_coordonnee == 2)
-							{
-								type = type + tmp ;
-								i++ ;
-	//cerr << "7_4_3 : " << endl ;
-	//cerr << "type : " << type << endl ;
-	//cerr << "i : " << i << endl ;
-							}
-						}
-					}
+					i++;	// Saute la première parenthèse
+					// Coordonnée 1 : depuis la position actuelle jusqu'à la première virgule
+					int coor1 = atoi( ( current_line.substr( i, current_line.find(",", i)-1 ).c_str() ) );
+					// Coordonnée 2 : depuis la première virgule jusqu'à la deuxième virgule
+					int coor2 = atoi( ( current_line.substr( current_line.find(",", i)+1, current_line.find(",", current_line.find(",", i)+1)-1 ).c_str() ) );
+					i = current_line.find(",", current_line.find(",", i)+1);i++;	// On met le 'i' après les deux coordonnées trouvées
+					// Prise nom obstacle
+					while (current_line[i] != ')')
+						entree << current_line[i++];
+					i++;	// Passe après la deuxième parenthèse
+					type = entree.str();
+					entree.str("");
+					carte_temporaire.setCase(coor1,coor2,type);
 				}
-
-
-	//cerr << "enregistrement dans selectionnable" << endl ;
 				selectionnable.push_back(carte_temporaire) ;
-
-	//			for (int i = 0; i < carte_temporaire.taille; i++)
-	//			{
-	//				for (int j = 0; j < carte_temporaire.taille; j++)
-	//				{
-	//					cout << carte_temporaire.plateau[i][j];
-	//				}
-	//				cout << endl;
-	//			}
 			}
 		}
 		return selectionnable ;

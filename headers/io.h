@@ -105,16 +105,16 @@ namespace io
 	extern std::string long_input();
 
 	//! Retourne la largeur du terminal
-	int getTerminalWidth();
+	extern int getTerminalWidth();
 
 	//! Retourne la hauteur du terminal
-	int getTerminalHeight();
+	extern int getTerminalHeight();
 
 	//! Message d'accueil
 	/*!
 		Affiche un message de bienvenue.
 	*/
-	void bienvenue();
+	extern void bienvenue();
 
 	//! Vérifie que l'user entre des entier
 	/*!
@@ -129,7 +129,7 @@ namespace io
 		- Sinon retourne vrai
 		\param x on sait pas ce qu'il fait là, mais il est là.
 	*/
-	bool checkInput(int x); //Vérifie que l'user entre des entier
+	extern bool checkInput(int x); //Vérifie que l'user entre des entier
 
 	//!Verifie qu'une ligne est correcte dans un fichier texte d'entités (bon nombre de séparateurs)
 	/*!
@@ -152,31 +152,57 @@ namespace io
 		- On crée les variables qui vont tenir les infos rentrées (skillName, skillDamage, skillManaCost)
 		- On rentre
 	*/
-	competence createCompetence(); //Creer une competence
+	extern competence createCompetence(); //Creer une competence
 
 	//! Créer une compétence pour monstre (sans mana)
-	competence createCompetenceMonstre();
+	extern competence createCompetenceMonstre();
 
 	//! Créer un monstre
-	monstre createMonstre();
+	extern monstre createMonstre();
 
 	//! Récupérer les compétences d'un monstre dans le .txt
-	std::vector<competence> loadCompetenceFromFile(std::string nomFichier,int numLigne);
-
+	extern std::vector<competence> loadCompetenceFromFile(std::string nomFichier,int numLigne);
 
 	//! Efface l'écran.
 	extern void clearScreen();
 
 	//! Affichage de la carte
-	extern void afficherCarte(Carte&, personnage&, int);
+	extern void afficherCarte(Carte&, int);
 
+	//! Met à jour l'affichage de la carte.
+	extern void updateMap(std::pair<int,int> newPlayerPos);
+
+	//! Fonction permettant d'afficher un overlay sur la carte
+	/*!
+		Fonction permettant d'afficher un overlay sur la carte, montrant au joueur dans quelles directions il peut aller.
+
+		Ne fait qu'appeller afficherMouvements(std::string deplacements_possibles, std::string erreur_deplacement)
+		\sa afficherMouvements(std::string erreur_deplacement) & afficherMouvements(std::string deplacements_possibles, std::string erreur_deplacement)
+	*/
 	extern void afficherMouvements();
-	extern void afficherMouvements(std::string);
+	//! Fonction permettant d'afficher un overlay sur la carte
+	/*!
+		Fonction permettant d'afficher un overlay sur la carte, montrant au joueur dans quelles directions il peut aller. Il affiche aussi un message d'erreur si demandé.
+
+		Ne fait qu'appeller afficherMouvements(std::string deplacements_possibles, std::string erreur_deplacement)
+		\sa afficherMouvements() & afficherMouvements(std::string deplacements_possibles, std::string erreur_deplacement)
+	*/
+	extern void afficherMouvements(std::string erreur_deplacement);
+	//! Fonction permettant d'afficher un overlay sur la carte
+	/*!
+		Fonction permettant d'afficher un overlay sur la carte, montrant au joueur dans quelles directions il peut aller.
+
+		Ne fait qu'appeller afficherMouvements(std::string deplacements_possibles, std::string erreur_deplacement)
+		\sa afficherMouvements() & afficherMouvements(std::string erreur_deplacement)
+	*/
+	extern void afficherMouvements(std::string deplacements_possibles, std::string erreur_deplacement);
 
 	//! Compte la taille d'une string mieux que la fonction std::string::size(), car elle ne compte pas les accents comme deux caractères.
 	extern int taille_str(std::string);
 
 	extern void checkTerminalSize();
+
+	extern void setPlayerPosition(int, int);
 
 	//! Récupérer les cartes dans le .txt
 	std::vector<Carte> loadAllCarteFromFile(std::string nomFichier);
@@ -266,19 +292,18 @@ namespace io
 				choix.afficher_detail();
 				puts("Appuyez sur \"v\" pour valider votre choix, ou sur une autre touche pour revenir au menu de sélection");
 				c_input = de();
-
 				if (c_input == 'v')
 				{
-							std::cout << std::endl << "Vous avez choisi: ";
-		afficher(choix);												//Affichage de l'objet choisi
-		std::puts("\n");
+					std::cout << std::endl << "Vous avez choisi: ";
+					afficher(choix);												//Affichage de l'objet choisi
+					std::puts("\n");
 					return choix;													//Renvoi de l'objet choisi
 				}
 			}
 		}
-    }
+	}
 
-    template<typename T> std::vector<T> loadAllEntiteFromFile(T temp, std::string nomFichier)
+	template<typename T> std::vector<T> loadAllEntiteFromFile(T temp, std::string nomFichier)
 	{
 		std::vector<T> allEntite; //Vecteur de retour
 
