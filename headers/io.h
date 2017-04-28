@@ -105,16 +105,16 @@ namespace io
 	extern std::string long_input();
 
 	//! Retourne la largeur du terminal
-	int getTerminalWidth();
+	extern int getTerminalWidth();
 
 	//! Retourne la hauteur du terminal
-	int getTerminalHeight();
+	extern int getTerminalHeight();
 
 	//! Message d'accueil
 	/*!
 		Affiche un message de bienvenue.
 	*/
-	void bienvenue();
+	extern void bienvenue();
 
 	//! Vérifie que l'user entre des entier
 	/*!
@@ -129,8 +129,20 @@ namespace io
 		- Sinon retourne vrai
 		\param x on sait pas ce qu'il fait là, mais il est là.
 	*/
-	bool checkInput(int x); //Vérifie que l'user entre des entier
+	extern bool checkInput(int x); //Vérifie que l'user entre des entier
 
+	//!Verifie qu'une ligne est correcte dans un fichier texte d'entités (bon nombre de séparateurs)		 +	//! Créer une competence
+ -	/*!		
+ -		Cette fonction permet de vérifier qu'une ligne contient bien le bon nombre de séparateurs pour éviter les erreurs dans le chargement d'une entité		
+ -		
+ -		Mode opératoire:		
+ -		- Parcours de toute la string passée en paramétre		
+ -		- A chaque séparateur trouvé, on ajoute 1 aux compteurs		
+ -		- Si le nombre de séparateurs correspond au nombre défini, on retourne true		
+ -		\param uneLigne Ligne à vérifier		
+ -	*/		
+ -	bool checkSeparatorEntite(std::string uneLigne);
+	
 	//! Créer une competence
 	/*!
 		Cette fonction permet de créer rapidement une compétence pour pouvoir l'utiliser facilement après.
@@ -139,13 +151,13 @@ namespace io
 		- On crée les variables qui vont tenir les infos rentrées (skillName, skillDamage, skillManaCost)
 		- On rentre
 	*/
-	competence createCompetence(); //Creer une competence
+	extern competence createCompetence(); //Creer une competence
 
 	//! Créer une compétence pour monstre (sans mana)
-	competence createCompetenceMonstre();
+	extern competence createCompetenceMonstre();
 
 	//! Créer un monstre
-	monstre createMonstre();
+	extern monstre createMonstre();
 
 	//! Efface l'écran.
 	extern void clearScreen();
@@ -289,7 +301,7 @@ namespace io
         \param vect_entité Le vecteur d'entités à afficher.
         \sa afficher_combat()
 	*/
-    void aff_combat(std::vector<entite> vect_entite);
+    	void aff_combat(std::vector<entite> vect_entite);
 
 	//! Chargement des compétences
 	/*!
@@ -316,7 +328,7 @@ namespace io
         \return Un vecteur contenant les entités créées.
         \sa loadCompetenceFromFile()
 	*/
-    template<typename T> std::vector<T> loadAllEntiteFromFile(T temp, std::string nomFichier)
+    	template<typename T> std::vector<T> loadAllEntiteFromFile(T temp, std::string nomFichier)
 	{
 		std::vector<T> allEntite; //Vecteur de retour
 
