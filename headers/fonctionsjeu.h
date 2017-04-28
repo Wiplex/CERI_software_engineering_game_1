@@ -59,6 +59,12 @@ public:
 	//! Getter de nombre de monstres
 	int getNbMonstres();
 
+	void deplacement();
+
+	void afficherJeu();
+
+	std::string genererDeplacement(std::vector<bool>& v);
+
 	//! Module de combat
 	/*!
 		Permet de gérer le combat.
