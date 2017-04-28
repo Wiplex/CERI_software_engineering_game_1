@@ -163,7 +163,7 @@ namespace io
 	extern void clearScreen();
 
 	//! Affichage de la carte
-	extern void afficherCarte(Carte&, personnage&, int);
+	extern void afficherCarte(Carte&, int);
 
 	//! Met à jour l'affichage de la carte.
 	extern void updateMap(std::pair<int,int> newPlayerPos);
@@ -199,6 +199,7 @@ namespace io
 	//! Vérifie la taille du terminal
 	extern void checkTerminalSize();
 
+	extern void setPlayerPosition(int, int);
 
 	//! Affichage d'objet.
 	/*!
@@ -356,86 +357,89 @@ namespace io
 		{
 			while (getline(fichierEntite, uneLigne)) //Parcours de tout le fichier et stockage d'une ligne
 			{
-				cptLigne++; //Reset de toutes les variables afin de stocker une nouvelle ligne
-				sentiteName="";
-				sentiteId="";
-				sentiteHpMax="";
-				entiteHpMax=0;
-				sentiteSpeed="";
-				entiteSpeed=0;
-				sentiteManaMax="";
-				entiteManaMax=0;
-				nbSeparateur=0;
-				nbBarre=0;
-				entiteDescription="";
-				allSkills.clear();
-
-
-				for(int i=0; i<uneLigne.length(); i++) //Analyse de la ligne
+				if(checkSeparatorEntite(uneLigne) == true) //Vérification que la ligne est correcte
 				{
-					parcoursCarac = uneLigne[i];
-				 //   if(nbSeparateur <4) // Récupération des carac. d'un monstre
-				   // {
-					if ((parcoursCarac == '/') || (parcoursCarac == '|'))
-					{
-						nbSeparateur++;
-					}
+					cptLigne++; //Reset de toutes les variables afin de stocker une nouvelle ligne
+					sentiteName="";
+					sentiteId="";
+					sentiteHpMax="";
+					entiteHpMax=0;
+					sentiteSpeed="";
+					entiteSpeed=0;
+					sentiteManaMax="";
+					entiteManaMax=0;
+					nbSeparateur=0;
+					nbBarre=0;
+					entiteDescription="";
+					allSkills.clear();
 
-					if (nbSeparateur == 0) // Champ entiteId
-					{
-						sentiteId+=parcoursCarac;
-					}
 
-					if (nbSeparateur == 1) //Champ Nom
+					for(int i=0; i<uneLigne.length(); i++) //Analyse de la ligne
 					{
-						if (parcoursCarac == '/')
+						parcoursCarac = uneLigne[i];
+					 //   if(nbSeparateur <4) // Récupération des carac. d'un monstre
+					   // {
+						if ((parcoursCarac == '/') || (parcoursCarac == '|'))
+						{
+							nbSeparateur++;
+						}
+
+						if (nbSeparateur == 0) // Champ entiteId
+						{
+							sentiteId+=parcoursCarac;
+						}
+
+						if (nbSeparateur == 1) //Champ Nom
+						{
+							if (parcoursCarac == '/')
+							{
+								continue;
+							}
+							sentiteName+=parcoursCarac;
+						}
+
+						if (nbSeparateur == 2) //Champ entiteHpMax
+						{
+							if (parcoursCarac == '/')  continue;
+							sentiteHpMax+=parcoursCarac;
+						}
+
+						if (nbSeparateur == 3) //Champ vitesse
+						{
+							if (parcoursCarac == '/')  continue;
+							sentiteSpeed+=parcoursCarac;
+						}
+
+						if(nbSeparateur == 4)
 						{
 							continue;
 						}
-						sentiteName+=parcoursCarac;
-					}
 
-					if (nbSeparateur == 2) //Champ entiteHpMax
-					{
-						if (parcoursCarac == '/')  continue;
-						sentiteHpMax+=parcoursCarac;
-					}
-
-					if (nbSeparateur == 3) //Champ vitesse
-					{
-						if (parcoursCarac == '/')  continue;
-						sentiteSpeed+=parcoursCarac;
-					}
-
-					if(nbSeparateur == 4)
-					{
-						continue;
-					}
-
-					if(nbSeparateur >= 5) //Champ compétence + entiteManaMax + entiteDescription
-					{
-						if(parcoursCarac == '|')
+						if(nbSeparateur >= 5) //Champ compétence + entiteManaMax + entiteDescription
 						{
-							nbBarre++;
-						}
+							if(parcoursCarac == '|')
+							{
+								nbBarre++;
+							}
 
-						if(nbBarre == 0) continue;
+							if(nbBarre == 0) continue;
 
-						if (nbBarre == 1) //Champ entiteManaMax
-						{
-							if(parcoursCarac=='|') continue;
-							sentiteManaMax+=parcoursCarac;
-						}
+							if (nbBarre == 1) //Champ entiteManaMax
+							{
+								if(parcoursCarac=='|') continue;
+								sentiteManaMax+=parcoursCarac;
+							}
 
-						if (nbBarre == 2) //Champ entiteDescription
-						{
-							if(parcoursCarac=='|') continue;
-							entiteDescription+=parcoursCarac;
-						}
+							if (nbBarre == 2) //Champ entiteDescription
+							{
+								if(parcoursCarac=='|') continue;
+								entiteDescription+=parcoursCarac;
+							}
 
-						if (nbBarre==3)
-						{
-							break;
+							if (nbBarre==3)
+							{
+								break;
+							}
 						}
 					}
 				}
